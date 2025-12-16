@@ -1,0 +1,88 @@
+2025-11-12 10:33:52,371 - INFO - Logger started
+2025-11-12 10:34:37,248 - INFO - Logger started
+2025-11-12 10:37:18,878 - INFO - Logger started
+2025-11-12 10:50:52,557 - INFO - Logger started
+2025-11-12 10:57:14,829 - INFO - Logger started
+2025-11-12 10:59:06,946 - INFO - Logger started
+2025-11-12 11:00:33,946 - INFO - Logger started
+2025-11-12 11:13:03,643 - INFO - Logger started
+2025-11-12 11:14:05,445 - INFO - Logger started
+2025-11-12 11:19:00,296 - INFO - Logger started
+2025-11-12 11:19:05,880 - INFO - Logger started
+2025-11-12 11:19:25,330 - INFO - Logger started
+2025-11-12 11:20:32,693 - INFO - Logger started
+2025-11-12 11:20:48,265 - INFO - Logger started
+2025-11-12 11:22:09,681 - INFO - Logger started
+2025-11-12 11:22:20,012 - INFO - Logger started
+2025-11-12 14:28:08,090 - INFO - Logger started
+2025-11-12 14:28:22,660 - INFO - Logger started
+2025-11-13 17:29:17,214 - INFO - Logger started
+2025-11-13 17:42:09,329 - INFO - Logger started
+2025-11-13 17:47:45,400 - INFO - Logger started
+2025-11-13 17:48:06,921 - INFO - Logger started
+2025-11-13 17:48:56,995 - INFO - Logger started
+2025-11-13 17:49:00,175 - INFO - Logger started
+2025-11-13 17:49:04,629 - INFO - Logger started
+2025-11-13 17:50:11,496 - INFO - Logger started
+2025-11-13 17:52:06,887 - INFO - Logger started
+2025-11-13 17:52:10,785 - INFO - Logger started
+2025-11-13 17:52:16,619 - INFO - Logger started
+2025-11-13 17:53:06,231 - INFO - Logger started
+2025-11-13 17:53:12,957 - INFO - Logger started
+2025-11-13 17:53:47,835 - INFO - Logger started
+2025-11-13 17:59:41,759 - INFO - Logger started
+2025-11-13 18:01:29,374 - INFO - Logger started
+2025-11-13 18:01:51,514 - INFO - Logger started
+2025-11-13 18:02:57,741 - INFO - Logger started
+2025-11-17 18:53:13,248 - INFO - Logger started
+2025-11-17 18:54:51,991 - INFO - question: tôi muốn vay mua nhà
+2025-11-17 18:54:51,991 - INFO - placeholders: ['USERID', 'HISTORY', 'QUESTION']
+2025-11-17 18:54:53,022 - INFO - {"event": "llm_end", "run_id": "f5078d14-d30f-403b-af9a-c07bb6ba5fe5", "parent_run_id": "5aa39ddd-4b5f-49eb-8373-c0603e5a684d", "step": "Agent-RAG", "prompt_tokens": 250, "completion_tokens": 21, "total_tokens": 271, "output_text": "", "cumulative_input_tokens": 250, "cumulative_output_tokens": 21}
+2025-11-17 18:54:53,045 - INFO - {"event": "agent_action", "run_id": "5aa39ddd-4b5f-49eb-8373-c0603e5a684d", "parent_run_id": "None", "tool": "retriever", "tool_input": "vay mua nhà", "log": "\nInvoking: `retriever` with `vay mua nhà`\n\n\n"}
+2025-11-17 18:55:24,243 - INFO - {"event": "llm_end", "run_id": "3dc11e8d-4307-406a-a108-03f79932562a", "parent_run_id": "5aa39ddd-4b5f-49eb-8373-c0603e5a684d", "step": "Agent-RAG", "prompt_tokens": 2839, "completion_tokens": 351, "total_tokens": 3190, "output_text": "Bạn có thể vay mua nhà tại VIB với các gói vay linh hoạt như sau:\n\n1. Vay mua nhà, bất động sản, căn hộ - Vay nhanh:\n- Số tiền vay tối đa lên đến 15 tỷ đồng, tỷ lệ cho vay lên đến 60% nhu cầu vay.\n- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.\n\n2. Vay mua nhà, bất động sản, căn hộ - Vay thường:\n- Số tiền vay tối đa lên đến 100 tỷ đồng, tỷ lệ cho vay lên đến 80% nhu cầu vay.\n- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.\n\nThời gian vay tối đa lên đến 30 năm, lãi suất áp dụng theo từng thời kỳ. Bạn có thể trả gốc hàng tháng hoặc hàng quý, có thể được ân hạn trả gốc tối đa đến 48-60 tháng tùy loại vay.\n\nĐiều kiện vay bao gồm có thu nhập từ lương, kinh doanh, góp vốn hoặc cho thuê tài sản và có tài sản bảo đảm như nhà đất hoặc căn hộ chung cư.\n\nBạn có thể đăng ký tư vấn vay mua nhà qua app MyVIB:\n- Đăng nhập app MyVIB, chọn Ưu đãi, mục \"Vay mua bất động sản\"\n- Chọn \"Đăng ký tư vấn\" và cung cấp thông tin theo yêu cầu\n- Xác nhận và chờ nhân viên tư vấn liên hệ hỗ trợ.\n\nNếu cần hỗ trợ thêm, bạn có thể liên hệ Hotline 1900 2200 của VIB để được tư vấn chi tiết.", "cumulative_input_tokens": 3089, "cumulative_output_tokens": 372}
+2025-11-17 18:55:24,265 - INFO - {"event": "chain_end", "run_id": "5aa39ddd-4b5f-49eb-8373-c0603e5a684d", "parent_run_id": "None", "outputs": {"output": "Bạn có thể vay mua nhà tại VIB với các gói vay linh hoạt như sau:\n\n1. Vay mua nhà, bất động sản, căn hộ - Vay nhanh:\n- Số tiền vay tối đa lên đến 15 tỷ đồng, tỷ lệ cho vay lên đến 60% nhu cầu vay.\n- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.\n\n2. Vay mua nhà, bất động sản, căn hộ - Vay thường:\n- Số tiền vay tối đa lên đến 100 tỷ đồng, tỷ lệ cho vay lên đến 80% nhu cầu vay.\n- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.\n\nThời gian vay tối đa lên đến 30 năm, lãi suất áp dụng theo từng thời kỳ. Bạn có thể trả gốc hàng tháng hoặc hàng quý, có thể được ân hạn trả gốc tối đa đến 48-60 tháng tùy loại vay.\n\nĐiều kiện vay bao gồm có thu nhập từ lương, kinh doanh, góp vốn hoặc cho thuê tài sản và có tài sản bảo đảm như nhà đất hoặc căn hộ chung cư.\n\nBạn có thể đăng ký tư vấn vay mua nhà qua app MyVIB:\n- Đăng nhập app MyVIB, chọn Ưu đãi, mục \"Vay mua bất động sản\"\n- Chọn \"Đăng ký tư vấn\" và cung cấp thông tin theo yêu cầu\n- Xác nhận và chờ nhân viên tư vấn liên hệ hỗ trợ.\n\nNếu cần hỗ trợ thêm, bạn có thể liên hệ Hotline 1900 2200 của VIB để được tư vấn chi tiết."}}
+2025-11-17 18:55:24,288 - INFO - agent response: Bạn có thể vay mua nhà tại VIB với các gói vay linh hoạt như sau:
+
+1. Vay mua nhà, bất động sản, căn hộ - Vay nhanh:
+- Số tiền vay tối đa lên đến 15 tỷ đồng, tỷ lệ cho vay lên đến 60% nhu cầu vay.
+- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.
+
+2. Vay mua nhà, bất động sản, căn hộ - Vay thường:
+- Số tiền vay tối đa lên đến 100 tỷ đồng, tỷ lệ cho vay lên đến 80% nhu cầu vay.
+- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.
+
+Thời gian vay tối đa lên đến 30 năm, lãi suất áp dụng theo từng thời kỳ. Bạn có thể trả gốc hàng tháng hoặc hàng quý, có thể được ân hạn trả gốc tối đa đến 48-60 tháng tùy loại vay.
+
+Điều kiện vay bao gồm có thu nhập từ lương, kinh doanh, góp vốn hoặc cho thuê tài sản và có tài sản bảo đảm như nhà đất hoặc căn hộ chung cư.
+
+Bạn có thể đăng ký tư vấn vay mua nhà qua app MyVIB:
+- Đăng nhập app MyVIB, chọn Ưu đãi, mục "Vay mua bất động sản"
+- Chọn "Đăng ký tư vấn" và cung cấp thông tin theo yêu cầu
+- Xác nhận và chờ nhân viên tư vấn liên hệ hỗ trợ.
+
+Nếu cần hỗ trợ thêm, bạn có thể liên hệ Hotline 1900 2200 của VIB để được tư vấn chi tiết.
+2025-11-18 13:46:45,546 - INFO - Logger started
+2025-11-18 13:48:04,969 - INFO - question: tôi muốn vay mua nhà
+2025-11-18 13:48:04,969 - INFO - placeholders: ['USERID', 'HISTORY', 'QUESTION']
+2025-11-18 13:48:09,405 - INFO - {"event": "llm_end", "run_id": "3f15e3ca-6128-404c-b684-5d522cac547e", "parent_run_id": "2f3627f1-6f0f-4cc4-9674-71c1b6c72309", "step": "Agent-RAG", "prompt_tokens": 591, "completion_tokens": 351, "total_tokens": 942, "output_text": "Bạn có thể vay mua nhà tại VIB với các gói vay linh hoạt như sau:\n\n1. Vay mua nhà, bất động sản, căn hộ - Vay nhanh:\n- Số tiền vay tối đa lên đến 15 tỷ đồng, tỷ lệ cho vay lên đến 60% nhu cầu vay.\n- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.\n\n2. Vay mua nhà, bất động sản, căn hộ - Vay thường:\n- Số tiền vay tối đa lên đến 100 tỷ đồng, tỷ lệ cho vay lên đến 80% nhu cầu vay.\n- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.\n\nThời gian vay tối đa lên đến 30 năm, lãi suất áp dụng theo từng thời kỳ. Bạn có thể trả gốc hàng tháng hoặc hàng quý, có thể được ân hạn trả gốc tối đa đến 48-60 tháng tùy loại vay.\n\nĐiều kiện vay bao gồm có thu nhập từ lương, kinh doanh, góp vốn hoặc cho thuê tài sản và có tài sản bảo đảm như nhà đất hoặc căn hộ chung cư.\n\nBạn có thể đăng ký tư vấn vay mua nhà qua app MyVIB:\n- Đăng nhập app MyVIB, chọn Ưu đãi, mục \"Vay mua bất động sản\"\n- Chọn \"Đăng ký tư vấn\" và cung cấp thông tin theo yêu cầu\n- Xác nhận và chờ nhân viên tư vấn liên hệ hỗ trợ.\n\nNếu cần hỗ trợ thêm, bạn có thể liên hệ Hotline 1900 2200 của VIB để được tư vấn chi tiết.", "cumulative_input_tokens": 591, "cumulative_output_tokens": 351}
+2025-11-18 13:48:09,406 - INFO - {"event": "chain_end", "run_id": "2f3627f1-6f0f-4cc4-9674-71c1b6c72309", "parent_run_id": "None", "outputs": {"output": "Bạn có thể vay mua nhà tại VIB với các gói vay linh hoạt như sau:\n\n1. Vay mua nhà, bất động sản, căn hộ - Vay nhanh:\n- Số tiền vay tối đa lên đến 15 tỷ đồng, tỷ lệ cho vay lên đến 60% nhu cầu vay.\n- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.\n\n2. Vay mua nhà, bất động sản, căn hộ - Vay thường:\n- Số tiền vay tối đa lên đến 100 tỷ đồng, tỷ lệ cho vay lên đến 80% nhu cầu vay.\n- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.\n\nThời gian vay tối đa lên đến 30 năm, lãi suất áp dụng theo từng thời kỳ. Bạn có thể trả gốc hàng tháng hoặc hàng quý, có thể được ân hạn trả gốc tối đa đến 48-60 tháng tùy loại vay.\n\nĐiều kiện vay bao gồm có thu nhập từ lương, kinh doanh, góp vốn hoặc cho thuê tài sản và có tài sản bảo đảm như nhà đất hoặc căn hộ chung cư.\n\nBạn có thể đăng ký tư vấn vay mua nhà qua app MyVIB:\n- Đăng nhập app MyVIB, chọn Ưu đãi, mục \"Vay mua bất động sản\"\n- Chọn \"Đăng ký tư vấn\" và cung cấp thông tin theo yêu cầu\n- Xác nhận và chờ nhân viên tư vấn liên hệ hỗ trợ.\n\nNếu cần hỗ trợ thêm, bạn có thể liên hệ Hotline 1900 2200 của VIB để được tư vấn chi tiết."}}
+2025-11-18 13:48:09,429 - INFO - agent response: Bạn có thể vay mua nhà tại VIB với các gói vay linh hoạt như sau:
+
+1. Vay mua nhà, bất động sản, căn hộ - Vay nhanh:
+- Số tiền vay tối đa lên đến 15 tỷ đồng, tỷ lệ cho vay lên đến 60% nhu cầu vay.
+- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.
+
+2. Vay mua nhà, bất động sản, căn hộ - Vay thường:
+- Số tiền vay tối đa lên đến 100 tỷ đồng, tỷ lệ cho vay lên đến 80% nhu cầu vay.
+- Trả gốc linh hoạt theo định kỳ hàng tháng, quý hoặc 6 tháng/lần.
+
+Thời gian vay tối đa lên đến 30 năm, lãi suất áp dụng theo từng thời kỳ. Bạn có thể trả gốc hàng tháng hoặc hàng quý, có thể được ân hạn trả gốc tối đa đến 48-60 tháng tùy loại vay.
+
+Điều kiện vay bao gồm có thu nhập từ lương, kinh doanh, góp vốn hoặc cho thuê tài sản và có tài sản bảo đảm như nhà đất hoặc căn hộ chung cư.
+
+Bạn có thể đăng ký tư vấn vay mua nhà qua app MyVIB:
+- Đăng nhập app MyVIB, chọn Ưu đãi, mục "Vay mua bất động sản"
+- Chọn "Đăng ký tư vấn" và cung cấp thông tin theo yêu cầu
+- Xác nhận và chờ nhân viên tư vấn liên hệ hỗ trợ.
+
+Nếu cần hỗ trợ thêm, bạn có thể liên hệ Hotline 1900 2200 của VIB để được tư vấn chi tiết.

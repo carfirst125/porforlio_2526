@@ -1,0 +1,7 @@
+__pycache__/
+**/__pycache__/
+*.pyc
+/app/requirements_*.txt
+/app/requirements-*.txt
+*.json
+**/.terraform/

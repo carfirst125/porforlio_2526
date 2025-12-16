@@ -1,0 +1,271 @@
+# ================================================================
+# Azure Pipelines - Terraform Phase 2 (Auto Deploy on New ACR Image)
+# Reviewed & Hardened:
+#  - Add TF_VAR_target_port
+#  - Fallback to Managed Identity if ACR admin password missing
+#  - Wait & verify Managed Identity before assigning AcrPull
+#  - Print ingress.targetPort after apply for quick verification
+# ================================================================
+
+trigger: none
+
+resources:
+  containers:
+    - container: agentic_chatbot_image
+      type: ACR
+      azureSubscription: 'azure_demo_1'
+      resourceGroup: 'agentic_chatbot'
+      registry: 'acrngothanhnhan125'
+      repository: 'agentic_chatbot_api'
+      trigger:
+        tags:
+          include:
+            - latest
+
+pool:
+  name: 'NhanNgoPC'
+  demands:
+    - agent.name -equals ubuntu-wsl-pool
+
+variables:
+  azureSubscription: 'azure_demo_1'
+  tfBackendRG: 'terraform-backend-rg'
+  tfStorageAccount: 'tfbackendstorage125'
+  tfContainer: 'tfstate'
+  projectName: 'agentic_chatbot'
+  containerAppName: 'agentic-chatbot-api'
+  acrName: 'acrngothanhnhan125'
+  acrRG: 'agentic_chatbot'
+  imageRepository: 'agentic_chatbot_api'
+  imageTag: 'latest'
+  # <-- internal port your FastAPI listens on (match Dockerfile / uvicorn)
+  targetPort: '8000'
+
+stages:
+  - stage: TerraformPhase2
+    displayName: "Terraform Phase 2: Deploy Container App"
+    jobs:
+      - job: TerraformPhase2Apply
+        displayName: "Terraform Apply Phase 2"
+        steps:
+          - checkout: self
+
+          - script: |
+              echo "[INFO] Preparing environment for Terraform Phase 2"
+
+              echo "[INFO] Disabling IPv6..."
+              sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1 || true
+              sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1 || true
+              sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1 || true
+              sudo sysctl -p || true
+
+              echo "[INFO] Switching apt sources to FPT mirror..."
+              sudo tee /etc/apt/sources.list > /dev/null <<'EOF'
+              deb http://mirror.fpt.vn/ubuntu/ noble main restricted universe multiverse
+              deb http://mirror.fpt.vn/ubuntu/ noble-updates main restricted universe multiverse
+              deb http://mirror.fpt.vn/ubuntu/ noble-security main restricted universe multiverse
+              EOF
+              
+              sudo apt-get clean || true
+
+              echo "[INFO] Updating package list and installing jq via IPv4..."
+              sudo apt-get -o Acquire::ForceIPv4=true update -y || true
+              sudo apt-get -o Acquire::ForceIPv4=true install -y jq || true
+
+              echo "[OK] Environment prepared successfully."
+            displayName: "Prepare environment"
+
+          - task: AzureCLI@2
+            displayName: "Run Terraform Phase 2 + Assign ACR Pull Role (robust)"
+            env:
+              ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+              ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+              ARM_TENANT_ID: $(ARM_TENANT_ID)
+              ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+              tfBackendRG: $(tfBackendRG)
+              tfStorageAccount: $(tfStorageAccount)
+              tfContainer: $(tfContainer)
+              projectName: $(projectName)
+              containerAppName: $(containerAppName)
+              acrName: $(acrName)
+              acrRG: $(acrRG)
+              imageRepository: $(imageRepository)
+              imageTag: $(imageTag)
+              SUDO_PASS: $(SUDO_PASS)
+              targetPort: $(targetPort)
+            inputs:
+              azureSubscription: '$(azureSubscription)'
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                set -euo pipefail
+
+                echo "=============================="
+                echo "[INFO] Starting Terraform Phase 2"
+                echo "=============================="
+
+                # Install Terraform if missing
+                if ! command -v terraform &> /dev/null; then
+                  echo "$SUDO_PASS" | sudo -S apt-get update -y
+                  echo "$SUDO_PASS" | sudo -S apt-get install -y unzip curl jq
+                  curl -fsSL https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip -o tf.zip
+                  unzip -o tf.zip
+                  echo "$SUDO_PASS" | sudo -S mv terraform /usr/local/bin/
+                  rm -f tf.zip
+                fi
+
+                # Login Azure
+                az logout || true
+                az login --service-principal \
+                  -u "$ARM_CLIENT_ID" \
+                  -p "$ARM_CLIENT_SECRET" \
+                  --tenant "$ARM_TENANT_ID" --output none || true
+
+                az account set --subscription "$ARM_SUBSCRIPTION_ID" || true
+
+                # Backend access key
+                export ARM_ACCESS_KEY=$(az storage account keys list \
+                  --resource-group "$tfBackendRG" \
+                  --account-name "$tfStorageAccount" \
+                  --query '[0].value' -o tsv)
+
+                # ACR info
+                export ACR_LOGIN_SERVER=$(az acr show --name "$acrName" --resource-group "$acrRG" --query loginServer -o tsv)
+                export ACR_USERNAME=$(az acr credential show --name "$acrName" --resource-group "$acrRG" --query username -o tsv)
+                # Try to read ACR admin password; but DO NOT fail if not present (we can use Managed Identity)
+                export ACR_PASSWORD=$(az acr credential show --name "$acrName" --resource-group "$acrRG" --query "passwords[0].value" -o tsv 2>/dev/null || true || true)
+
+                # Export TF vars for image creds (if available)
+                export TF_VAR_acr_login_server="$ACR_LOGIN_SERVER"
+                export TF_VAR_acr_username="$ACR_USERNAME"
+                if [ -n "$ACR_PASSWORD" ]; then
+                  echo "[INFO] ACR admin password found — will pass to Terraform (registry credentials)."
+                  export TF_VAR_acr_password="$ACR_PASSWORD"
+                else
+                  echo "[WARN] ACR admin password NOT found. Falling back to Managed Identity approach (will assign AcrPull role to ACA MI)."
+                  # ensure TF_VAR_acr_password is empty so Terraform can be written to accept empty password or omit registry credentials
+                  export TF_VAR_acr_password=""
+                fi
+
+                # Pass image info + target port to Terraform
+                export TF_VAR_image_repository="$imageRepository"
+                export TF_VAR_image_tag="$imageTag"
+                export TF_VAR_target_port="$targetPort"
+
+                echo "[INFO] ACR login server: $TF_VAR_acr_login_server"
+                echo "[INFO] ACR username: $TF_VAR_acr_username"
+                echo "[INFO] Image: $TF_VAR_image_repository:$TF_VAR_image_tag"
+                echo "[INFO] Target port (container internal): $TF_VAR_target_port"
+
+                cd terraform/phase2
+                rm -rf .terraform .terraform.lock.hcl || true
+
+                terraform init -reconfigure -input=false \
+                  -backend-config="resource_group_name=${tfBackendRG}" \
+                  -backend-config="storage_account_name=${tfStorageAccount}" \
+                  -backend-config="container_name=${tfContainer}" \
+                  -backend-config="key=${projectName}-phase2.tfstate"
+
+                # Lease check
+                STATE_BLOB="${projectName}-phase2.tfstate"
+                LEASE_STATE=$(az storage blob show \
+                  --container-name "${tfContainer}" \
+                  --name "${STATE_BLOB}" \
+                  --account-name "${tfStorageAccount}" \
+                  --account-key "$ARM_ACCESS_KEY" \
+                  --query "properties.lease.state" -o tsv 2>/dev/null || echo "unlocked")
+
+                if [ "$LEASE_STATE" = "leased" ]; then
+                  echo "[WARN] Breaking state blob lease..."
+                  az storage blob lease break \
+                    --container-name "${tfContainer}" \
+                    --blob-name "${STATE_BLOB}" \
+                    --account-name "${tfStorageAccount}" \
+                    --account-key "$ARM_ACCESS_KEY"
+                fi
+
+                echo "[INFO] Checking Container App..."
+                if az containerapp show --name "$containerAppName" --resource-group "$projectName" >/dev/null 2>&1; then
+                  PROV=$(az containerapp show --name "$containerAppName" --resource-group "$projectName" --query "properties.provisioningState" -o tsv)
+
+                  if [[ "$PROV" == "Failed" || "$PROV" == "FailedProvisioning" ]]; then
+                    echo "[WARN] Container App is corrupted → deleting..."
+                    az containerapp delete --name "$containerAppName" --resource-group "$projectName" --yes
+                    # wait until deleted (avoid terraform import race)
+                    for i in {1..30}; do
+                      if az containerapp show --name "$containerAppName" --resource-group "$projectName" >/dev/null 2>&1; then
+                        echo "  waiting for deletion... ($i)"
+                        sleep 2
+                      else
+                        echo "  deleted."
+                        break
+                      fi
+                    done
+                  else
+                    echo "[INFO] Importing existing app into Terraform..."
+                    terraform import -input=false -lock=false azurerm_container_app.app \
+                      "/subscriptions/${ARM_SUBSCRIPTION_ID}/resourceGroups/${projectName}/providers/Microsoft.App/containerApps/${containerAppName}" || true
+                  fi
+                fi
+
+                terraform apply -auto-approve -input=false -lock=false
+
+                echo "=================================="
+                echo "[INFO] Post-apply verification and ACR pull permission assignment"
+                echo "=================================="
+
+                # Print ingress configuration to verify targetPort set by Terraform
+                echo "[INFO] Ingress configuration (post-apply):"
+                az containerapp show \
+                  --name "$containerAppName" \
+                  --resource-group "$projectName" \
+                  --query "properties.configuration.ingress" -o json || true
+
+                # If we don't have ACR password, use Managed Identity -> assign AcrPull
+                if [ -z "$ACR_PASSWORD" ]; then
+                  echo "[INFO] Assigning AcrPull to the Container App managed identity (if not already assigned)."
+
+                  # Wait for MI principalId to be populated (it can take a few seconds after create)
+                  ATTEMPTS=0
+                  APP_MI=""
+                  while [ $ATTEMPTS -lt 20 ]; do
+                    APP_MI=$(az containerapp show \
+                      --name "$containerAppName" \
+                      --resource-group "$projectName" \
+                      --query 'identity.principalId' -o tsv 2>/dev/null || echo "")
+                    if [ -n "$APP_MI" ]; then
+                      echo "[INFO] Found principalId: $APP_MI"
+                      break
+                    fi
+                    ATTEMPTS=$((ATTEMPTS+1))
+                    echo "[INFO] principalId not ready yet, retrying... ($ATTEMPTS)"
+                    sleep 3
+                  done
+
+                  if [ -z "$APP_MI" ]; then
+                    echo "[WARN] Could not obtain managed identity principalId; skipping role assignment. Please check the app identity."
+                  else
+                    ACR_ID=$(az acr show --name "$acrName" --resource-group "$acrRG" --query id -o tsv)
+                    # safe role assignment: tolerate "already assigned" errors
+                    az role assignment create \
+                      --assignee "$APP_MI" \
+                      --role "AcrPull" \
+                      --scope "$ACR_ID" || true
+
+                    echo "[INFO] Verifying role assignment..."
+                    az role assignment list \
+                      --assignee "$APP_MI" \
+                      --scope "$ACR_ID" \
+                      --query "[].roleDefinitionName" -o tsv || true
+                  fi
+                else
+                  echo "[INFO] ACR password available — Terraform should have used it for registry credentials."
+                fi
+
+                echo "[INFO] ACA URL (latest revision FQDN):"
+                az containerapp show \
+                  --name "$containerAppName" \
+                  --resource-group "$projectName" \
+                  --query properties.configuration.ingress.fqdn -o tsv || true
+
+                echo "[OK] Terraform Phase 2 completed successfully."

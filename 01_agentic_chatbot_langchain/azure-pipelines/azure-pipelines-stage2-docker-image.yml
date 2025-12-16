@@ -1,0 +1,55 @@
+# ================================================================
+# Azure Pipelines - Build & Push Docker Image (No Docker Required)
+# ================================================================
+
+trigger: none  # 🔹 Chạy thủ công
+
+pool:
+  name: 'NhanNgoPC'
+  demands:
+  - agent.name -equals ubuntu-wsl-pool
+
+variables:
+  azureSubscription: 'azure_demo_1'
+  acrName: 'acrngothanhnhan125'
+  imageName: 'agentic_chatbot_api'
+  imageTag: 'latest'
+  dockerfilePath: 'docker/Dockerfile'
+
+stages:
+- stage: BuildAndPush
+  displayName: "Build & Push Image to ACR (Cloud Build)"
+  jobs:
+  - job: ACRBuild
+    displayName: "Run ACR Cloud Build"
+    steps:
+    - task: AzureCLI@2
+      displayName: "ACR Cloud Build"
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: |
+          #=========================================================
+          # Fix UnicodeEncodeError (set UTF-8 and disable ANSI color)
+          #=========================================================
+          set -e
+          export PYTHONIOENCODING=utf-8
+          export LANG=en_US.UTF-8
+          export LC_ALL=en_US.UTF-8
+          export AZURE_CORE_NO_COLOR=1   # Disable colored logs
+          export TERM=dumb               # Simplify terminal output
+          export PYTHONUTF8=1
+
+          echo "✅ Logging into Azure..."
+          az account show || az login --identity || true
+
+          echo "🚀 Starting ACR cloud build for image $(imageName):$(imageTag)..."
+          az acr build \
+            --registry $(acrName) \
+            --image $(imageName):$(imageTag) \
+            --file $(dockerfilePath) \
+            --no-logs \
+            .
+
+          echo "✅ Build and push completed successfully!"

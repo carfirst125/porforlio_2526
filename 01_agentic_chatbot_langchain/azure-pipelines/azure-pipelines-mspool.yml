@@ -1,0 +1,132 @@
+trigger:
+  branches:
+    include:
+      - main  # Trigger khi có commit vào nhánh main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # Azure service connection
+  azureSubscription: 'azure_demo_1'
+
+  # Terraform backend & state
+  tfBackendRG: 'terraform-backend-rg'
+  tfStorageAccount: 'tfbackendstorage125'
+  tfContainer: 'tfstate'
+
+  # Project info
+  projectName: 'agentic_chatbot'
+  location: 'southeastasia'
+
+  # ACR info
+  acrName: 'acrngothanhnhan125'
+  acrLoginServer: 'acrngothanhnhan125.azurecr.io'
+
+  # Container App info
+  containerAppName: 'agentic-chatbot-api'
+  containerEnvName: 'aca-chatbot-env'
+  imageName: 'agentic_chatbot_api'
+  imageTag: 'latest'
+
+# =====================================================================
+# Stage 1: Terraform Phase 1 - Provision Infra (RG + ACR + Env)
+# =====================================================================
+stages:
+- stage: TerraformPhase1
+  displayName: "Terraform Phase 1: Provision Infra"
+  jobs:
+  - job: TerraformPhase1Apply
+    displayName: "Terraform Apply Phase 1"
+    steps:
+    - task: AzureCLI@2
+      displayName: "Run Terraform Phase 1 inside AzureCLI context"
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: |
+          set -e
+          echo "✅ Logged in to Azure"
+          az account show
+          echo "🌍 Installing Terraform..."
+          sudo apt-get update -y && sudo apt-get install -y unzip
+          curl -fsSL https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip -o tf.zip
+          unzip tf.zip && sudo mv terraform /usr/local/bin/
+
+          echo "🚀 Running Terraform Phase 1..."
+          cd terraform/phase1
+          terraform init \
+            -backend-config="resource_group_name=$(tfBackendRG)" \
+            -backend-config="storage_account_name=$(tfStorageAccount)" \
+            -backend-config="container_name=$(tfContainer)" \
+            -backend-config="key=agentic-chatbot-phase1.terraform.tfstate"
+
+          terraform apply -auto-approve
+
+# =====================================================================
+# Stage 2: Build Docker Image and Push to ACR
+# =====================================================================
+- stage: BuildAndPush
+  displayName: "Build Docker Image and Push to ACR"
+  dependsOn: TerraformPhase1
+  jobs:
+  - job: DockerBuildPush
+    displayName: "Docker Build & Push"
+    steps:
+    - task: AzureCLI@2
+      displayName: "Login & Push Docker image"
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: |
+          set -e
+          echo "✅ Logged in to Azure"
+          az account show
+          az acr login --name $(acrName)
+          
+          echo "🚀 Building and pushing Docker image..."
+          docker build -t $(acrLoginServer)/$(imageName):$(imageTag) -f docker/Dockerfile .
+          docker push $(acrLoginServer)/$(imageName):$(imageTag)
+
+# =====================================================================
+# Stage 3: Terraform Phase 2 - Deploy Container App
+# =====================================================================
+- stage: TerraformPhase2
+  displayName: "Terraform Phase 2: Deploy Container App"
+  dependsOn: BuildAndPush
+  jobs:
+  - job: TerraformPhase2Apply
+    displayName: "Terraform Apply Phase 2"
+    steps:
+    - task: AzureCLI@2
+      displayName: "Run Terraform Phase 2 inside AzureCLI context"
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: |
+          set -e
+          echo "✅ Logged in to Azure"
+          az account show
+          echo "🌍 Installing Terraform..."
+          sudo apt-get update -y && sudo apt-get install -y unzip
+          curl -fsSL https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip -o tf.zip
+          unzip tf.zip && sudo mv terraform /usr/local/bin/
+
+          echo "🚀 Running Terraform Phase 2..."
+          cd terraform/phase2
+          terraform init \
+            -backend-config="resource_group_name=$(tfBackendRG)" \
+            -backend-config="storage_account_name=$(tfStorageAccount)" \
+            -backend-config="container_name=$(tfContainer)" \
+            -backend-config="key=agentic-chatbot-phase2.terraform.tfstate"
+
+          terraform apply -auto-approve
+
+          echo "🌐 Fetching Container App URL..."
+          az containerapp show \
+            --name $(containerAppName) \
+            --resource-group $(projectName) \
+            --query properties.configuration.ingress.fqdn -o tsv

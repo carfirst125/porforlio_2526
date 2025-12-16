@@ -1,0 +1,110 @@
+# ================================================================
+# Azure Pipelines - Terraform Phase 1 (Manual Trigger)
+# ================================================================
+
+trigger: none  # 🔹 Chạy thủ công
+
+pool:
+  name: 'NhanNgoPC'
+  demands:
+  - agent.name -equals ubuntu-wsl-pool
+
+variables:
+  tfBackendRG: 'terraform-backend-rg'
+  tfStorageAccount: 'tfbackendstorage125'
+  tfContainer: 'tfstate'
+  projectName: 'agentic_chatbot'
+  location: 'southeastasia'
+  acrName: 'acrngothanhnhan125'
+  
+stages:
+- stage: TerraformPhase1
+  displayName: "Terraform Phase 1: Provision Infra"
+  jobs:
+  - job: TerraformPhase1Apply
+    displayName: "Terraform Apply Phase 1"
+    steps:
+    - task: Bash@3
+      displayName: "Run Terraform Phase 1 using Service Principal Auth"
+      env:
+        ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+        ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+        ARM_TENANT_ID: $(ARM_TENANT_ID)
+        ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+        tfBackendRG: $(tfBackendRG)
+        tfStorageAccount: $(tfStorageAccount)
+        tfContainer: $(tfContainer)
+        projectName: $(projectName)
+        acrName: $(acrName)
+      inputs:
+        targetType: 'inline'
+        script: |
+          set -e
+          echo "🔍 Checking Terraform installation..."
+          if ! command -v terraform &> /dev/null; then
+            sudo apt-get update -y && sudo apt-get install -y unzip curl
+            curl -fsSL https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip -o tf.zip
+            unzip tf.zip && sudo mv terraform /usr/local/bin/ && rm tf.zip
+          fi
+
+          echo "🧩 Logging into Azure..."
+          az logout || true
+          az login --service-principal \
+            -u "$ARM_CLIENT_ID" \
+            -p "$ARM_CLIENT_SECRET" \
+            --tenant "$ARM_TENANT_ID"
+
+          az account set --subscription "$ARM_SUBSCRIPTION_ID"
+
+          echo "🔑 Fetching Storage Account Access Key..."
+          export ARM_ACCESS_KEY=$(az storage account keys list \
+            --resource-group "$tfBackendRG" \
+            --account-name "$tfStorageAccount" \
+            --query [0].value -o tsv)
+
+          echo "🚀 Running Terraform..."
+          cd terraform/phase1
+
+          echo "🧹 Cleaning Terraform cache..."
+          rm -rf .terraform .terraform.lock.hcl || true
+
+          echo "🧩 Initializing Terraform backend..."
+          terraform init -reconfigure \
+            -backend-config="resource_group_name=${tfBackendRG}" \
+            -backend-config="storage_account_name=${tfStorageAccount}" \
+            -backend-config="container_name=${tfContainer}" \
+            -backend-config="key=${projectName}-phase1.tfstate"
+
+          echo "⚙️ Checking and importing existing resources if needed..."
+
+          # --- 🧩 Import Resource Group nếu đã tồn tại ---
+          if az group show --name "${projectName}" >/dev/null 2>&1; then
+            echo "⚙️ Resource Group '${projectName}' exists → Importing..."
+            terraform import azurerm_resource_group.rg "/subscriptions/${ARM_SUBSCRIPTION_ID}/resourceGroups/${projectName}" || true
+          else
+            echo "🆕 Resource Group '${projectName}' does not exist → Terraform will create it."
+          fi
+
+          # --- 🧩 Import ACR nếu đã tồn tại ---
+          if az acr show --name "${acrName}" --resource-group "${projectName}" >/dev/null 2>&1; then
+            echo "⚙️ ACR '${acrName}' exists → Importing..."
+            terraform import azurerm_container_registry.acr "/subscriptions/${ARM_SUBSCRIPTION_ID}/resourceGroups/${projectName}/providers/Microsoft.ContainerRegistry/registries/${acrName}" || true
+          else
+            echo "🆕 ACR '${acrName}' does not exist → Terraform will create it."
+          fi
+
+          # --- 🧩 Import Container App Environment nếu đã tồn tại ---
+          if az containerapp env show --name "aca-chatbot-env" --resource-group "${projectName}" >/dev/null 2>&1; then
+            echo "⚙️ Container App Environment 'aca-chatbot-env' exists → Importing..."
+            terraform import azurerm_container_app_environment.env "/subscriptions/${ARM_SUBSCRIPTION_ID}/resourceGroups/${projectName}/providers/Microsoft.App/managedEnvironments/aca-chatbot-env" || true
+          else
+            echo "🆕 Container App Environment 'aca-chatbot-env' does not exist → Terraform will create it."
+          fi
+
+          echo "🩵 Fixing provider file permissions..."
+          find .terraform/providers -type f -name "terraform-provider-*" -exec chmod +x {} \; || true
+
+          echo "🧱 Running Terraform Apply..."
+          terraform apply -auto-approve
+
+          echo "✅ Terraform Phase 1 completed successfully!"
