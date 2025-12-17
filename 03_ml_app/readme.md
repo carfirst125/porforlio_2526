@@ -35,11 +35,11 @@ The app is implemented in 03 versions:
 ```
   - normal
      ├── ml_scorecard.py          # Data preparation and model training
-     ├        *`python ml_scorecard.py`*
+     ├        > python ml_scorecard.py
      ├── fastapi_scoring_app.py   # fastapi inference 
-     ├        uvicorn fastapi_scoring_app:app --reload --port 8000
+     ├        > uvicorn fastapi_scoring_app:app --reload --port 8000
      ├── client_call_api.py       # client request api url
-     ├        python client_call_api.py
+     ├        > python client_call_api.py
 
   - using_prefect
      ├── ml_scorecard_prefect.py  # Data preparation and model training with task and flow
