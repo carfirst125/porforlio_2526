@@ -35,7 +35,7 @@ The app is implemented in 03 versions:
 ```
   - normal
      ├── ml_scorecard.py          # Data preparation and model training
-     ├        `python ml_scorecard.py`
+     ├        *`python ml_scorecard.py`*
      ├── fastapi_scoring_app.py   # fastapi inference 
      ├        uvicorn fastapi_scoring_app:app --reload --port 8000
      ├── client_call_api.py       # client request api url
