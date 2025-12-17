@@ -19,8 +19,8 @@
 - Vector-store for RAG document (vector search method like FAISS) 
 - Block diagram release
 
+---
 
-#########################################
 ## Task 2: Coding
 ### Sub-Task 01: Folder Structure  
 
@@ -46,8 +46,8 @@
 - Integrate separate function dev into app system
 - Test call app api
 
+---
 
-#########################################
 ## Task 3: Test build docker image + container
 
 ### Sub-task 01: Retest requirements.txt --> create python env + run app for test
@@ -87,9 +87,11 @@ Prepare 3 bash/shell scripts:
 
 	     
 ---
+
 # Work Package 02: Deployment (DevOpt = Repo + CICD Pipelines)
 
-#########################################
+---
+
 ## Task 1: Upload App code to Azure Project Repo
 
 #### Sub-task 01 : Code preparation
@@ -116,8 +118,8 @@ Code upload to repo includes three main things:
 
 Upload to Repo
 
+---
 
-#########################################
 ## Task 2: Create CICD Pipelines
 
 In Project DevOpt winđơ in az, create pipelines and indicate to file azure-pipelines...yml in the repo
@@ -135,19 +137,19 @@ Khi chạy pipelines trên host này thì toàn bộ terraform daemon hay docker
 
 Khi chạy có thể cập nhật ubuntu hoặc download phần mềm, cài package --> có thể bị lỗi lq tới CDN ở các vùng bị chặn bởi VN hay authen request từ VN --> cần đổi url default sang url nào ok.
 
+---
 
-#########################################
 ## Task 3: Test pipelines
 #### Sub-task 01: Run/Debug/Fix/Rerun (CICD1) azure-pipelines-stage1-infras.yml
 Build infras --> DONE
 
 #### Sub-task 02: Run/Debug/Fix/Rerun (CICD2) pipelines-stage2-docker-image.yml
 CICD2 --> DONE
-+ az login (wsl terminal)
+- az login (wsl terminal)
 `az login --tenant 42d1f2bd-0d00-4740-b3ae-59320171ec2b --use-device-code`
 Then copy link and past provided OTP code --> OK
 
-+ Check image in ACR repository
+- Check image in ACR repository
 	 1- Login
 	+ az acr login --name acrngothanhnhan125
 	 2- Show tags of images
@@ -175,14 +177,14 @@ Potential Issues:
 - expose to public port 443 --> public. This port default, not need configuring
 - Timeout issue relating to ingress/egress
 
+---
 
-#########################################
 ## Task 04: Test Container API call
 
 Get container expose API url
 Run url API request --> get response --> OK
 
-#########################################
+---
 
 ## Task 05: Demo Webapp
 
