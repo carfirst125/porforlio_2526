@@ -32,6 +32,8 @@ The app is implemented in 03 versions:
 
 ---
 
+## Implementation
+
 ```
   - normal
      ├── ml_scorecard.py          # Data preparation and model training
@@ -52,3 +54,8 @@ The app is implemented in 03 versions:
      ├── client_call_api.py              # client request api url
 
 ```
+
+## Working Images
+
+![Prefect UI - Flow of Tasks run](03_ml_app/images/prefect_flow_run.png)
+
