@@ -72,3 +72,5 @@ The app is implemented in 03 versions:
 **Best artifact registration**
 
 ![Prefect UI - Flow of Tasks run](https://github.com/carfirst125/porforlio_2526/blob/main/03_ml_app/images/mlflow_model_register.png)
+
+
