@@ -1,7 +1,8 @@
 
 # Work Package 01: App Dev
 
-#########################################
+---
+
 ## Task 1: Agentic AI Architecture Design
 
 ### Sub-task 01: Primary component selection 
@@ -13,10 +14,10 @@
 
 ### Sub-Task 02: App architecture
 
-+ How app data flow organized (multi-agents, number of layers)
-+ Define detail each agent and tools support
-+ Vector-store for RAG document (vector search method like FAISS) 
-+ Block diagram release
+- How app data flow organized (multi-agents, number of layers)
+- Define detail each agent and tools support
+- Vector-store for RAG document (vector search method like FAISS) 
+- Block diagram release
 
 
 #########################################
@@ -39,7 +40,7 @@
  - Test Agent class in coverage of supporting tools such as RAG, computing exchange amount, computing saving amount, connecting DB and get data, etc.
  - Test single question, and conversation 
  - Test docker build image Test ACR repo image upload
- - 
+
 ### Sub-Task 04: Integrating form final code
 
 - Integrate separate function dev into app system
