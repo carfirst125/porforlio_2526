@@ -1,5 +1,9 @@
 ##################################################################3
-# ml_scorecard_prefect_mlflow.py
+# ml_scorecard_prefect_mlflow_2.py
+# Description:
+#     1. Code using Prefect orchestrator to training model
+#     2. Using MLflow for model version management
+#     3. Register best metric model (eg. auc) as production/release model for inference
 # 
 # Prefect UI: prefect server start
 # MLflow UI: mlflow ui --port 5000 --backend-store-uri sqlite:///mlruns.db
@@ -13,6 +17,7 @@ import numpy as np
 # Thêm MLflow
 import mlflow
 import mlflow.sklearn
+
 from datetime import datetime, timedelta
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -40,6 +45,73 @@ MLFLOW_EXPERIMENT_NAME = "Customer_Conversion_Scorecard"
 # Tạo thư mục nếu chưa tồn tại
 os.makedirs("./model", exist_ok=True)
 os.makedirs("./data", exist_ok=True)
+
+#############################################################
+
+from mlflow.tracking import MlflowClient
+from mlflow.exceptions import MlflowException
+
+
+def register_or_update_production_model(
+    run_id: str,
+    model_artifact_path: str,
+    model_name: str,
+    new_auc: float,
+    metric_name: str = "auc"
+):
+    client = MlflowClient()
+
+    # 1️⃣ ENSURE REGISTERED MODEL EXISTS
+    try:
+        client.get_registered_model(model_name)
+        print(f"[MLflow] Registered model '{model_name}' already exists.")
+    except MlflowException:
+        print(f"[MLflow] Creating registered model '{model_name}'")
+        client.create_registered_model(model_name)
+
+    # 2️⃣ CREATE MODEL VERSION
+    mv = client.create_model_version(
+        name=model_name,
+        source=f"runs:/{run_id}/{model_artifact_path}",
+        run_id=run_id
+    )
+
+    print(f"[MLflow] Created model version: v{mv.version}")
+
+    # 3️⃣ FIND CURRENT PRODUCTION MODEL
+    prod_versions = client.get_latest_versions(model_name, stages=["Production"])
+
+    promote = False
+    if not prod_versions:
+        promote = True
+        print("[MLflow] No Production model found. Promote directly.")
+    else:
+        current_prod = prod_versions[0]
+        current_auc = client.get_run(current_prod.run_id).data.metrics.get(metric_name)
+
+        print(f"[MLflow] Current Production AUC: {current_auc}, New AUC: {new_auc}")
+
+        if current_auc is None or new_auc > current_auc:
+            promote = True
+
+    # 4️⃣ PROMOTE / ARCHIVE
+    if promote:
+        for pv in prod_versions:
+            client.transition_model_version_stage(
+                name=model_name,
+                version=pv.version,
+                stage="Archived"
+            )
+
+        client.transition_model_version_stage(
+            name=model_name,
+            version=mv.version,
+            stage="Production"
+        )
+
+        print(f"[MLflow] Model v{mv.version} promoted to Production.")
+    else:
+        print("[MLflow] New model is worse. Keep existing Production.")
 
 # =========================================================
 # HÀM HỖ TRỢ: Tính Information Value
@@ -371,16 +443,34 @@ def train_and_evaluate(processed_data, numeric_features, categorical_features):
         # Lựa chọn mô hình có AUC tốt hơn
         best_model_name = 'xgb' if auc_xgb > auc_log else 'logistic'
         print(f"\nBest model selected: {best_model_name}")
+
+        #best_model_name = 'xgb' if auc_xgb > auc_log else 'logistic'
+        best_auc = auc_xgb if best_model_name == 'xgb' else auc_log
+        best_artifact_path = "model_xgb" if best_model_name == 'xgb' else "model_logistic"
+
+        best_run_id = xgb_run.info.run_id if best_model_name == 'xgb' else log_run.info.run_id
         
         # Log classification report cho mô hình tốt hơn (cho người dùng xem)
         y_pred_best = y_pred_xgb if best_model_name == 'xgb' else y_pred_log
         print(f"\n{best_model_name} classification report:")
         print(classification_report(y_test, y_pred_best, zero_division=0))
 
+
+
+        # return {
+            # 'models': models,  
+            # 'metrics': metrics,  
+            # 'best_model': best_model_name,
+            # 'features': {'numeric': numeric_features, 'categorical': categorical_features}
+        # }
+
         return {
-            'models': models,  
-            'metrics': metrics,  
+            'models': models,
+            'metrics': metrics,
             'best_model': best_model_name,
+            'best_auc': best_auc,
+            'best_run_id': best_run_id,
+            'best_artifact_path': best_artifact_path,
             'features': {'numeric': numeric_features, 'categorical': categorical_features}
         }
 
@@ -445,7 +535,17 @@ def customer_ml_flow(n_customers=1000, n_tx=8000, iv_threshold=0.01):
         numeric_feats, 
         categorical_feats
     )
+    
+    MODEL_NAME = "customer_conversion_model"
 
+    register_or_update_production_model(
+        run_id=model_results['best_run_id'],
+        model_artifact_path=model_results['best_artifact_path'],
+        model_name=MODEL_NAME,
+        new_auc=model_results['best_auc'],
+        #auc_threshold=0.8
+    )
+    
     # 7. Lưu Artifacts
     artifact_path = save_artifacts(processed_data, model_results)
     
