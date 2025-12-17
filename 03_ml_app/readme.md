@@ -4,6 +4,7 @@ This is ML application project creating scorecard in forecasting customer probab
 The project performs following operations:
 
 1. Data Preparation and Training Model
+```
   - Data Preparation:
      ├── EDA
      ├── Missing Value Imputation
@@ -16,6 +17,7 @@ The project performs following operations:
   - Model Selection
   - Model Training
   - Model Evaluation
+```
 
 2. FastAPI Inference
 Expose API for inference model
