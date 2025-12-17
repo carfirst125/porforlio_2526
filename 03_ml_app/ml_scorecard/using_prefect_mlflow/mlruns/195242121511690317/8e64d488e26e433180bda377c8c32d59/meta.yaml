@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/admin/Documents/05_My_Projects/03_ml_app/ml_scorecard/using_prefect_mlflow/mlruns/195242121511690317/8e64d488e26e433180bda377c8c32d59/artifacts
+end_time: 1765941437000
+entry_point_name: ''
+experiment_id: '195242121511690317'
+lifecycle_stage: active
+run_id: 8e64d488e26e433180bda377c8c32d59
+run_name: LogisticRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765941433104
+status: 3
+tags: []
+user_id: admin

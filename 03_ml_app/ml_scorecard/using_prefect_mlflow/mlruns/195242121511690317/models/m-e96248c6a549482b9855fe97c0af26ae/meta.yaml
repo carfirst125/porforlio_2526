@@ -1,0 +1,10 @@
+artifact_location: file:C:/Users/admin/Documents/05_My_Projects/03_ml_app/ml_scorecard/using_prefect_mlflow/mlruns/195242121511690317/models/m-e96248c6a549482b9855fe97c0af26ae/artifacts
+creation_timestamp: 1765526721744
+experiment_id: '195242121511690317'
+last_updated_timestamp: 1765526729710
+model_id: m-e96248c6a549482b9855fe97c0af26ae
+model_type: null
+name: model_logistic
+source_run_id: 6df627007ed44efaa124225306043645
+status: 2
+status_message: null

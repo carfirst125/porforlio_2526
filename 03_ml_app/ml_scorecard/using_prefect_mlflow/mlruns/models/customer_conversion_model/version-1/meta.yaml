@@ -1,0 +1,15 @@
+creation_timestamp: 1765941642140
+current_stage: Production
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1765941642206
+model_id: null
+name: customer_conversion_model
+run_id: b4c5673dfb08434395aff693048edb4d
+run_link: null
+source: runs:/b4c5673dfb08434395aff693048edb4d/model_logistic
+status: READY
+status_message: null
+storage_location: runs:/b4c5673dfb08434395aff693048edb4d/model_logistic
+user_id: null
+version: 1

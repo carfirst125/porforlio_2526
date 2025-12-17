@@ -1,0 +1,22 @@
+artifact_path: file:C:/Users/admin/Documents/05_My_Projects/03_ml_app/ml_scorecard/using_prefect_mlflow/mlruns/195242121511690317/models/m-0aebc8e3506f4b3997bd13a3409ebfa1/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.10
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.7.0
+model_id: m-0aebc8e3506f4b3997bd13a3409ebfa1
+model_size_bytes: 142492
+model_uuid: m-0aebc8e3506f4b3997bd13a3409ebfa1
+prompts: null
+run_id: e1b97e2815c841d5a94099ce2ea3b8f5
+utc_time_created: '2025-12-17 07:44:20.275253'
