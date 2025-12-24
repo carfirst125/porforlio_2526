@@ -1,4 +1,4 @@
-# Project 01 - Agentic Chatbot (Langchain chatbot, Infras as Code using Terraform, CICD using Azure Pipelines, Docker Image push to ACR, Container Deployment using ACA)
+# Project 01 - Agentic Chatbot (App dev to Azure cloud deployment with IoC using Terraform and CICD using Azure Pipelines)
 
 ## Project Overview
 
