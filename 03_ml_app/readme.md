@@ -1,9 +1,36 @@
+# Project 03 - Implementing ML project (training, exposing forecasting REST API) in three versions 
 
-This is ML application project creating scorecard in forecasting customer probability in purchasing conversion currently:
+## Project Overview
 
-The project performs following operations:
+This project is an end-to-end machine learning application that builds a scorecard model to forecast the probability of customer purchase conversion.
 
-1. **Data Preparation and Training Model**
+This project is designed to illustrate best practices in transitioning from experimental machine learning code to a scalable and maintainable production-ready workflow.
+
+### Tech Stack
+- Python
+- Prefect
+- MLflow
+- FastAPI
+- Scikit-learn / XGBoost (if applicable)
+
+### Application Implementations
+
+There are 3 versions are performed:
+
+**Normal Python**
+A standalone Python implementation suitable for local execution.
+This version does not support orchestration, model versioning, or parallel execution.
+
+**Using an Orchestrator**
+The monolithic script is decomposed into discrete tasks, with execution order and dependencies managed by an orchestrator (e.g., Prefect or Airflow). In this project, Prefect is selected.
+
+**Using an Orchestrator with Model Version Management**
+An enhanced workflow that uses Prefect for orchestration and MLflow for experiment tracking and model version management.
+
+### Covered Functionalities in each Version
+
+**1. Data Preparation and Model Training**
+
 ```
   - Data Preparation:
      ├── EDA
@@ -19,16 +46,11 @@ The project performs following operations:
   - Model Evaluation
 ```
 
-2. **FastAPI Inference**
-Expose API for inference model
-Client requests API url to get inference response
+**2. Model Inference via REST API**
 
+The trained model is exposed through a RESTful inference API using FastAPI.
 
-The app is implemented in 03 versions:
-
-1. **Normal Python**: Suitable for local running, not support orchestrator, model version management or parallel running.
-2. **Using Orchestrator**: Decompose a linear/standalone script into discrete tasks and define their execution flow using an orchestrator (e.g., Prefect or Airflow).
-3. **Using Orchestrator and Model version Management**: using Prefect as orchestrator and MLflow to manage model version.
+Clients can send prediction requests to the API endpoint and receive inference results in real time.
 
 ---
 
