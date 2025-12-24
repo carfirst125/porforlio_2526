@@ -1,11 +1,26 @@
 # Project 02 - Using sagemaker pipeline to train ML model and saving artifact
 
-## Overview
+## Project Overview
 
-This is demo project to express:
- - how using Sagemaker pipeline to implement full flow of ML application in getting data, processing/preparing data, feature engineering and training model.
- - This includes not only folder structure for source code storage, processing data log, but also code flow indicates how ProcessingStep and Pipeline are defined.
+This is a demo project that demonstrates how to use **Amazon SageMaker Pipelines**
+to implement an end-to-end machine learning workflow, including data ingestion,
+data processing and preparation, feature engineering, and model training.
+
+The project illustrates not only the recommended folder structure for source code
+and processing outputs, but also the execution flow that defines how
+**ProcessingSteps** and the **Pipeline DAG** are constructed and executed.
  
+### Tech Stack
+
+- Python
+- **Amazon SageMaker**
+   - SageMaker Pipelines
+   - ProcessingStep
+   - ScriptProcessor
+- **Workflow Orchestration**
+  - SageMaker Pipelines (DAG-based execution)
+- **Data Storage**
+  - Amazon S3 (input data, processing outputs, model artifacts)
 
 ## Bucket organization
 
