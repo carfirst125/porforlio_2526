@@ -1,4 +1,4 @@
-# Project 01 - Agentic Chatbot (App dev to Azure cloud deployment with IoC using Terraform and CICD using Azure Pipelines)
+# Project 01 - Agentic Chatbot (Langchain agentic bot, Azure cloud deployment with IoC using Terraform and CICD using Azure Pipelines)
 
 ## Project Overview
 
