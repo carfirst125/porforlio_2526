@@ -1,5 +1,62 @@
 # Project 01 - Agentic Chatbot (Langchain chatbot, Infras as Code using Terraform, CICD using Azure Pipelines, Docker Image push to ACR, Container Deployment using ACA)
 
+## Project Overview
+
+This project demonstrates the design, development, and deployment of an
+**agentic chatbot system** using modern LLM frameworks and cloud-native MLOps practices.
+
+The solution covers the full lifecycle of an AI application, including
+agentic architecture design, application development, containerization,
+infrastructure provisioning as code, and automated CI/CD deployment to Azure.
+
+Key highlights of the project include:
+- Agent-based chatbot architecture built with LangChain
+- Retrieval-Augmented Generation (RAG) using vector search
+- Containerized deployment using Docker and Azure Container Apps
+- Infrastructure as Code (IaC) with Terraform
+- End-to-end CI/CD pipelines implemented using Azure DevOps Pipelines
+
+## Tech Stack
+
+- **Programming Language**
+  - Python
+
+- **LLM & Agent Framework**
+  - OpenAI / Claude (LLM)
+  - LangChain (Agentic framework)
+  - Embedding models (e.g. text-embedding, Cohere multilingual)
+
+- **RAG & Vector Search**
+  - FAISS (vector store)
+  - Embedding-based similarity search
+
+- **API & Application**
+  - FastAPI (REST inference API)
+  - Uvicorn (ASGI server)
+
+- **Containerization**
+  - Docker
+
+- **Cloud Platform**
+  - Microsoft Azure
+    - Azure Container Registry (ACR)
+    - Azure Container Apps (ACA)
+
+- **Infrastructure as Code**
+  - Terraform
+
+- **CI/CD**
+  - Azure DevOps Pipelines
+
+- **Development & Testing**
+  - Linux (WSL / Ubuntu)
+  - Python virtual environment (.venv)
+
+- **Demo UI**
+  - Streamlit
+
+---
+
 # Work Package 01: App Dev
 
 ---
