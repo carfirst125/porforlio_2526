@@ -16,6 +16,24 @@ Key highlights of the project include:
 - Infrastructure as Code (IaC) with Terraform
 - End-to-end CI/CD pipelines implemented using Azure DevOps Pipelines
 
+## Primary Project Points
+
+- Designed and implemented an agentic chatbot system using LangChain and LLMs,
+  supporting Retrieval-Augmented Generation (RAG) with FAISS vector search.
+
+- Built a production-ready REST API using FastAPI and containerized the application
+  with Docker for cloud deployment.
+
+- Provisioned cloud infrastructure using Terraform and deployed the application
+  on Azure Container Apps (ACA) with images stored in Azure Container Registry (ACR).
+
+- Implemented end-to-end CI/CD pipelines using Azure DevOps Pipelines to automate
+  infrastructure provisioning, container image build, and application deployment.
+
+- Debugged and resolved containerization and deployment issues related to
+  dependency compatibility, network exposure, and runtime configuration.
+
+
 ## Tech Stack
 
 - **Programming Language**
@@ -54,6 +72,35 @@ Key highlights of the project include:
 
 - **Demo UI**
   - Streamlit
+
+
+## Architecture Overview
+
+The system is designed as a modular, agent-based architecture that separates
+reasoning, retrieval, and execution concerns while ensuring production-ready
+deployment.
+```
+- **User Interface**
+  - Web client (Streamlit) and API clients interact with the chatbot through a REST API.
+
+- **Agentic Application Layer**
+  - LangChain-based agent orchestrates tool usage, conversation flow, and reasoning.
+  - Supports RAG, computation tools, and external data access.
+
+- **Retrieval Layer (RAG)**
+  - Documents are embedded and stored in a FAISS vector store.
+  - Similarity search is used to retrieve relevant context for LLM grounding.
+
+- **LLM & Tooling Layer**
+  - LLM (OpenAI / Claude) handles reasoning and response generation.
+  - Tool integrations support structured tasks such as calculations and data queries.
+
+- **Deployment & Infrastructure**
+  - Application is containerized using Docker.
+  - Infrastructure is provisioned with Terraform.
+  - CI/CD pipelines automate image build, registry push, and deployment to Azure Container Apps.
+```
+
 
 ---
 
