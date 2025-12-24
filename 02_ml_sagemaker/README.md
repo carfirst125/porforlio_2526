@@ -1,4 +1,4 @@
-# Project 02 - Using sagemaker pipeline to train ML model and saving artifact
+# Project 02 - Using Sagemaker Pipeline to train ML model and saving artifact
 
 ## Project Overview
 
