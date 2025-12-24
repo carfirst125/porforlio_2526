@@ -43,4 +43,5 @@ Note:
 - When pipeline runs, each processing step is run in its separate container. 
 - SageMaker Pipelines does not introspect or modify the processing script; it only orchestrates container execution and data movement.
 
-
+After Pipeline completed, training model is stored in your indicated path.
+For debug, openning Cloud Watch and check the log for error information.
