@@ -46,3 +46,20 @@ Note:
 After Pipeline completed, training model is stored in your indicated path.
 
 For debug, openning Cloud Watch and check the log for error information.
+
+
+## Additions
+
+From Local: For creating folder structure and clone/push new update code to s3 bucket, you could refer 2 below script:
+
+```
+1 - Creating any folder structure as you wish, I refer one as in my code, just run:
+python create_s3_folder_structure_ml_project_sagemaker.py
+
+2 - Clone data in your s3 bucket and push/update your change in local back to s3 bucket like new file, update file, new folder
+python clone_s3_bucket_update_push.py --mode="s3_pull"    # download s3 bucket on cloud to local
+python clone_s3_bucket_update_push.py --mode="s3_push"    # push/update s3 bucket on cloud with your local change.
+
+Note: for access AWS cloud from local, you need provide credentials in .env
+```
+
