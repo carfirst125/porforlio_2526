@@ -15,6 +15,6 @@ df = pd.concat(df_list, ignore_index=True)
 
 # Lưu ra output
 os.makedirs(output_path, exist_ok=True)
-output_file = os.path.join(output_path, "house_price.csv")
+output_file = os.path.join(output_path, "read_data.csv")
 df.to_csv(output_file, index=False)
 print(f"Read data saved to {output_file}")
