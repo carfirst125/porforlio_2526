@@ -1,11 +1,11 @@
-# Project 02 - Using sagemaker pipeline to training ML model and saving artifact
+# Project 02 - Using sagemaker pipeline to train ML model and saving artifact
 
 This is demo project to express:
  - how using Sagemaker pipeline to implement full flow of ML application in getting data, processing/preparing data, feature engineering and training model.
  - This includes not only folder structure for source code storage, processing data log, but also code flow indicates how ProcessingStep and Pipeline are defined.
  
 
-## Bucket orgainization
+## Bucket organization
 
 All code and log could be stored manually in S3 bucket
 s3://bucket/
@@ -26,7 +26,7 @@ app
 └── sagemaker_pipeline.py
 ```
 
-where:
+__where__:
 - sagemaker_pipeline.py: this is primary code file which define ProcessingStep, Pipeline flow and indicate relevant source code for particular Processing Step.
 - ./src: store source code of each Processing Step.
 
@@ -39,7 +39,7 @@ ProcessingSteps in DAG forms a Pipeline.
 
 Sagemaker express the pipeline DAG first, then calling .start() for running.
 
-Note: 
+**Note**: 
 - When pipeline runs, each processing step is run in its separate container. 
 - SageMaker Pipelines does not introspect or modify the processing script; it only orchestrates container execution and data movement.
 
@@ -61,6 +61,6 @@ python clone_s3_bucket_update_push.py --mode="s3_pull"    # download s3 bucket o
 python clone_s3_bucket_update_push.py --mode="s3_push"    # push/update s3 bucket on cloud with your local change.
 ```
 
-Note: for access AWS cloud from local, you need to provide credentials in **.env**
+**Note**: for access AWS cloud from local, you need to provide credentials in **.env**
 
 
