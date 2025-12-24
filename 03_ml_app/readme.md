@@ -1,8 +1,10 @@
-# Project 03 - Implementing ML project (training, exposing forecasting REST API) in three versions 
+# Project 03 - Implementing ML project (training, exposing forecasting REST API) in 03 progressive versions 
 
 ## Project Overview
 
 This project is an end-to-end machine learning application that builds a scorecard model to forecast the probability of customer purchase conversion.
+
+The application is implemented in three progressive versions, demonstrating the evolution from a standalone ML script to a production-oriented MLOps workflow.
 
 This project is designed to illustrate best practices in transitioning from experimental machine learning code to a scalable and maintainable production-ready workflow.
 
@@ -80,7 +82,7 @@ Clients can send prediction requests to the API endpoint and receive inference r
 
 ```
 
-## Working Images
+## Pipeline Execution Results
 
 ### Prefect 
 
