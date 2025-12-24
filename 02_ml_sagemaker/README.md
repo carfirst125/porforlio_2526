@@ -38,7 +38,9 @@ Sagemaker first defines ProcessingSteps with working processor. In each step, yo
 ProcessingSteps in DAG forms a Pipeline.
 
 Sagemaker express the pipeline DAG first, then calling .start() for running.
-Note: When pipeline runs, each processing step is run in its separate container. 
-SageMaker Pipelines does not introspect or modify the processing script; it only orchestrates container execution and data movement.
+
+Note: 
+- When pipeline runs, each processing step is run in its separate container. 
+- SageMaker Pipelines does not introspect or modify the processing script; it only orchestrates container execution and data movement.
 
 
