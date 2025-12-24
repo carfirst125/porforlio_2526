@@ -1,4 +1,4 @@
-# Project 03 - Implementing ML project (training, exposing forecasting REST API) in 03 progressive versions 
+# Project 03 - Implementing ML project (Model Training + REST API) in 03 progressive versions (including Prefect + MLflow) 
 
 ## Project Overview
 
