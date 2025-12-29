@@ -113,11 +113,11 @@ deployment.
 
 There are 03 pipelines:  
 
-	- CICD1 (pipelines-stage1-infras.yml): creating system resource with terraform 
+	- CICD1 (pipelines-stage1-infras.yml): Provisioning system resource with Terraform 
 
-	- CICD2 (pipelines-stage2-docker-image.yml): build docker image + up to ACR
+	- CICD2 (pipelines-stage2-docker-image.yml): build Docker image + push to ACR
 
-	- CICD3 (pipelines-stage3-container.yml): pull docker image, run container ACA by terraform
+	- CICD3 (pipelines-stage3-container.yml): pull Docker image, deploy app container using ACA by Terraform
 
 and below is the executing result:
 
