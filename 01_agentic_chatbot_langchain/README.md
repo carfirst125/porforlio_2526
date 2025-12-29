@@ -112,8 +112,11 @@ deployment.
 ### Azure CICD Pipelines
 
 There are 03 pipelines:  
+
 	- CICD1 (pipelines-stage1-infras.yml): creating system resource with terraform 
+
 	- CICD2 (pipelines-stage2-docker-image.yml): build docker image + up to ACR
+
 	- CICD3 (pipelines-stage3-container.yml): pull docker image, run container ACA by terraform
 
 and below is the executing result:
