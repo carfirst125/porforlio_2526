@@ -62,32 +62,3 @@ Integrated MLflow for experiment tracking, model versioning, and artifact manage
 
 Exposed trained models through a RESTful inference API using FastAPI, supporting real-time prediction requests and demonstrating the transition from experimental ML code to a production-oriented MLOps workflow.
 
----
-
-(Optional – bản cực gọn cho recruiter lướt nhanh)
-
-Nếu bạn muốn 1 bản ultra-short (1 dòng / project) cho CV:
-
-Agentic Chatbot: Built an agentic LLM chatbot with LangChain + RAG (FAISS), containerized with Docker, deployed to Azure Container Apps using Terraform and Azure DevOps CI/CD.
-
-SageMaker Pipeline: Designed a DAG-based ML pipeline using SageMaker Pipelines, ProcessingSteps, and ScriptProcessor with artifacts stored on Amazon S3.
-
-MLOps ML App: Implemented a progressive ML workflow using Prefect and MLflow, exposing trained models via FastAPI for real-time inference.
-
-
----
-
-### Project 01 – Agentic Chatbot (App + Cloud Deployment)
-
-- Designed and deployed an agent-based LLM chatbot with RAG
-- Full cloud-native deployment with Terraform and CI/CD on Azure
-
-### Project 02 – SageMaker ML Pipeline
-
-- Implemented a DAG-based ML pipeline using SageMaker Pipelines
-- Demonstrated production-grade data processing and artifact management
-
-### Project 03 – ML Application with Progressive MLOps
-
-- Built an ML application evolving from a standalone script to an orchestrated, versioned system using Prefect and MLflow
-- Exposed trained models through REST APIs for real-time inference
