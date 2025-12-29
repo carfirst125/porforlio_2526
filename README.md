@@ -36,7 +36,7 @@ This portfolio showcases three end-to-end AI & Machine Learning demo projects th
 
 ## Project Highlights
 
-### Project 01 – Agentic Chatbot
+### Project 01 – Agentic Chatbot (App + Cloud Deployment)
 
 - Designed and deployed an agent-based LLM chatbot with RAG
 - Full cloud-native deployment with Terraform and CI/CD on Azure
