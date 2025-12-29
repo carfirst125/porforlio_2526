@@ -79,27 +79,31 @@ Key highlights of the project include:
 The system is designed as a modular, agent-based architecture that separates
 reasoning, retrieval, and execution concerns while ensuring production-ready
 deployment.
-```
-- **User Interface**
+
+**User Interface**
+
   - Web client (Streamlit) and API clients interact with the chatbot through a REST API.
 
-- **Agentic Application Layer**
+**Agentic Application Layer**
+
   - LangChain-based agent orchestrates tool usage, conversation flow, and reasoning.
   - Supports RAG, computation tools, and external data access.
 
-- **Retrieval Layer (RAG)**
+**Retrieval Layer (RAG)**
+
   - Documents are embedded and stored in a FAISS vector store.
   - Similarity search is used to retrieve relevant context for LLM grounding.
 
-- **LLM & Tooling Layer**
+**LLM & Tooling Layer**
+
   - LLM (OpenAI / Claude) handles reasoning and response generation.
   - Tool integrations support structured tasks such as calculations and data queries.
 
-- **Deployment & Infrastructure**
+**Deployment & Infrastructure**
+
   - Application is containerized using Docker.
   - Infrastructure is provisioned with Terraform.
   - CI/CD pipelines automate image build, registry push, and deployment to Azure Container Apps.
-```
 
 
 ---
