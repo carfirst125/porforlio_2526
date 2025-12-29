@@ -128,20 +128,24 @@ The chatbot API was deployed with ACA where number of container instance would a
 
 ---
 
-# Work Package 01: App Dev
+# Project Execution Plan
 
 ---
 
-## Task 1: Agentic AI Architecture Design
+## Work Package 01: App Dev
 
-### Sub-task 01: Primary component selection 
+---
+
+### Task 1: Agentic AI Architecture Design
+
+#### Sub-task 01: Primary component selection 
 
 - LLM Model (GPT OpenAI, Claude, or any)
 - Embedding model (text-embedding, cohere-multilangual-v3, or any)
 - Platform (Langchain, CrewAI, OpenAI Agent, or any)
 - Use Agentic Agent or Graph
 
-### Sub-Task 02: App architecture
+#### Sub-Task 02: App architecture
 
 - How app data flow organized (multi-agents, number of layers)
 - Define detail each agent and tools support
@@ -150,19 +154,19 @@ The chatbot API was deployed with ACA where number of container instance would a
 
 ---
 
-## Task 2: Coding
-### Sub-Task 01: Folder Structure  
+### Task 2: Coding
+#### Sub-Task 01: Folder Structure  
 
  - Code folder structure planning
 
-### Sub-Task 02: Preparation
+#### Sub-Task 02: Preparation
 
 - Python .venv 
 - linux plaform like WSL-ubuntu
 - docker installation (linux version/docker desktop)
 - Azure account/Resource Group/ACR repo 
 
-### Sub-Task 03: Test primary project components
+#### Sub-Task 03: Test primary project components
 
  - Test OpenAI LLM request
  - Test Embedding model request
@@ -170,22 +174,22 @@ The chatbot API was deployed with ACA where number of container instance would a
  - Test single question, and conversation 
  - Test docker build image Test ACR repo image upload
 
-### Sub-Task 04: Integrating form final code
+#### Sub-Task 04: Integrating form final code
 
 - Integrate separate function dev into app system
 - Test call app api
 
 ---
 
-## Task 3: Test build docker image + container
+### Task 3: Test build docker image + container
 
-### Sub-task 01: Retest requirements.txt --> create python env + run app for test
+#### Sub-task 01: Retest requirements.txt --> create python env + run app for test
 Note: SHOULD `pip install  -r requirements.txt --no-deps` 
       **--no-deps** : support you passed mismatched version lib when installing.    
 Run uvicorn deploy api
 Run call api
 
-### Sub-task 02: Test Build docker in local with same platform like in working in ACA
+#### Sub-task 02: Test Build docker in local with same platform like in working in ACA
 
 Prepare 3 bash/shell scripts:
 ```
@@ -219,11 +223,11 @@ Prepare 3 bash/shell scripts:
 	     
 ---
 
-# Work Package 02: Deployment (DevOpt = Repo + CICD Pipelines)
+## Work Package 02: Deployment (DevOpt = Repo + CICD Pipelines)
 
 ---
 
-## Task 1: Upload App code to Azure Project Repo
+### Task 1: Upload App code to Azure Project Repo
 
 #### Sub-task 01 : Code preparation
 ```
@@ -255,7 +259,7 @@ Upload to Repo
 
 ---
 
-## Task 2: Create CICD Pipelines
+### Task 2: Create CICD Pipelines
 
 In Project DevOpt winđơ in az, create pipelines and indicate to file azure-pipelines...yml in the repo
 For example, you need create 3 pipelines here.
@@ -277,7 +281,7 @@ Khi chạy có thể cập nhật ubuntu hoặc download phần mềm, cài pack
 
 ---
 
-## Task 3: Test pipelines
+### Task 3: Test pipelines
 #### Sub-task 01: Run/Debug/Fix/Rerun (CICD1) azure-pipelines-stage1-infras.yml
 Build infras --> DONE
 
@@ -320,14 +324,14 @@ Potential Issues:
 ```
 ---
 
-## Task 04: Test Container API call
+### Task 04: Test Container API call
 
 Get container expose API url
 Run url API request --> get response --> OK
 
 ---
 
-## Task 05: Demo Webapp
+### Task 05: Demo Webapp
 
 streamlit code to call chatbot API 
 
