@@ -105,6 +105,13 @@ deployment.
   - Infrastructure is provisioned with Terraform.
   - CI/CD pipelines automate image build, registry push, and deployment to Azure Container Apps.
 
+---
+
+## Streamlit Chatbot Webapp
+
+You can 
+
+![Streamlit Chatbot Webapp](https://github.com/carfirst125/porforlio_2526/blob/main/03_ml_app/images/mlflow_model_register.png)
 
 ---
 
