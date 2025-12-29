@@ -121,6 +121,10 @@ Like this:
 
 ![Streamlit Chatbot Webapp Chat](https://github.com/carfirst125/porforlio_2526/blob/main/01_agentic_chatbot_langchain/images/streamlit_chatbot_webapp.png)
 
+**Note:**
+
+The chatbot API was deployed with ACA where number of container instance would auto shutdown if no api request and waked up when having request. Therefore, it takes longer time for waking up at first api request, the next requests would be faster.
+
 
 ---
 
