@@ -46,7 +46,7 @@ This portfolio showcases three end-to-end AI & Machine Learning demo projects th
 
 - Provisioned and deployed the entire cloud infrastructure using Terraform (Infrastructure as Code), and implemented CI/CD pipelines with Azure DevOps Pipelines to automate container build, registry push, and deployment to Azure Container Apps (ACA).
 
-### Project 02 – End-to-End ML Pipeline with Amazon SageMaker
+### Project 02 – Training ML Pipeline with Amazon SageMaker
 
 - Implemented an end-to-end machine learning pipeline using Amazon SageMaker Pipelines, modeling the workflow as a DAG composed of multiple ProcessingSteps.
 
