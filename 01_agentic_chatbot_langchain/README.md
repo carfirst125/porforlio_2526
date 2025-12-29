@@ -107,6 +107,21 @@ deployment.
 
 ---
 
+## Execution Result
+
+### Azure CICD Pipelines
+
+There are 03 pipelines:  
+	- CICD1 (pipelines-stage1-infras.yml): creating system resource with terraform 
+	- CICD2 (pipelines-stage2-docker-image.yml): build docker image + up to ACR
+	- CICD3 (pipelines-stage3-container.yml): pull docker image, run container ACA by terraform
+
+and below is the executing result:
+
+![Azure CICD Pipelines COMPLETE](https://github.com/carfirst125/porforlio_2526/blob/main/01_agentic_chatbot_langchain/images/azure_project_pipeline_cicd.png)
+
+---
+
 ## Streamlit Chatbot Webapp
 
 The chatbot was deployed with Azure ACA and launched to Webapp through Streamlit Cloud at
