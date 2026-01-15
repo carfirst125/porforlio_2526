@@ -49,7 +49,7 @@ __where__:
 
 ## Sagemaker pipeline Execution Flow
 
-![Sagemaker Pipeline Execution Flow](https://github.com/carfirst125/porforlio_2526/blob/main/02_ml_sagemaker/images/sagemaker-pipeline-training.png)
+![Sagemaker Pipeline Execution Flow](https://github.com/carfirst125/porforlio_2526/blob/main/02_ML_training_pipeline_using_sagemaker/images/sagemaker-pipeline-training.png)
 
 Sagemaker first defines ProcessingSteps with working processor. In each step, you need defined the input data source, output destination, and the processing script for the processing step. 
 ProcessingSteps in DAG forms a Pipeline.

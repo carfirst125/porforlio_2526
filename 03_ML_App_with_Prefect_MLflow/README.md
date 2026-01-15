@@ -90,7 +90,7 @@ Clients can send prediction requests to the API endpoint and receive inference r
 
 The following image illustrates the task execution flow managed by Prefect, showing how individual tasks are orchestrated and executed as part of the ML pipeline.
 
-![Prefect UI - Flow of Tasks run](https://github.com/carfirst125/porforlio_2526/blob/main/03_ml_app/images/prefect_flow_run.png)
+![Prefect UI - Flow of Tasks run](https://github.com/carfirst125/porforlio_2526/blob/main/03_ML_App_with_Prefect_MLflow/images/prefect_flow_run.png)
 
 ### MLflow 
 
@@ -98,12 +98,12 @@ The following image illustrates the task execution flow managed by Prefect, show
 
 This image shows how trained models are stored and versioned in MLflow, enabling reproducibility and traceability across experiments.
 
-![Prefect UI - Flow of Tasks run](https://github.com/carfirst125/porforlio_2526/blob/main/03_ml_app/images/mlflow_model_version_storage.png)
+![Prefect UI - Flow of Tasks run](https://github.com/carfirst125/porforlio_2526/blob/main/03_ML_App_with_Prefect_MLflow/images/mlflow_model_version_storage.png)
 
 **Best artifact registration**
 
 The following image demonstrates the registration of the best-performing model artifact into the MLflow Model Registry, allowing consistent model promotion and deployment.
 
-![Prefect UI - Flow of Tasks run](https://github.com/carfirst125/porforlio_2526/blob/main/03_ml_app/images/mlflow_model_register.png)
+![Prefect UI - Flow of Tasks run](https://github.com/carfirst125/porforlio_2526/blob/main/03_ML_App_with_Prefect_MLflow/images/mlflow_model_register.png)
 
 # END
