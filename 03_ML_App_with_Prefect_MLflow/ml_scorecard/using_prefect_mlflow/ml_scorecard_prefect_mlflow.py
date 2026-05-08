@@ -51,7 +51,6 @@ os.makedirs("./data", exist_ok=True)
 from mlflow.tracking import MlflowClient
 from mlflow.exceptions import MlflowException
 
-
 def register_or_update_production_model(
     run_id: str,
     model_artifact_path: str,
@@ -147,7 +146,6 @@ def calc_iv(df, feature, target, bins=6):
     grouped['iv'] = (grouped['event_rate'] - grouped['non_event_rate']) * grouped['woe']
 
     return grouped['iv'].sum()
-
 
 # =========================================================
 # 1) Task Tạo/Load dữ liệu
@@ -454,15 +452,6 @@ def train_and_evaluate(processed_data, numeric_features, categorical_features):
         y_pred_best = y_pred_xgb if best_model_name == 'xgb' else y_pred_log
         print(f"\n{best_model_name} classification report:")
         print(classification_report(y_test, y_pred_best, zero_division=0))
-
-
-
-        # return {
-            # 'models': models,  
-            # 'metrics': metrics,  
-            # 'best_model': best_model_name,
-            # 'features': {'numeric': numeric_features, 'categorical': categorical_features}
-        # }
 
         return {
             'models': models,
