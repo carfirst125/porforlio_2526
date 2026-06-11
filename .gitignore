@@ -121,4 +121,11 @@ ehthumbs.db
 
 # ================================
 # Misc build / cache
-# ============================
+# ================================
+.cache/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
