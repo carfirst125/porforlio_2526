@@ -1,0 +1,200 @@
+{
+  "_comment": "Example library cho intent classifier. Bao gồm các trường hợp chuẩn, near-miss và dễ nhầm lẫn giữa các intent.",
+  "examples": [
+    {
+      "message": "Xin chào",
+      "intent": "GREETING_FAREWELL",
+      "note": "chào hỏi đơn thuần"
+    },
+    {
+      "message": "Hi bạn ơi",
+      "intent": "GREETING_FAREWELL",
+      "note": "chào hỏi"
+    },
+    {
+      "message": "Tạm biệt, cảm ơn bạn nhé",
+      "intent": "GREETING_FAREWELL",
+      "note": "tạm biệt + cảm ơn chung → GREETING_FAREWELL"
+    },
+    {
+      "message": "Chào mình cần tư vấn",
+      "intent": "GREETING_FAREWELL",
+      "note": "chào + cần tư vấn nhưng chưa nêu chủ đề cụ thể → GREETING_FAREWELL"
+    },
+    {
+      "message": "Cảm ơn bạn rất nhiều, bye",
+      "intent": "GREETING_FAREWELL",
+      "note": "kết thúc cuộc trò chuyện"
+    },
+    {
+      "message": "Tôi vừa được thăng chức, lương tăng rồi",
+      "intent": "PERSONAL_UNRELATED",
+      "note": "chia sẻ cá nhân, không hỏi sản phẩm"
+    },
+    {
+      "message": "Mới ra trường đi làm được 6 tháng",
+      "intent": "PERSONAL_UNRELATED",
+      "note": "chia sẻ hoàn cảnh cá nhân"
+    },
+    {
+      "message": "Tôi vừa bán được nhà, có khoảng 2 tỷ",
+      "intent": "PERSONAL_UNRELATED",
+      "note": "chia sẻ tài chính cá nhân nhưng KHÔNG hỏi sản phẩm cụ thể"
+    },
+    {
+      "message": "Tôi đang cần tiền gấp",
+      "intent": "PERSONAL_UNRELATED",
+      "note": "chia sẻ nhu cầu tài chính chung, chưa hỏi sản phẩm cụ thể"
+    },
+    {
+      "message": "Năm nay thu nhập của mình tăng nhiều so với năm ngoái",
+      "intent": "PERSONAL_UNRELATED",
+      "note": "chia sẻ tài chính cá nhân — không kèm câu hỏi sản phẩm"
+    },
+    {
+      "message": "Lãi suất thẻ VIB Super Card là bao nhiêu?",
+      "intent": "PRODUCT_INFO_QA",
+      "note": "hỏi thông tin cụ thể có thể tra cứu"
+    },
+    {
+      "message": "Điều kiện mở thẻ tín dụng VIB là gì?",
+      "intent": "PRODUCT_INFO_QA",
+      "note": "hỏi điều kiện → PRODUCT_INFO_QA"
+    },
+    {
+      "message": "Phí thường niên thẻ VIB Cash Back bao nhiêu?",
+      "intent": "PRODUCT_INFO_QA",
+      "note": "hỏi phí cụ thể"
+    },
+    {
+      "message": "Quy trình vay mua nhà tại VIB như thế nào?",
+      "intent": "PRODUCT_INFO_QA",
+      "note": "hỏi quy trình → PRODUCT_INFO_QA (không phải PRODUCT_CONSULT)"
+    },
+    {
+      "message": "VIB có những loại thẻ tín dụng nào?",
+      "intent": "PRODUCT_INFO_QA",
+      "note": "hỏi danh sách sản phẩm"
+    },
+    {
+      "message": "Lãi suất tiết kiệm VIB kỳ hạn 12 tháng là bao nhiêu?",
+      "intent": "PRODUCT_INFO_QA",
+      "note": "hỏi số liệu cụ thể"
+    },
+    {
+      "message": "Tài sản thế chấp để vay vốn VIB gồm những loại nào?",
+      "intent": "PRODUCT_INFO_QA",
+      "note": "hỏi danh mục tài sản thế chấp"
+    },
+    {
+      "message": "Vay mua nhà VIB cần hồ sơ gì?",
+      "intent": "PRODUCT_INFO_QA",
+      "note": "hỏi hồ sơ cụ thể → PRODUCT_INFO_QA"
+    },
+    {
+      "message": "Tôi muốn mở thẻ tín dụng nhưng không biết chọn loại nào",
+      "intent": "PRODUCT_CONSULT",
+      "note": "muốn được tư vấn chọn sản phẩm"
+    },
+    {
+      "message": "Tư vấn cho tôi nên gửi tiết kiệm loại nào lãi cao nhất",
+      "intent": "PRODUCT_CONSULT",
+      "note": "muốn ai đó giúp quyết định"
+    },
+    {
+      "message": "Tôi muốn vay mua nhà, cần tư vấn nên chọn gói nào",
+      "intent": "PRODUCT_CONSULT",
+      "note": "muốn tư vấn chọn gói vay → PRODUCT_CONSULT"
+    },
+    {
+      "message": "Không biết nên mua bảo hiểm nào phù hợp với tôi",
+      "intent": "PRODUCT_CONSULT",
+      "note": "cần tư vấn lựa chọn"
+    },
+    {
+      "message": "Thẻ VIB nào tốt nhất cho người hay mua sắm online?",
+      "intent": "PRODUCT_CONSULT",
+      "note": "hỏi 'loại nào tốt nhất cho...' → PRODUCT_CONSULT"
+    },
+    {
+      "message": "Bot trả lời rất hay và dễ hiểu, tôi rất hài lòng",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "khen chatbot → CUSTOMER_FEEDBACK"
+    },
+    {
+      "message": "Chatbot không hiểu câu hỏi của tôi, trả lời lạc đề",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "phàn nàn về chatbot"
+    },
+    {
+      "message": "Bot cứ hỏi lại thông tin tôi đã cung cấp rồi, rất bực",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "phàn nàn hành vi bot → CUSTOMER_FEEDBACK (không phải GREETING_FAREWELL)"
+    },
+    {
+      "message": "Phí dịch vụ VIB tôi thấy cao hơn các ngân hàng khác",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "so sánh chủ quan VIB vs đối thủ → CUSTOMER_FEEDBACK"
+    },
+    {
+      "message": "Tại sao lãi suất vay VIB lại cao vậy, ngân hàng khác thấp hơn nhiều",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "'tại sao... VIB... so với ngân hàng khác' là phàn nàn/so sánh → CUSTOMER_FEEDBACK (không phải PRODUCT_INFO_QA)"
+    },
+    {
+      "message": "Bot có thể thêm tính năng so sánh các gói sản phẩm không?",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "feature request cho bot → CUSTOMER_FEEDBACK (không phải PRODUCT_CONSULT)"
+    },
+    {
+      "message": "Tôi nghĩ nên có thêm ví dụ minh họa khi giải thích sản phẩm",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "góp ý cải thiện chatbot → CUSTOMER_FEEDBACK"
+    },
+    {
+      "message": "Chatbot nên có chức năng so sánh lãi suất giữa các ngân hàng",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "đề xuất tính năng mới cho bot → CUSTOMER_FEEDBACK"
+    },
+    {
+      "message": "Thông tin về bảo hiểm VIB còn khá ít, cần chi tiết hơn",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "nhận xét chủ quan về nội dung bot → CUSTOMER_FEEDBACK"
+    },
+    {
+      "message": "Tôi vừa dùng thử chatbot này lần đầu",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "chia sẻ trải nghiệm dùng chatbot"
+    },
+    {
+      "message": "Tại sao phí thường niên VIB lại cao hơn Techcombank?",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "so sánh VIB vs đối thủ (Techcombank) → CUSTOMER_FEEDBACK (không phải PRODUCT_INFO_QA)"
+    },
+    {
+      "message": "Tôi có 500 triệu muốn gửi tiết kiệm, nên chọn kỳ hạn nào?",
+      "intent": "PRODUCT_CONSULT",
+      "note": "cung cấp thông tin cá nhân + hỏi nên chọn gì → PRODUCT_CONSULT (không phải PERSONAL_UNRELATED)"
+    },
+    {
+      "message": "Thu nhập 15 triệu/tháng, tôi có nên mở thẻ tín dụng VIB không?",
+      "intent": "PRODUCT_CONSULT",
+      "note": "đưa thông tin cá nhân + hỏi nên làm gì → PRODUCT_CONSULT"
+    },
+    {
+      "message": "Cảm ơn bot đã giải đáp, rất hữu ích",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "cảm ơn kèm đánh giá 'hữu ích' → CUSTOMER_FEEDBACK (không phải GREETING_FAREWELL)"
+    },
+    {
+      "message": "VIB có dịch vụ khách hàng tốt, chatbot cũng không kém",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "đánh giá dịch vụ VIB và chatbot → CUSTOMER_FEEDBACK"
+    },
+    {
+      "message": "Giao diện chat đơn giản, dễ dùng",
+      "intent": "CUSTOMER_FEEDBACK",
+      "note": "nhận xét giao diện chatbot → CUSTOMER_FEEDBACK"
+    }
+  ]
+}

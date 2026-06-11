@@ -1,0 +1,92 @@
+[
+  {
+    "id": "fb_001",
+    "message": "Bot cứ hỏi lại thông tin tôi đã cung cấp rồi, rất bực",
+    "expected_sentiment": "NEGATIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_002",
+    "message": "Chatbot không hiểu câu hỏi của tôi, trả lời lạc đề hoàn toàn",
+    "expected_sentiment": "NEGATIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_003",
+    "message": "Tôi hỏi về thẻ tín dụng mà bot lại giới thiệu bảo hiểm, không phù hợp gì cả",
+    "expected_sentiment": "NEGATIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_004",
+    "message": "Phí dịch vụ của VIB tôi thấy cao hơn các ngân hàng khác",
+    "expected_sentiment": "NEGATIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_005",
+    "message": "Tại sao lãi suất vay VIB lại cao vậy, ngân hàng khác thấp hơn nhiều",
+    "expected_sentiment": "NEGATIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_006",
+    "message": "Bot trả lời rất hay và dễ hiểu, tôi rất hài lòng",
+    "expected_sentiment": "POSITIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_007",
+    "message": "Chatbot tư vấn rất chuyên nghiệp, giúp tôi hiểu rõ các sản phẩm",
+    "expected_sentiment": "POSITIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_008",
+    "message": "Phản hồi nhanh và chính xác, tuyệt vời lắm",
+    "expected_sentiment": "POSITIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_009",
+    "message": "Cảm ơn bot đã giải đáp thắc mắc của tôi, rất hữu ích",
+    "expected_sentiment": "POSITIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_010",
+    "message": "VIB có dịch vụ khách hàng tốt, bot AI này cũng không kém",
+    "expected_sentiment": "POSITIVE",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_011",
+    "message": "Tôi vừa dùng thử chatbot này lần đầu",
+    "expected_sentiment": "NEUTRAL",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_012",
+    "message": "Mình thấy thông tin về bảo hiểm cần được chi tiết hơn",
+    "expected_sentiment": "NEUTRAL",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_013",
+    "message": "Bot có thể thêm tính năng so sánh các gói sản phẩm không?",
+    "expected_sentiment": "NEUTRAL",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_014",
+    "message": "Tôi nghĩ nên có thêm ví dụ minh họa khi giải thích sản phẩm",
+    "expected_sentiment": "NEUTRAL",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  },
+  {
+    "id": "fb_015",
+    "message": "Giao diện chat đơn giản, dễ dùng",
+    "expected_sentiment": "NEUTRAL",
+    "expected_intent": "CUSTOMER_FEEDBACK"
+  }
+]

@@ -1,0 +1,125 @@
+{
+  "_comment": "Example library cho LLM equivalence gate. equivalent=true: hai câu hỏi paraphrase nhau. equivalent=false: khác thông tin cần biết (near-miss).",
+  "examples": [
+    {
+      "q_a": "Lãi suất thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "q_b": "VIB Super Card tính lãi suất như thế nào?",
+      "equivalent": true,
+      "note": "paraphrase — cùng hỏi lãi suất thẻ Super Card"
+    },
+    {
+      "q_a": "Điều kiện mở thẻ tín dụng VIB là gì?",
+      "q_b": "Làm thẻ tín dụng VIB cần những gì?",
+      "equivalent": true,
+      "note": "paraphrase — cùng hỏi điều kiện mở thẻ"
+    },
+    {
+      "q_a": "Phí thường niên thẻ VIB Cash Back là bao nhiêu?",
+      "q_b": "Mỗi năm dùng thẻ VIB Cash Back tốn bao nhiêu phí?",
+      "equivalent": true,
+      "note": "paraphrase — cùng hỏi phí thường niên"
+    },
+    {
+      "q_a": "Vay mua nhà VIB cần hồ sơ gì?",
+      "q_b": "Hồ sơ vay mua nhà tại VIB gồm những giấy tờ gì?",
+      "equivalent": true,
+      "note": "paraphrase — cùng hỏi hồ sơ vay mua nhà"
+    },
+    {
+      "q_a": "Lãi suất tiết kiệm VIB kỳ hạn 12 tháng?",
+      "q_b": "Gửi tiết kiệm VIB 12 tháng được bao nhiêu lãi?",
+      "equivalent": true,
+      "note": "paraphrase — cùng hỏi lãi suất tiết kiệm 12 tháng"
+    },
+    {
+      "q_a": "Quyền lợi bảo hiểm VIB gồm những gì?",
+      "q_b": "Mua bảo hiểm VIB được hưởng những quyền lợi nào?",
+      "equivalent": true,
+      "note": "paraphrase — cùng hỏi quyền lợi bảo hiểm"
+    },
+    {
+      "q_a": "Thẻ VIB Online Plus hoàn tiền như thế nào?",
+      "q_b": "Chính sách hoàn tiền thẻ VIB Online Plus là gì?",
+      "equivalent": true,
+      "note": "paraphrase — cùng hỏi chính sách hoàn tiền"
+    },
+    {
+      "q_a": "Muốn làm thẻ VIB cần điều kiện gì?",
+      "q_b": "Điều kiện để được cấp thẻ tín dụng VIB?",
+      "equivalent": true,
+      "note": "paraphrase — cùng hỏi điều kiện mở thẻ"
+    },
+    {
+      "q_a": "Lãi suất thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "q_b": "Hạn mức thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "equivalent": false,
+      "note": "near-miss — cùng sản phẩm (Super Card) NHƯNG khác nội dung: lãi suất ≠ hạn mức"
+    },
+    {
+      "q_a": "Phí thường niên thẻ VIB Cash Back là bao nhiêu?",
+      "q_b": "Lãi suất thẻ VIB Cash Back tính như thế nào?",
+      "equivalent": false,
+      "note": "near-miss — cùng sản phẩm (Cash Back) NHƯNG khác: phí thường niên ≠ lãi suất"
+    },
+    {
+      "q_a": "Vay mua nhà VIB cần hồ sơ gì?",
+      "q_b": "Vay mua xe VIB cần hồ sơ gì?",
+      "equivalent": false,
+      "note": "near-miss — cùng hỏi hồ sơ NHƯNG khác mục đích vay: mua nhà ≠ mua xe"
+    },
+    {
+      "q_a": "Phí thường niên thẻ VIB Cash Back là bao nhiêu?",
+      "q_b": "Phí thường niên thẻ VIB Online Plus là bao nhiêu?",
+      "equivalent": false,
+      "note": "near-miss — cùng hỏi phí thường niên NHƯNG khác sản phẩm: Cash Back ≠ Online Plus"
+    },
+    {
+      "q_a": "Lãi suất tiết kiệm VIB kỳ hạn 12 tháng?",
+      "q_b": "Lãi suất tiết kiệm VIB kỳ hạn 3 tháng?",
+      "equivalent": false,
+      "note": "near-miss — cùng sản phẩm tiết kiệm VIB NHƯNG khác kỳ hạn: 12 tháng ≠ 3 tháng → thông tin khác nhau"
+    },
+    {
+      "q_a": "Hồ sơ vay mua nhà VIB cần gì?",
+      "q_b": "Lãi suất vay mua nhà VIB hiện tại bao nhiêu?",
+      "equivalent": false,
+      "note": "near-miss — cùng sản phẩm (vay mua nhà VIB) NHƯNG khác: hồ sơ ≠ lãi suất"
+    },
+    {
+      "q_a": "Điều kiện mở thẻ VIB là gì?",
+      "q_b": "Thủ tục đóng thẻ tín dụng VIB như thế nào?",
+      "equivalent": false,
+      "note": "near-miss — đối lập nhau: mở thẻ ≠ đóng thẻ"
+    },
+    {
+      "q_a": "Lãi suất vay tiêu dùng VIB là bao nhiêu?",
+      "q_b": "Lãi suất vay mua nhà VIB là bao nhiêu?",
+      "equivalent": false,
+      "note": "near-miss — cùng hỏi lãi suất vay NHƯNG khác sản phẩm: tiêu dùng ≠ mua nhà"
+    },
+    {
+      "q_a": "Thẻ VIB Super Card có ưu đãi gì?",
+      "q_b": "Lãi suất thẻ VIB Super Card là bao nhiêu?",
+      "equivalent": false,
+      "note": "near-miss — cùng sản phẩm NHƯNG khác: ưu đãi (cashback/dặm) ≠ lãi suất"
+    },
+    {
+      "q_a": "Quy trình vay mua nhà VIB như thế nào?",
+      "q_b": "Điều kiện vay mua nhà VIB là gì?",
+      "equivalent": false,
+      "note": "near-miss — cùng sản phẩm NHƯNG khác: quy trình (các bước) ≠ điều kiện (yêu cầu)"
+    },
+    {
+      "q_a": "VIB có những loại thẻ tín dụng nào?",
+      "q_b": "VIB có những gói vay nào?",
+      "equivalent": false,
+      "note": "near-miss — cùng hỏi 'có những loại nào' NHƯNG khác sản phẩm: thẻ tín dụng ≠ vay"
+    },
+    {
+      "q_a": "Tài sản thế chấp để vay VIB gồm loại nào?",
+      "q_b": "Vay thế chấp VIB cần hồ sơ gì?",
+      "equivalent": false,
+      "note": "near-miss — cùng về vay thế chấp NHƯNG khác: loại tài sản chấp nhận ≠ hồ sơ cần nộp"
+    }
+  ]
+}

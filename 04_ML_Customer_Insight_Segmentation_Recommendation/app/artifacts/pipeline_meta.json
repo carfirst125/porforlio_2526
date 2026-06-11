@@ -1,0 +1,89 @@
+{
+  "generated_at_utc": "2026-05-08T02:34:59.521440+00:00",
+  "dataset_profile": {
+    "n_rows": 541909,
+    "n_cols": 8,
+    "customer_id_null_ratio": 0.249267,
+    "duplicate_ratio": 0.009721,
+    "cancellation_ratio": 0.017139,
+    "zero_or_negative_price_ratio": 0.004645,
+    "invoice_date_parse_fail_ratio": 0.0,
+    "notes": []
+  },
+  "cleaning_report": {
+    "rows_in": 541909,
+    "rows_out": 399652,
+    "steps": [
+      "drop_missing_customer_id: 541909 -> 406829",
+      "drop_bad_invoice_date: 406829 -> 406829",
+      "drop_duplicate_rows: 406829 -> 401604",
+      "drop_missing_description: 401604 -> 401604",
+      "drop_non_positive_unit_price: 401604 -> 401564",
+      "drop_anomaly_stockcode(<2 digits): 401564 -> 399656",
+      "trim_extreme_quantity_99.95pct_cap_10000: 399656 -> 399652"
+    ]
+  },
+  "feature_report": {
+    "n_customers": 4333,
+    "reference_date": "2011-12-09",
+    "feature_columns": [
+      "RecencyDays",
+      "Frequency",
+      "Monetary",
+      "AvgOrderValue",
+      "OrdersPerMonth",
+      "UniqueProducts",
+      "CancelRate",
+      "IsUK",
+      "TenureDays",
+      "SpendTrendScore"
+    ]
+  },
+  "clustering": {
+    "used_k": 3,
+    "metrics": {
+      "silhouette": 0.3687937103937746,
+      "calinski_harabasz": 1804.6070158406098,
+      "davies_bouldin": 1.1713574279935761
+    },
+    "decisions": [
+      "log1p_columns=['AvgOrderValue', 'CancelRate', 'Frequency', 'Monetary', 'OrdersPerMonth', 'UniqueProducts']",
+      "pca_n_components=7_var_explained=0.9548",
+      "k_selected_by_silhouette=3"
+    ],
+    "feature_names": [
+      "RecencyDays",
+      "Frequency",
+      "Monetary",
+      "AvgOrderValue",
+      "OrdersPerMonth",
+      "UniqueProducts",
+      "CancelRate",
+      "IsUK",
+      "TenureDays",
+      "SpendTrendScore"
+    ],
+    "has_pca": true,
+    "log1p_columns": [
+      "AvgOrderValue",
+      "CancelRate",
+      "Frequency",
+      "Monetary",
+      "OrdersPerMonth",
+      "UniqueProducts"
+    ]
+  },
+  "transaction_csv": "C:\\Users\\admin\\Documents\\023_cursor_workspace\\05_kaggle_dataset_and_project\\05_customer_transaction\\dataset\\transaction_data.csv",
+  "insights_note": "transactional_promoter_score is a behavioral proxy; it does not replace survey-based NPS.",
+  "evaluation_summary": {
+    "total": 31,
+    "passed": 31,
+    "warnings": 0,
+    "failed": 0,
+    "info": 0,
+    "overall_status": "ok",
+    "warning_names": [],
+    "failed_names": []
+  },
+  "evaluation_run_id": "20260508T023459Z"
+}

@@ -1,0 +1,130 @@
+{
+  "_comment": "seed_qa: Câu hỏi để seed vào cache trước khi test. paraphrase_pairs: should_hit=true. near_miss_pairs: should_hit=false.",
+
+  "seed_qa": [
+    {
+      "question": "Lãi suất thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "note": "seed câu hỏi về lãi suất thẻ"
+    },
+    {
+      "question": "Điều kiện mở thẻ VIB là gì?",
+      "note": "seed câu hỏi về điều kiện mở thẻ"
+    },
+    {
+      "question": "Phí thường niên thẻ VIB Cash Back là bao nhiêu?",
+      "note": "seed câu hỏi về phí"
+    },
+    {
+      "question": "Lãi suất tiết kiệm VIB kỳ hạn 12 tháng?",
+      "note": "seed câu hỏi về tiết kiệm"
+    },
+    {
+      "question": "Vay mua nhà VIB cần hồ sơ gì?",
+      "note": "seed câu hỏi về vay"
+    }
+  ],
+
+  "paraphrase_pairs": [
+    {
+      "id": "para_001",
+      "seed": "Lãi suất thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "paraphrase": "Thẻ VIB Super Card tính lãi suất bao nhiêu phần trăm?",
+      "should_hit": true,
+      "note": "paraphrase gần nghĩa"
+    },
+    {
+      "id": "para_002",
+      "seed": "Lãi suất thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "paraphrase": "VIB Super Card có lãi suất như thế nào?",
+      "should_hit": true,
+      "note": "diễn đạt khác"
+    },
+    {
+      "id": "para_003",
+      "seed": "Điều kiện mở thẻ VIB là gì?",
+      "paraphrase": "Muốn làm thẻ tín dụng VIB thì cần điều kiện gì?",
+      "should_hit": true,
+      "note": "dùng động từ khác"
+    },
+    {
+      "id": "para_004",
+      "seed": "Điều kiện mở thẻ VIB là gì?",
+      "paraphrase": "Làm thẻ tín dụng VIB yêu cầu những gì?",
+      "should_hit": true,
+      "note": "paraphrase ngắn hơn"
+    },
+    {
+      "id": "para_005",
+      "seed": "Phí thường niên thẻ VIB Cash Back là bao nhiêu?",
+      "paraphrase": "Thẻ VIB Cash Back mỗi năm tốn bao nhiêu phí?",
+      "should_hit": true,
+      "note": "đảo cấu trúc câu"
+    },
+    {
+      "id": "para_006",
+      "seed": "Lãi suất tiết kiệm VIB kỳ hạn 12 tháng?",
+      "paraphrase": "Gửi tiết kiệm VIB 12 tháng được lãi suất bao nhiêu?",
+      "should_hit": true,
+      "note": "thêm động từ"
+    },
+    {
+      "id": "para_007",
+      "seed": "Vay mua nhà VIB cần hồ sơ gì?",
+      "paraphrase": "Hồ sơ vay mua nhà tại VIB gồm những giấy tờ gì?",
+      "should_hit": true,
+      "note": "mở rộng câu hỏi"
+    }
+  ],
+
+  "near_miss_pairs": [
+    {
+      "id": "near_001",
+      "seed": "Lãi suất thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "near_miss": "Hạn mức thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "should_hit": false,
+      "note": "cùng sản phẩm nhưng hỏi khác (lãi suất vs hạn mức)"
+    },
+    {
+      "id": "near_002",
+      "seed": "Lãi suất thẻ tín dụng VIB Super Card là bao nhiêu?",
+      "near_miss": "Lãi suất vay mua nhà VIB là bao nhiêu?",
+      "should_hit": false,
+      "note": "cùng hỏi lãi suất nhưng sản phẩm khác"
+    },
+    {
+      "id": "near_003",
+      "seed": "Điều kiện mở thẻ VIB là gì?",
+      "near_miss": "Thủ tục đóng thẻ tín dụng VIB như thế nào?",
+      "should_hit": false,
+      "note": "mở vs đóng thẻ — ngược nghĩa"
+    },
+    {
+      "id": "near_004",
+      "seed": "Phí thường niên thẻ VIB Cash Back là bao nhiêu?",
+      "near_miss": "Phí thường niên thẻ VIB Online Plus là bao nhiêu?",
+      "should_hit": false,
+      "note": "cùng loại phí nhưng sản phẩm khác"
+    },
+    {
+      "id": "near_005",
+      "seed": "Lãi suất tiết kiệm VIB kỳ hạn 12 tháng?",
+      "near_miss": "Lãi suất tiết kiệm VIB kỳ hạn 3 tháng?",
+      "should_hit": false,
+      "note": "cùng sản phẩm nhưng kỳ hạn khác — thông tin khác nhau"
+    },
+    {
+      "id": "near_006",
+      "seed": "Vay mua nhà VIB cần hồ sơ gì?",
+      "near_miss": "Vay mua xe VIB cần hồ sơ gì?",
+      "should_hit": false,
+      "note": "cùng hỏi hồ sơ nhưng mục đích vay khác"
+    },
+    {
+      "id": "near_007",
+      "seed": "Vay mua nhà VIB cần hồ sơ gì?",
+      "near_miss": "Lãi suất vay mua nhà VIB hiện tại?",
+      "should_hit": false,
+      "note": "cùng sản phẩm nhưng hỏi khác (hồ sơ vs lãi suất)"
+    }
+  ]
+}

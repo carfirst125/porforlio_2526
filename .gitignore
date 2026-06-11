@@ -3,7 +3,122 @@ __pycache__/
 *.pyc
 /app/requirements_*.txt
 /app/requirements-*.txt
-*.json
 **/.terraform/
 **/*.ipynb
 *.sh
+*.sqlite3
+**/*.sqlite3
+
+# ================================
+# Vectorstore & binary data (large files)
+# ================================
+
+# ================================
+# Python
+# ================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+wheels/
+
+# ================================
+# Virtual environments
+# ================================
+.venv/
+venv/
+env/
+ENV/
+.env.local
+.env.*.local
+
+# ================================
+# Secrets / credentials
+# ================================
+.env
+*.key
+*.pem
+secrets.yaml
+secrets.json
+
+# ================================
+# Data nặng — vectorstore, parquet, binary
+# ================================
+# Vectorstore (ChromaDB / FAISS / HNSWLIB)
+**/data/vectorstore/
+*.bin
+*.faiss
+*.index
+*.pkl
+*.pickle
+*.npy
+
+# Parquet files (embedding data)
+*.parquet
+
+# ================================
+# Data thô & processed
+# ================================
+**/data/raw/
+**/data/processed/
+**/data/knowledge_graph/
+
+# ================================
+# Conversation history (runtime data)
+# ================================
+**/data/conversations/
+
+# ================================
+# Logs
+# ================================
+logs/
+*.log
+*.log.*
+
+# ================================
+# Evaluation results (generated, không cần commit)
+# ================================
+**/evaluation/results/
+
+# ================================
+# Jupyter Notebook
+# ================================
+.ipynb_checkpoints/
+*.ipynb
+
+# ================================
+# IDE / Editor
+# ================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# ================================
+# OS
+# ================================
+desktop.ini
+ehthumbs.db
+
+# ================================
+# Misc build / cache
+# ============================

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "rag_001",
+    "question": "Lãi suất thẻ tín dụng VIB tính như thế nào?",
+    "ground_truth_answer": "Lãi suất thẻ tín dụng VIB được tính trên số dư chưa thanh toán, thường dao động khoảng 1.5%-3.5%/tháng tùy dòng thẻ. Nếu khách hàng thanh toán toàn bộ số dư trong thời gian miễn lãi (thường 45-55 ngày), sẽ không phát sinh lãi suất.",
+    "category": "credit_card",
+    "note": "Docs co lai suat theo thang. Ground truth cu dung %/nam (18-30%) dan den false flag khi bot tra loi dung so lieu thang tu tai lieu."
+  },
+  {
+    "id": "rag_002",
+    "question": "Điều kiện để mở thẻ tín dụng VIB là gì?",
+    "ground_truth_answer": "Điều kiện mở thẻ tín dụng VIB tùy theo từng dòng thẻ. Yêu cầu chung: là công dân Việt Nam hoặc người nước ngoài cư trú tại Việt Nam, đủ tuổi (thường từ 20-22 tuổi trở lên tùy sản phẩm, tối đa 65-70 tuổi), có thu nhập ổn định, cung cấp hồ sơ chứng minh thu nhập. Một số dòng thẻ cao cấp yêu cầu mức thu nhập tối thiểu cao hơn.",
+    "category": "credit_card",
+    "note": "Ground truth cu ghi '18 tuoi' qua generic. Update de tranh false flag."
+  },
+  {
+    "id": "rag_003",
+    "question": "VIB có những loại thẻ tín dụng nào?",
+    "ground_truth_answer": "VIB cung cấp nhiều dòng thẻ tín dụng khác nhau. Các dòng thẻ phổ biến bao gồm: VIB Online Plus (hoàn tiền mua sắm online), VIB Cash Back (hoàn tiền đa danh mục), VIB Premier Boundless (ưu đãi dặm bay, travel), VIB Rewards Unlimited (tích điểm), VIB Super Card (hạn mức cao), VIB Family Link (ưu đãi gia đình) và một số dòng thẻ khác.",
+    "category": "credit_card",
+    "note": "Mo rong ground truth de khong false flag khi bot liet ke nhieu dong the tu tai lieu."
+  },
+  {
+    "id": "rag_004",
+    "question": "Quy trình vay mua nhà tại VIB như thế nào?",
+    "ground_truth_answer": "Quy trình vay mua nhà VIB gồm các bước chính: (1) Liên hệ chuyên viên tư vấn và nộp hồ sơ, (2) Thẩm định tài sản và năng lực tài chính, (3) Phê duyệt khoản vay, (4) Ký hợp đồng vay, (5) Giải ngân. Ngoài ra có thể bao gồm các bước như công chứng, đăng ký thế chấp và mua bảo hiểm tài sản.",
+    "category": "loan",
+    "note": "Mo rong de khong false flag khi bot mo ta chi tiet hon 5 buoc."
+  },
+  {
+    "id": "rag_005",
+    "question": "Lãi suất vay tiêu dùng VIB hiện tại là bao nhiêu?",
+    "ground_truth_answer": "Lãi suất vay tiêu dùng VIB dao động tùy gói sản phẩm và thời hạn. Vay tín chấp thường có lãi suất cao hơn vay thế chấp. Tài liệu có thể đề cập mức lãi suất ưu đãi từ khoảng 11%/năm trở lên. Lãi suất cụ thể thay đổi theo thời điểm, khách hàng nên liên hệ VIB để biết lãi suất áp dụng hiện tại.",
+    "category": "loan",
+    "note": "Them 11%/nam vao ground truth vi bot lay tu tai lieu nhung bi judge danh false flag."
+  },
+  {
+    "id": "rag_006",
+    "question": "Bảo hiểm nhân thọ VIB có những quyền lợi gì?",
+    "ground_truth_answer": "VIB cung cấp sản phẩm bảo hiểm nhân thọ liên kết đơn vị và liên kết chung. Quyền lợi chính bao gồm: (1) Quyền lợi bảo hiểm tử vong hoặc thương tật toàn bộ vĩnh viễn, (2) Quyền lợi tích lũy tài khoản theo thời gian, (3) Thưởng duy trì hợp đồng (khoảng 3.5% giá trị tài khoản). Chi tiết quyền lợi cụ thể tùy theo từng sản phẩm và điều khoản hợp đồng. Khách hàng nên liên hệ VIB để được tư vấn chi tiết.",
+    "category": "insurance",
+    "note": "Cap nhat ground truth theo noi dung thuc te trong docs (section 8 QUYEN LOI BAO HIEM CHINH)."
+  },
+  {
+    "id": "rag_007",
+    "question": "Lãi suất tiết kiệm VIB kỳ hạn 12 tháng là bao nhiêu?",
+    "ground_truth_answer": "Lãi suất tiết kiệm VIB kỳ hạn 12 tháng thay đổi theo thị trường và không được ghi nhận với số liệu cố định trong tài liệu hệ thống hiện tại. Khách hàng vui lòng kiểm tra lãi suất mới nhất trên app MyVIB hoặc liên hệ hotline 1800 8180 (miễn phí, 24/7) để được cung cấp thông tin chính xác.",
+    "category": "savings",
+    "note": "Docs khong co bang lai suat cu the. Bot dung khi tra loi khong tim thay. Cap nhat de faithfulness=0 khi bot redirect dung."
+  },
+  {
+    "id": "rag_008",
+    "question": "Tôi có thể gửi tiết kiệm tại VIB với kỳ hạn bao lâu?",
+    "ground_truth_answer": "VIB cung cấp sổ tiết kiệm với nhiều kỳ hạn linh hoạt, từ rất ngắn (1 tuần, 2 tuần) đến dài hạn (lên đến 36 tháng hoặc hơn). Các kỳ hạn phổ biến bao gồm: 1 tháng, 3 tháng, 6 tháng, 9 tháng, 12 tháng, 18 tháng, 24 tháng.",
+    "category": "savings",
+    "note": "Cap nhat ground truth de khong false flag '1 tuan, 2 tuan' ma bot lay tu tai lieu."
+  },
+  {
+    "id": "rag_009",
+    "question": "Phí thường niên thẻ tín dụng VIB là bao nhiêu?",
+    "ground_truth_answer": "Phí thường niên thẻ tín dụng VIB tùy thuộc vào từng dòng thẻ. Ví dụ: thẻ VIB Online Plus 2in1 có phí thường niên thẻ chính khoảng 599.000 VND/năm, thẻ phụ khoảng 299.000 VND/năm. Một số dòng thẻ được miễn phí thường niên năm đầu hoặc miễn phí trọn đời khi đạt doanh số chi tiêu tối thiểu.",
+    "category": "credit_card",
+    "note": "Cap nhat ground truth voi muc phi cu the tu tai lieu de tranh false flag."
+  },
+  {
+    "id": "rag_010",
+    "question": "Tài sản thế chấp để vay vốn tại VIB gồm những loại nào?",
+    "ground_truth_answer": "Thông tin chi tiết về danh sách các loại tài sản thế chấp cụ thể mà VIB chấp nhận chưa được ghi nhận đầy đủ trong hệ thống tài liệu hiện tại. Về nguyên tắc, vay thế chấp dùng tài sản có giá trị (bất động sản, phương tiện, sổ tiết kiệm...) làm đảm bảo. Để biết danh sách tài sản cụ thể VIB chấp nhận, vui lòng liên hệ hotline 1800 8180.",
+    "category": "loan",
+    "note": "Docs khong liet ke danh sach tai san the chap cu the. Bot dung khi khong thay va redirect. Cap nhat lai."
+  }
+]

@@ -1,0 +1,342 @@
+{
+  "run_id": "20260508T023203Z",
+  "previous_run_id": "2026-05-08T02:30:11.527912+00:00",
+  "generated_at_utc": "2026-05-08T02:32:03.063821+00:00",
+  "summary": {
+    "total": 31,
+    "passed": 31,
+    "warnings": 0,
+    "failed": 0,
+    "info": 0,
+    "overall_status": "ok",
+    "warning_names": [],
+    "failed_names": []
+  },
+  "data_quality": [
+    {
+      "name": "raw_schema_columns",
+      "category": "data_quality",
+      "status": "ok",
+      "value": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "threshold": [
+        "InvoiceNo",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "UnitPrice",
+        "CustomerID",
+        "Country"
+      ],
+      "message": "all required columns present"
+    },
+    {
+      "name": "row_count_raw",
+      "category": "data_quality",
+      "status": "ok",
+      "value": 541909,
+      "threshold": null,
+      "message": "541,909 raw rows"
+    },
+    {
+      "name": "row_count_after_cleaning",
+      "category": "data_quality",
+      "status": "ok",
+      "value": 399652,
+      "threshold": null,
+      "message": "399,652 rows survive cleaning"
+    },
+    {
+      "name": "row_count_change_pct",
+      "category": "data_quality",
+      "status": "ok",
+      "value": 0.0,
+      "threshold": "|delta| <= 25.0%",
+      "message": "raw rows changed +0.00% vs previous run (541,909 -> 541,909)"
+    },
+    {
+      "name": "customer_id_null_ratio",
+      "category": "data_quality",
+      "status": "ok",
+      "value": 0.249267,
+      "threshold": "<= 0.4",
+      "message": "customer_id_null_ratio=0.2493 (warn if > 0.4)"
+    },
+    {
+      "name": "duplicate_ratio",
+      "category": "data_quality",
+      "status": "ok",
+      "value": 0.009721,
+      "threshold": "<= 0.1",
+      "message": "duplicate_ratio=0.0097 (warn if > 0.1)"
+    },
+    {
+      "name": "cancellation_ratio",
+      "category": "data_quality",
+      "status": "ok",
+      "value": 0.017139,
+      "threshold": "<= 0.1",
+      "message": "cancellation_ratio=0.0171 (warn if > 0.1)"
+    },
+    {
+      "name": "zero_or_negative_price_ratio",
+      "category": "data_quality",
+      "status": "ok",
+      "value": 0.004645,
+      "threshold": "<= 0.05",
+      "message": "zero_or_negative_price_ratio=0.0046 (warn if > 0.05)"
+    },
+    {
+      "name": "invoice_date_parse_fail_ratio",
+      "category": "data_quality",
+      "status": "ok",
+      "value": 0.0,
+      "threshold": "<= 0.01",
+      "message": "invoice_date_parse_fail_ratio=0.0000 (warn if > 0.01)"
+    }
+  ],
+  "feature_quality": [
+    {
+      "name": "n_customers",
+      "category": "feature_quality",
+      "status": "ok",
+      "value": 4333,
+      "threshold": null,
+      "message": "4,333 customers"
+    },
+    {
+      "name": "n_customers_change_pct",
+      "category": "feature_quality",
+      "status": "ok",
+      "value": 0.0,
+      "threshold": "|delta| <= 25.0%",
+      "message": "customers changed +0.00% vs previous (4,333 -> 4,333)"
+    },
+    {
+      "name": "feature_null_or_inf_total",
+      "category": "feature_quality",
+      "status": "ok",
+      "value": 0,
+      "threshold": "== 0",
+      "message": "per-feature nulls/infs: {'RecencyDays': {'nulls': 0, 'infs': 0}, 'Frequency': {'nulls': 0, 'infs': 0}, 'Monetary': {'nulls': 0, 'infs': 0}, 'AvgOrderValue': {'nulls': 0, 'infs': 0}, 'OrdersPerMonth': {'nulls': 0, 'infs': 0}, 'UniqueProducts': {'nulls': 0, 'infs': 0}, 'CancelRate': {'nulls': 0, 'infs': 0}, 'IsUK': {'nulls': 0, 'infs': 0}, 'TenureDays': {'nulls': 0, 'infs': 0}, 'SpendTrendScore': {'nulls': 0, 'infs': 0}}"
+    },
+    {
+      "name": "feature_sanity_bounds",
+      "category": "feature_quality",
+      "status": "ok",
+      "value": "all_within_bounds",
+      "threshold": null,
+      "message": "feature values respect expected ranges"
+    },
+    {
+      "name": "feature_distribution_psi",
+      "category": "feature_quality",
+      "status": "ok",
+      "value": {
+        "RecencyDays": 0.0,
+        "Frequency": 0.0,
+        "Monetary": 0.0,
+        "AvgOrderValue": 0.0,
+        "OrdersPerMonth": 0.0,
+        "UniqueProducts": 0.0,
+        "CancelRate": 0.0,
+        "IsUK": 0.0,
+        "TenureDays": 0.0,
+        "SpendTrendScore": 0.0
+      },
+      "threshold": "max PSI <= 0.2",
+      "message": "no overlapping numeric features"
+    }
+  ],
+  "model_quality": [
+    {
+      "name": "silhouette_score",
+      "category": "model_quality",
+      "status": "ok",
+      "value": 0.3688,
+      "threshold": ">= 0.2",
+      "message": "silhouette=0.3688"
+    },
+    {
+      "name": "davies_bouldin_score",
+      "category": "model_quality",
+      "status": "ok",
+      "value": 1.1714,
+      "threshold": "<= 2.0",
+      "message": "davies_bouldin=1.1714"
+    },
+    {
+      "name": "calinski_harabasz_score",
+      "category": "model_quality",
+      "status": "ok",
+      "value": 1804.61,
+      "threshold": null,
+      "message": "calinski_harabasz=1804.61 (trend only, no threshold)"
+    },
+    {
+      "name": "cluster_balance",
+      "category": "model_quality",
+      "status": "ok",
+      "value": {
+        "0": 0.4867,
+        "1": 0.424,
+        "2": 0.0893
+      },
+      "threshold": "min fraction >= 0.03",
+      "message": "min cluster fraction=0.0893 across k=3"
+    },
+    {
+      "name": "k_stability",
+      "category": "model_quality",
+      "status": "ok",
+      "value": 3,
+      "threshold": "== previous K (3)",
+      "message": "K=3, previous K=3"
+    }
+  ],
+  "business_metrics": [
+    {
+      "name": "recommendation_coverage",
+      "category": "business_metrics",
+      "status": "ok",
+      "value": 1.0,
+      "threshold": ">= 0.95",
+      "message": "100.00% of customers have at least one recommended SKU"
+    },
+    {
+      "name": "campaign_hints_coverage",
+      "category": "business_metrics",
+      "status": "ok",
+      "value": 1.0,
+      "threshold": ">= 0.95",
+      "message": "100.00% of customers have a non-empty campaign_hints tag"
+    },
+    {
+      "name": "churn_risk_score_distribution",
+      "category": "business_metrics",
+      "status": "ok",
+      "value": {
+        "mean": 48.2405,
+        "median": 42.23,
+        "p90": 73.776,
+        "mean_drift_pct": 0.0,
+        "median_drift_pct": 0.0
+      },
+      "threshold": "|drift| <= 20.0%",
+      "message": "churn_risk_score: mean drift +0.00%, median drift +0.00%"
+    },
+    {
+      "name": "clv_estimate_distribution",
+      "category": "business_metrics",
+      "status": "ok",
+      "value": {
+        "mean": 27905.6497,
+        "median": 4710.49,
+        "p90": 49967.136,
+        "mean_drift_pct": 0.0,
+        "median_drift_pct": 0.0
+      },
+      "threshold": "|drift| <= 20.0%",
+      "message": "clv_estimate: mean drift +0.00%, median drift +0.00%"
+    },
+    {
+      "name": "transactional_promoter_score_distribution",
+      "category": "business_metrics",
+      "status": "ok",
+      "value": {
+        "mean": 49.2268,
+        "median": 50.36,
+        "p90": 54.14,
+        "mean_drift_pct": 0.0,
+        "median_drift_pct": 0.0
+      },
+      "threshold": "|drift| <= 20.0%",
+      "message": "transactional_promoter_score: mean drift +0.00%, median drift +0.00%"
+    },
+    {
+      "name": "rfm_composite_score_distribution",
+      "category": "business_metrics",
+      "status": "ok",
+      "value": {
+        "mean": 60.0,
+        "median": 60.0,
+        "p90": 93.33,
+        "mean_drift_pct": 0.0,
+        "median_drift_pct": 0.0
+      },
+      "threshold": "|drift| <= 20.0%",
+      "message": "rfm_composite_score: mean drift +0.00%, median drift +0.00%"
+    },
+    {
+      "name": "segment_distribution_drift",
+      "category": "business_metrics",
+      "status": "ok",
+      "value": {
+        "current": {
+          "0": 0.4867,
+          "1": 0.424,
+          "2": 0.0893
+        },
+        "previous": {
+          "0": 0.4867,
+          "1": 0.424,
+          "2": 0.0893
+        },
+        "l1_half_pct": 0.0
+      },
+      "threshold": "L1/2 <= 15.0%",
+      "message": "segment mix L1/2 distance vs previous: 0.00%"
+    }
+  ],
+  "regression_vs_previous": [
+    {
+      "name": "customers_intersection",
+      "category": "regression",
+      "status": "ok",
+      "value": 4333,
+      "threshold": null,
+      "message": "4,333 customers present in both runs"
+    },
+    {
+      "name": "segment_change_rate",
+      "category": "regression",
+      "status": "ok",
+      "value": 0.0,
+      "threshold": "<= 0.3",
+      "message": "Note: cluster IDs are not stable across runs by default; 0.00% of common customers changed segment_id label"
+    },
+    {
+      "name": "churn_risk_score_stability",
+      "category": "regression",
+      "status": "ok",
+      "value": 0.0,
+      "threshold": "<= 20.0%",
+      "message": "per-customer mean |%change| of churn_risk_score: 0.00%"
+    },
+    {
+      "name": "clv_estimate_stability",
+      "category": "regression",
+      "status": "ok",
+      "value": 0.0,
+      "threshold": "<= 20.0%",
+      "message": "per-customer mean |%change| of clv_estimate: 0.00%"
+    },
+    {
+      "name": "transactional_promoter_score_stability",
+      "category": "regression",
+      "status": "ok",
+      "value": 0.0,
+      "threshold": "<= 20.0%",
+      "message": "per-customer mean |%change| of transactional_promoter_score: 0.00%"
+    }
+  ]
+}

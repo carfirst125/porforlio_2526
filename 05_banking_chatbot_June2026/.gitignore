@@ -1,0 +1,48 @@
+# ================================
+# Secrets
+# ================================
+.env
+*.key
+*.pem
+
+# ================================
+# Vectorstore (ChromaDB / HNSWLIB) — quá lớn cho GitHub
+# ================================
+data/vectorstore/
+*.bin
+*.sqlite3
+*.pickle
+*.pkl
+
+# ================================
+# Runtime data — conversations & logs
+# ================================
+data/conversations/
+logs/
+*.log
+
+# ================================
+# Evaluation results (generated, không cần commit)
+# ================================
+evaluation/results/
+
+# ================================
+# Python cache
+# ================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ================================
+# IDE / OS
+# ================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

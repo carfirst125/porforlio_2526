@@ -1,0 +1,61 @@
+[
+  {
+    "id": "adv_001",
+    "domain": "credit_card",
+    "opening_message": "Tôi muốn mở thẻ tín dụng nhưng không biết nên chọn loại nào",
+    "user_profile": {
+      "thu_nhap_hang_thang": "15 triệu",
+      "muc_chi_tieu_chu_yeu": "mua sắm online và ăn uống nhà hàng",
+      "uu_tien_quyen_loi": "hoàn tiền cashback",
+      "co_the_hien_tai": "chưa có thẻ tín dụng ngân hàng nào"
+    },
+    "note": "KH trẻ, chi tiêu online, muốn cashback"
+  },
+  {
+    "id": "adv_002",
+    "domain": "credit_card",
+    "opening_message": "Bạn có thể tư vấn thẻ tín dụng phù hợp với tôi không? Thu nhập tôi khoảng 30 triệu mỗi tháng",
+    "user_profile": {
+      "thu_nhap_hang_thang": "30 triệu",
+      "muc_chi_tieu_chu_yeu": "du lịch và ăn uống cao cấp",
+      "uu_tien_quyen_loi": "tích dặm bay và phòng chờ sân bay",
+      "co_the_hien_tai": "đang dùng thẻ Vietcombank"
+    },
+    "note": "KH thu nhập cao, hay đi du lịch, muốn đổi thẻ"
+  },
+  {
+    "id": "adv_003",
+    "domain": "loan",
+    "opening_message": "Tôi muốn vay tiền mua nhà, cần tư vấn xem vay được bao nhiêu",
+    "user_profile": {
+      "muc_dich_vay": "mua nhà ở để ở",
+      "so_tien_can_vay": "1.5 tỷ đồng",
+      "thu_nhap_hang_thang": "20 triệu",
+      "tai_san_the_chap": "có sổ đỏ của mảnh đất định mua"
+    },
+    "note": "KH vay mua nhà, có tài sản thế chấp"
+  },
+  {
+    "id": "adv_004",
+    "domain": "insurance",
+    "opening_message": "Tôi đang nghĩ đến việc mua bảo hiểm cho gia đình",
+    "user_profile": {
+      "tuoi": "35 tuổi",
+      "tinh_trang_gia_dinh": "đã kết hôn, có 1 con nhỏ 3 tuổi",
+      "muc_dich_bao_hiem": "bảo vệ gia đình và tích lũy cho con học đại học",
+      "ngan_sach_hang_thang": "khoảng 3 triệu mỗi tháng"
+    },
+    "note": "KH có gia đình, muốn bảo vệ + tích lũy dài hạn"
+  },
+  {
+    "id": "adv_005",
+    "domain": "savings",
+    "opening_message": "Tôi có khoảng 200 triệu muốn gửi tiết kiệm",
+    "user_profile": {
+      "so_tien_gui": "200 triệu đồng",
+      "thoi_han_gui": "6 tháng, có thể gia hạn",
+      "muc_tieu": "lãi suất cao nhất có thể, nhưng cần linh hoạt rút nếu cần"
+    },
+    "note": "KH có tiền nhàn rỗi, ưu tiên lãi suất cao + thanh khoản"
+  }
+]
