@@ -63,3 +63,9 @@ This portfolio showcases three end-to-end AI & Machine Learning demo projects th
 - Exposed trained models through a RESTful inference API using FastAPI, supporting real-time prediction requests and demonstrating the transition from experimental ML code to a production-oriented MLOps workflow.
 
 # END
+
+trong ./ai-squad-dco-db-1210-inventory, bạn kiểm tra và sửa lại giúp tôi:
+Mỗi row = 1 (request_id, version_id, image_model), có created_at. Bạn thêm cho tôi cột request_name ghi lưu tên của request.json input. Với mỗi bước TEXT_GEN_LLM/IMAGE_GENERATION/LLM_AS_JUDGE/IMAGE_GENERATION_2 có đủ 5 cột _prompt/_input_token/_output_token/_elapsed_time/_response như yêu cầu.
+Tuy nhiên khi tôi chạy thử, tôi kiểm tra thì các công ví dụ _input_token/_output_token chỉ có image_generation có thông tin, còn các nôi dung khác như TEXT_GEN_LLM/LLM_AS_JUDGE/IMAGE_GENERATION_2 không có nội dung, các cột _elapsed_time _response cũng ko thấy có nội dung được capture. 
+
+Về phần webapp, bạn hiển thị cho tôi nguyên bảng trong Model Usage Log ở trang Generate, ko hiển thị riêng từng phần TEXT_GEN_LLM/IMAGE_GENERATION/LLM_AS_JUDGE/IMAGE_GENERATION_2 như hiện tại.
