@@ -1,0 +1,25 @@
+### Guideline: banner_popup_noti
+BANNER POP-UP/NOTI
+
+3. TITLE HOẶC SLOGAN
+- Font chữ: Manrope Bold
+- Cỡ chữ: 57pt
+- Canh lề: Canh phải
+- Màu chữ: Dòng 1 dùng màu #E39717 (cam vàng); Dòng 2 dùng màu #079F42 (xanh lá)
+
+4. BIÊN AN TOÀN
+- Giữ khoảng cách giữa vùng minh họa (bao gồm cả title/slogan) đến các cạnh của banner một khoảng giới hạn ít nhất: trái 130px, phải 131px, trên 48px, dưới 48px
+- Không có ngoại lệ: mọi yếu tố (bao gồm cả hình ảnh điện thoại có giao diện app) không được vượt ra ngoài biên an toàn
+
+5. HÌNH ẢNH
+- Hình ảnh chính: Chọn lọc tiêu biểu cho nội dung cốt lõi và key-visual (nếu có). Sử dụng nhóm màu của bảng màu quy chuẩn chung
+- Hình ảnh bổ trợ: Bổ nghĩa cho hình ảnh chính một cách có liên quan
+- Hình ảnh phụ họa: Số lượng tối đa 3 chủ thể, toát lên tinh thần cốt lõi của đề tài/chương trình hoặc hiệu ứng (lấp lánh, magic, ...)
+- Lưu ý riêng: đối với các noti gắn với chương trình marketing đơn lẻ (không phát sinh banner trên trang chủ, chỉ mang tính gợi ý hữu ích) thì hình ảnh sử dụng theo key-visual của chương trình đó
+
+6. VỊ TRÍ HIỂN THỊ
+- Hiển thị trong mục "Thông báo" của app: dạng thẻ (card) trong danh sách "Hôm nay", gồm ảnh minh họa banner bên trái, tiêu đề in đậm và mô tả ngắn bên dưới
+- Khi bấm vào thẻ thông báo, hiển thị dạng popup chi tiết toàn màn hình: banner minh họa ở phía trên, nội dung chi tiết chương trình bên dưới, có nút đóng (X) ở góc trên bên phải để tắt popup
+
+### Guideline: banner_general_standard
+Quy chuẩn chung về màu sắc và phong cách thiết kế. (1) Màu nền: sử dụng gradient cố định chạy từ mã màu #F5FFF2 đến #B7F3B7. (2) Bảng màu hình minh họa chủ đạo: là tập hợp các mã màu dùng làm màu chính cho hình vẽ minh họa, chiếm phần lớn diện tích thiết kế; được phép sử dụng các màu lân cận trong bảng nhưng không được lệch tông màu quá xa so với bảng màu quy định. (3) Bảng màu điểm nhấn: là tập hợp các mã màu dùng để nhấn mạnh, chỉ nên chiếm khoảng 5-10% diện tích tổng thể, và phải được bố trí ở vị trí trọng tâm, gắn liền hoặc nằm gần chủ thể chính của thiết kế. (4) Phong cách: bắt buộc sử dụng hình vẽ minh họa dạng 2D phẳng (flat design); nghiêm cấm sử dụng hình ảnh chụp, hình ảnh tả thực hoặc hình ảnh 3D. (5) Đường viền: quy định 3 mức độ đậm của nét viền là 0px, 3px và 6px, lựa chọn mức độ đậm tùy theo tầm quan trọng của hình ảnh/chủ thể trong thiết kế - hình ảnh càng quan trọng, càng là trọng tâm thì viền càng đậm.

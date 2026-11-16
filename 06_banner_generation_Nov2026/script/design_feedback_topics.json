@@ -1,0 +1,100 @@
+{
+  "topics": [
+    {
+      "topic": "Đổi thuật ngữ 'Autobill' thành 'Thanh toán tự động'",
+      "ids": ["A001", "A003", "A004", "A005", "A007"]
+    },
+    {
+      "topic": "Bổ sung dòng disclaimer nhỏ 'Chỉ áp dụng lần đăng ký đầu tiên'",
+      "ids": ["A001", "A003", "A004", "A005", "A006", "A007", "A008", "A009", "A010", "A011", "A012", "A013"]
+    },
+    {
+      "topic": "Nội dung mơ hồ, cần làm rõ loại dịch vụ/sản phẩm (nạp cước, nạp điện thoại, taxi/bike...)",
+      "ids": ["A008", "A009", "A010", "A011", "A012", "A013", "A029", "A033"]
+    },
+    {
+      "topic": "CTA quá dài, cần rút ngắn còn 2-3 từ",
+      "ids": ["A020", "A021", "A023", "A024", "A026", "A027", "A044", "A046", "A048", "A063", "A090"]
+    },
+    {
+      "topic": "CTA quá ngắn, chưa đủ 2 từ",
+      "ids": ["A058"]
+    },
+    {
+      "topic": "CTA quá nhỏ hoặc vị trí chưa nổi bật",
+      "ids": ["A050", "A055", "A098"]
+    },
+    {
+      "topic": "Gợi ý đổi câu chữ CTA cụ thể",
+      "ids": ["A014", "A022", "A056", "A061", "A063", "A091", "A093", "A094", "A095", "A096", "A112", "A113", "A114", "A116", "A117", "A118", "A119", "A127", "A128", "A129", "A130", "A131", "A132", "A133", "A134", "A135"]
+    },
+    {
+      "topic": "Thiếu nút CTA",
+      "ids": ["A030"]
+    },
+    {
+      "topic": "Check lại màu theme",
+      "ids": ["A006", "A054", "A055", "A101", "A102", "A103"]
+    },
+    {
+      "topic": "Màu/thiết kế giống thương hiệu khác (VPBank)",
+      "ids": ["A102", "A103"]
+    },
+    {
+      "topic": "Hình ảnh nhân vật/hành động không tự nhiên hoặc không phù hợp",
+      "ids": ["A006", "A027", "A067", "A115"]
+    },
+    {
+      "topic": "Sai hoặc cần lấy đúng hình ảnh Thẻ World",
+      "ids": ["A062", "A063", "A064", "A065", "A066", "A067", "A068"]
+    },
+    {
+      "topic": "Hình sản phẩm không nổi bật, thiếu mobile mockup thể hiện tính năng",
+      "ids": ["A052", "A054", "A055"]
+    },
+    {
+      "topic": "Hình ảnh/minh họa không thể hiện đúng hoặc không phù hợp với sản phẩm, tính năng",
+      "ids": ["A043", "A064", "A068", "A069", "A070", "A071", "A073", "A074", "A076", "A078", "A080", "A112", "A127", "A128", "A129", "A130", "A131", "A132", "A134", "A135"]
+    },
+    {
+      "topic": "Lặp từ",
+      "ids": ["A036", "A038", "A041", "A113", "A114", "A116", "A117", "A118", "A119"]
+    },
+    {
+      "topic": "Nội dung/text sai thông tin hoặc không chính xác",
+      "ids": ["A007", "A038", "A041", "A090", "A104", "A105", "A106", "A107", "A108", "A110"]
+    },
+    {
+      "topic": "Không dùng từ viết tắt/tiếng Anh (VD: ADSL)",
+      "ids": ["A022", "A027"]
+    },
+    {
+      "topic": "Văn phong cần chỉnh sửa lại",
+      "ids": ["A098", "A099"]
+    },
+    {
+      "topic": "Text/headline bị bóp, cần điều chỉnh bố cục",
+      "ids": ["A057", "A097"]
+    },
+    {
+      "topic": "Thiếu từ/thành phần nội dung quan trọng (quẹt thẻ, hình QR, keyword, tính năng)",
+      "ids": ["A034", "A078", "A089", "A090"]
+    },
+    {
+      "topic": "Bỏ chữ/logo thương hiệu không cần thiết (OCB)",
+      "ids": ["A014"]
+    },
+    {
+      "topic": "Gợi ý nội dung/thông điệp mô tả sản phẩm cụ thể",
+      "ids": ["A035", "A061", "A062", "A063", "A065", "A066", "A067", "A068", "A127", "A128", "A129", "A133"]
+    },
+    {
+      "topic": "Gợi ý thêm nhân vật vào thiết kế để sinh động hơn",
+      "ids": ["A127", "A128", "A129", "A130", "A131", "A132"]
+    },
+    {
+      "topic": "Highlight nội dung ưu đãi chính, bỏ phần text liên quan an toàn/rủi ro",
+      "ids": ["A120", "A121", "A122", "A123", "A124", "A125", "A126"]
+    }
+  ]
+}

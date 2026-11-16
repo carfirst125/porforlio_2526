@@ -1,0 +1,1734 @@
+{
+  "schema_version": "2.0",
+  "schema_notes": "Technique catalog for both manual prompt assembly and LLM-assisted selection. Exact object keys remain backward-compatible identifiers; selectors must return only exact keys from design_techniques.",
+  "selection_policy": {
+    "min_per_group": 0,
+    "max_per_group": 3,
+    "prefer_fewer_when_sufficient": true,
+    "max_total_per_version": 6,
+    "must_not_force_irrelevant_technique": true,
+    "group_order": [
+      "background",
+      "decoration",
+      "product"
+    ]
+  },
+  "group_definitions": {
+    "background": "Large-scale treatment that establishes the full-canvas environment, color field, spatial depth, or primary backdrop structure.",
+    "decoration": "Secondary accents and campaign motifs that support rhythm, occasion, motion, or atmosphere without becoming the hero content.",
+    "product": "Foreground hero-product, device, approved subject, typography, or asset-integration treatment that affects the primary communication object."
+  },
+  "metadata_contract": {
+    "brand": "Mã brand/ngân hàng mà technique này thuộc về (vd 'general', 'acb', 'vpb', 'vcb'); 'general' nghĩa là kỹ thuật chung, không gắn riêng brand nào.",
+    "tags": "Search and reasoning vocabulary; not rendered as visible content.",
+    "occasion": "generic or explicit campaign occasions required for seasonal motifs.",
+    "visual_density": "low, medium, or high; use with num_decorative_elements and canvas crowding.",
+    "preconditions": "All stated conditions must be satisfied or strongly supported by the request before selection.",
+    "avoid_when": "Negative applicability signals; selectors should reject the technique when any statement clearly applies.",
+    "incompatible_with": "Technique keys that should not appear in the same version unless a human explicitly overrides the conflict.",
+    "works_well_with": "Non-binding compatible pair suggestions; never a requirement to select both.",
+    "selection_notes": "Additional expert guidance for selection and deterministic review; not visible artwork."
+  },
+  "design_techniques": {
+    "silhoutte_watermark": {
+      "group": "background",
+      "brand": "general",
+      "label": "Silhouette Watermark",
+      "description": "Ẩn một silhouette (theo đề tài của design brief chọn hình ảnh phù hợp) vào trong nền/gradient ở độ mờ rất thấp, tạo chiều sâu và câu chuyện mà không làm rối mắt hay lấn át sản phẩm.",
+      "opacity_range_pct": [
+        10,
+        15
+      ],
+      "blend_mode": "multiply_or_overlay",
+      "keywords": [
+        "silhouette watermark",
+        "low-opacity motif blend",
+        "double exposure effect",
+        "tonal silhouette embedded in gradient",
+        "negative space storytelling"
+      ],
+      "prompt_instruction": "Subtly embed within the background gradient, at very low opacity (around 10-15%), a faint silhouette of a motif relevant to the design brief/theme (e.g. a person's side profile, a landmark/building, a branch or leaf shape, etc.). Blend it seamlessly into the background tone using a soft multiply/overlay blend so it reads as a tonal variation rather than a distinct object -- visible only on close inspection, adding depth and narrative without competing with the foreground product. Do NOT render it as a separate, sharply outlined layer or a distinct illustration.",
+      "aliases": [
+        "silhouette_watermark"
+      ],
+      "tags": [
+        "subtle",
+        "tonal",
+        "storytelling",
+        "negative-space"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [],
+      "avoid_when": [
+        "The background is already visually dense or the brief requires a clean flat field."
+      ],
+      "incompatible_with": [
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "theme_color_gradient_wash",
+        "editorial_negative_space"
+      ],
+      "selection_notes": "Use a single brief-relevant silhouette, never a random decorative subject."
+    },
+    "textured_surface": {
+      "group": "background",
+      "brand": "general",
+      "label": "Textured Surface Background",
+      "description": "Nền không phẳng màu mà có vân loang tự nhiên như đá cẩm thạch/vải nhung, tạo cảm giác sang trọng và chiều sâu vật lý.",
+      "keywords": [
+        "organic mottled texture",
+        "matte stone/velvet surface",
+        "tonal variation",
+        "painterly backdrop"
+      ],
+      "prompt_instruction": "Render the background with an organic mottled texture -- natural tonal variation like matte stone, marble, or velvet fabric -- rather than a perfectly flat or perfectly smooth gradient. Keep the variation subtle and premium-looking, never noisy or distracting, and never obscure the product/text areas.",
+      "tags": [
+        "premium",
+        "tactile",
+        "material",
+        "tonal-depth"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [],
+      "avoid_when": [
+        "The campaign explicitly requires a flat vector or strict minimal UI aesthetic."
+      ],
+      "incompatible_with": [
+        "duotone_diagonal_split",
+        "comic_burst_rays",
+        "tech_pattern_overlay",
+        "mesh_gradient_depth",
+        "glassmorphism_accent_shapes"
+      ],
+      "works_well_with": [
+        "radial_spotlight",
+        "hero_pedestal_stage"
+      ],
+      "selection_notes": ""
+    },
+    "radial_spotlight": {
+      "group": "background",
+      "brand": "general",
+      "label": "Radial Spotlight / Halo + Framing",
+      "description": "Vòng sáng mềm (halo) phía sau vùng đặt chữ/sản phẩm, kết hợp các khung hình học, đường cong mềm hoặc các dải sáng trừu tượng, tạo chiều sâu và dẫn hướng ánh nhìn vào trọng tâm.",
+      "keywords": [
+        "soft radial spotlight/halo",
+        "vignette focus glow",
+        "organic framing elements"
+      ],
+      "prompt_instruction": "Create one soft radial spotlight or elliptical halo behind the primary focal area, with a broad feathered falloff and a light direction consistent with the scene. Use it to separate the hero product or approved message zone from the background while preserving natural color and material. Keep the glow open and atmospheric—never turn it into a closed ring, frame, rounded panel, border, or luminous outline around the whole banner—and do not wash out required text, logos, faces, or product artwork.",
+      "tags": [
+        "focus",
+        "halo",
+        "premium",
+        "depth"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [],
+      "avoid_when": [
+        "The brief calls for deliberately flat, shadowless editorial graphics."
+      ],
+      "incompatible_with": [
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "textured_surface",
+        "hero_pedestal_stage",
+        "premium_reflection_glow"
+      ],
+      "selection_notes": ""
+    },
+    "background_defocus_falloff": {
+      "group": "background",
+      "brand": "general",
+      "label": "Depth-of-Field Defocus Falloff",
+      "description": "Chỉ giữ nét trong một dải hẹp quanh nhân vật/sản phẩm, phần còn lại của ảnh nền (cảnh thật, chi tiết) chuyển dần thành out-of-focus/bokeh theo khoảng cách tới điểm lấy nét -- giống hiệu ứng khẩu độ lớn trong nhiếp ảnh. Giúp nền chi tiết 'tan' vào các vùng màu lớn, nhường không gian cho gradient màu chủ đạo thay vì cảnh thật lấn hết khung hình.",
+      "keywords": [
+        "shallow depth of field",
+        "background bokeh defocus",
+        "focus falloff from subject to edges",
+        "large-aperture photographic look"
+      ],
+      "prompt_instruction": "Render the background reference with a shallow depth-of-field look: keep a narrow band directly around the subject/product in sharp focus, then progressively defocus/blur the rest of the scene (shelves, counters, background details) the farther it is from that focal point -- like a large-aperture photographic lens (f/1.4-f/2.8), not a uniform blur. The out-of-focus areas should read as soft bokeh, allowing them to recede visually rather than competing with the subject for attention. Never blur the subject, product, headline text, or logo themselves.",
+      "tags": [
+        "photographic",
+        "depth-of-field",
+        "focus",
+        "bokeh"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A photographic or spatial background scene is present or explicitly requested."
+      ],
+      "avoid_when": [
+        "The background is flat vector art, a pure gradient, or contains no spatial scene to defocus."
+      ],
+      "incompatible_with": [
+        "duotone_diagonal_split",
+        "comic_burst_rays",
+        "tech_pattern_overlay"
+      ],
+      "works_well_with": [
+        "theme_color_gradient_wash",
+        "colored_corner_vignette"
+      ],
+      "selection_notes": ""
+    },
+    "theme_color_gradient_wash": {
+      "group": "background",
+      "brand": "general",
+      "label": "Theme Color Gradient Wash",
+      "description": "Một lớp gradient màu chủ đạo (theme color) phủ lên nền, độ đậm tăng dần từ vùng lấy nét trung tâm ra các góc/viền khung, khiến nền thật (nếu có) chỉ còn hiện diện rõ ở giữa còn các góc ngả hẳn thành mảng màu thương hiệu mượt mà. Khác với silhouette_watermark (ẩn 1 hoạ tiết mờ) hay tech_pattern_overlay (hoạ tiết hình học) -- đây là phủ màu thuần, không hoạ tiết.",
+      "keywords": [
+        "ambient theme color wash",
+        "gradient intensifying toward edges/corners",
+        "soft-light or multiply color overlay",
+        "background color dominance"
+      ],
+      "prompt_instruction": "Apply a soft ambient color wash in the campaign's dominant theme color over the background, using a soft-light or multiply blend so it intensifies gradually from the central focal area out toward the edges and corners. The far corners/edges should read as a smooth, mostly solid gradient in the theme color, with any literal background scene fading beneath it -- ensure the theme color visually dominates at least 40-50% of the total canvas area, especially the top and bottom corners. Do not let the wash flatten or discolor the subject, product, headline text, or logo.",
+      "tags": [
+        "brand-color",
+        "gradient",
+        "cohesion",
+        "full-bleed"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A dominant campaign or brand color can be inferred from the request."
+      ],
+      "avoid_when": [
+        "Accurate natural product color would be contaminated by a strong global color cast."
+      ],
+      "incompatible_with": [
+        "duotone_diagonal_split"
+      ],
+      "works_well_with": [
+        "background_defocus_falloff",
+        "silhoutte_watermark",
+        "soft_bokeh_sparkles"
+      ],
+      "selection_notes": ""
+    },
+    "colored_corner_vignette": {
+      "group": "background",
+      "brand": "general",
+      "label": "Colored Corner Vignette",
+      "description": "Vignette màu (thay cho vignette đen/trắng truyền thống): thu hẹp vùng ảnh sắc nét/chi tiết vào giữa quanh chủ thể, còn bốn góc phủ đậm dần quầng màu chủ đạo, giúp 'recede' nền thật để làm nổi chủ thể và card sản phẩm, đồng thời tăng diện tích màu thương hiệu ở góc khung.",
+      "keywords": [
+        "colored vignette (not black/white)",
+        "corner color falloff",
+        "subject-recede background treatment",
+        "brand color corner emphasis"
+      ],
+      "prompt_instruction": "Apply a gradual falloff of the approved dominant color only within genuinely open corner areas, increasing color presence toward selected corners while keeping the hero subject and message zone neutral, clear, and correctly exposed. The transition must be broad, asymmetric when the composition requires it, and continuous with the full-bleed background; never create a dark vignette ring, enclosing halo, frame, border, or visible oval around the content.",
+      "tags": [
+        "brand-color",
+        "edge-control",
+        "focus",
+        "photographic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A clear central or off-center hero subject exists and a dominant color is known."
+      ],
+      "avoid_when": [
+        "The brief requires uniform flat color or the corners contain required content."
+      ],
+      "incompatible_with": [
+        "duotone_diagonal_split",
+        "editorial_negative_space"
+      ],
+      "works_well_with": [
+        "background_defocus_falloff",
+        "radial_spotlight"
+      ],
+      "selection_notes": "This is a gradual color falloff at open corners, never an enclosing ring, frame, or dark border."
+    },
+    "duotone_diagonal_split": {
+      "group": "background",
+      "brand": "general",
+      "label": "Duotone Diagonal Split",
+      "description": "Nền chia thành 2 mảng màu tương phản theo đường chéo, ranh giới là một dải ruy băng lượn sóng thay vì đường thẳng cứng, tạo cảm giác trẻ trung, năng động và phân vùng bố cục rõ ràng mà không cần khung kẻ.",
+      "keywords": [
+        "duotone diagonal split background",
+        "wavy ribbon color boundary",
+        "two-tone contrasting color blocks",
+        "dynamic diagonal layout"
+      ],
+      "prompt_instruction": "Split the background into two contrasting color blocks arranged diagonally (e.g. one color lower-left, the complementary/theme-accent color upper-right), with the boundary between them rendered as a soft flowing wavy ribbon shape rather than a hard straight line. Use this split to visually separate the character/subject zone from the headline/content zone, keeping both colors clean, flat, and consistent with the theme palette -- never introduce a third unrelated hue at the seam.",
+      "tags": [
+        "graphic",
+        "duotone",
+        "youthful",
+        "zoning"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The campaign supports a bold graphic treatment and has two compatible palette colors."
+      ],
+      "avoid_when": [
+        "The request relies on a continuous realistic location or a restrained premium photographic mood."
+      ],
+      "incompatible_with": [
+        "textured_surface",
+        "theme_color_gradient_wash",
+        "colored_corner_vignette",
+        "mesh_gradient_depth",
+        "background_defocus_falloff",
+        "horizon_skyline_layer",
+        "architectural_light_planes",
+        "organic_ribbon_flow"
+      ],
+      "works_well_with": [
+        "geometric_corner_accents",
+        "feature_icon_cluster"
+      ],
+      "selection_notes": ""
+    },
+    "horizon_skyline_layer": {
+      "group": "background",
+      "brand": "general",
+      "label": "Horizon Skyline Layer",
+      "description": "Một dải bóng công trình/tòa nhà xếp lớp (layered cityscape) chạy dọc theo chân nền, độ mờ cao hơn silhouette watermark, đóng vai trò một lớp bối cảnh thị giác rõ ràng, tạo chiều sâu 3 lớp (trời — skyline — nhân vật/sản phẩm).",
+      "keywords": [
+        "layered city skyline silhouette",
+        "horizon backdrop band",
+        "three-layer depth (sky, skyline, subject)",
+        "flat silhouette cityscape strip"
+      ],
+      "prompt_instruction": "Add a layered city/architecture skyline silhouette running along the lower portion of the background, rendered as flat, clearly visible (not barely-perceptible) shapes stacked at slightly different tones/depths to suggest layers. This band should read as an intentional scenic backdrop -- creating a clear sense of three depth layers (sky/gradient, skyline band, subject/product in front) -- while staying subordinate in contrast and detail to the product and headline text.",
+      "tags": [
+        "cityscape",
+        "depth-layers",
+        "urban",
+        "horizon"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "An urban, travel, growth, property, or city-related context is relevant to the brief."
+      ],
+      "avoid_when": [
+        "The campaign setting is explicitly rural, domestic, nature-only, or requires a clean abstract background."
+      ],
+      "incompatible_with": [
+        "duotone_diagonal_split",
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "theme_color_gradient_wash",
+        "architectural_light_planes"
+      ],
+      "selection_notes": ""
+    },
+    "comic_burst_rays": {
+      "group": "background",
+      "brand": "general",
+      "label": "Comic / Halftone Burst Rays",
+      "description": "Các tia sáng có cạnh cứng, đôi khi kèm chấm bi (halftone dot) toả ra từ một điểm phía sau nhân vật/điện thoại, tạo cảm giác bùng nổ/năng lượng, hợp phong cách Gen Z, campaign giảm giá sốc. Là biến thể đồ hoạ, góc cạnh của radial_spotlight (vốn là glow mềm, mượt).",
+      "keywords": [
+        "comic-style burst rays",
+        "halftone dot pattern",
+        "hard-edged radiating sunburst",
+        "energetic pop-art explosion"
+      ],
+      "prompt_instruction": "Add hard-edged, graphic sunburst rays radiating outward from a single point behind the main character/product, optionally combined with a subtle halftone dot pattern near the burst center. Keep the rays flat and graphic (comic/pop-art style, not a soft glow), using colors close to the theme palette, and keep them visually subordinate -- energetic supporting decoration behind the subject, never overpowering the product, text, or logo.",
+      "tags": [
+        "pop-art",
+        "energetic",
+        "youthful",
+        "promotion"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The campaign tone is youthful, playful, urgent, or promotion-led."
+      ],
+      "avoid_when": [
+        "The campaign is premium, solemn, corporate, wealth-management, or photographically restrained."
+      ],
+      "incompatible_with": [
+        "radial_spotlight",
+        "textured_surface",
+        "background_defocus_falloff",
+        "silhoutte_watermark",
+        "horizon_skyline_layer",
+        "architectural_light_planes",
+        "abstract_light_trails",
+        "geometric_corner_accents",
+        "soft_bokeh_sparkles",
+        "glassmorphism_accent_shapes",
+        "data_flow_accents",
+        "premium_reflection_glow"
+      ],
+      "works_well_with": [
+        "numeric_ribbon_badge",
+        "geometric_corner_accents"
+      ],
+      "selection_notes": ""
+    },
+    "floating_reward_particles": {
+      "group": "decoration",
+      "brand": "general",
+      "label": "Floating Reward Particles",
+      "description": "Lớp trang trí rải rác toàn khung hình gồm đồng xu vàng, tờ tiền bay, hộp quà nhỏ, hoặc hạt sparkle/glitter -- mang ý nghĩa thưởng/tài lộc/khuyến mãi, khác với khung hoa lá cố định ở góc (organic framing elements).",
+      "keywords": [
+        "floating coins/money particles",
+        "confetti/sparkle scatter",
+        "reward and prize motif",
+        "gift box particles"
+      ],
+      "prompt_instruction": "Use one coherent family of small reward-related particles that is explicitly relevant to the brief—such as coins, vouchers, gift tokens, or restrained celebratory sparkles—distributed at varied scale and depth through open background space. Keep the count controlled and the focal hierarchy clear; do not mix unrelated reward symbols, invent financial values, or place particles over required text, faces, logos, UI, or the product silhouette.",
+      "tags": [
+        "reward",
+        "promotion",
+        "celebration",
+        "particles"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief communicates rewards, cashback, gifts, prizes, savings, or celebration."
+      ],
+      "avoid_when": [
+        "The campaign is informational, solemn, minimal, or has no reward/celebration meaning."
+      ],
+      "incompatible_with": [
+        "editorial_negative_space",
+        "product_lineup_strip",
+        "feature_icon_cluster"
+      ],
+      "works_well_with": [
+        "product_pop_out_frame",
+        "soft_bokeh_sparkles"
+      ],
+      "selection_notes": "Use one restrained particle family; do not mix coins, banknotes, gifts, and confetti unless the brief explicitly requires that breadth."
+    },
+    "tech_pattern_overlay": {
+      "group": "background",
+      "brand": "general",
+      "label": "Tech Pattern Overlay",
+      "description": "Các khối đa giác abstract, đường lưới (grid) mờ phía sau nhân vật/sản phẩm — gợi cảm giác app/số hoá. Cùng nhóm độ mờ thấp, không cạnh tranh với chủ thể như textured_surface, nhưng là hoạ tiết hình học/công nghệ chứ không phải vân đá/nhung tự nhiên.",
+      "opacity_range_pct": [
+        8,
+        20
+      ],
+      "keywords": [
+        "abstract polygon grid overlay",
+        "low-opacity tech/digital pattern",
+        "geometric line mesh background",
+        "app/fintech visual texture"
+      ],
+      "prompt_instruction": "Overlay a faint geometric pattern on the background -- abstract low-poly shapes, a fine grid mesh, or thin connecting lines -- at low opacity (roughly 8-20%), suggesting a digital/app/fintech feel. Keep it subtle and evenly distributed behind the character or product, never sharp or high-contrast enough to compete with the subject, headline, or logo.",
+      "tags": [
+        "fintech",
+        "digital",
+        "grid",
+        "technology"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief concerns digital banking, an app, data, connectivity, payments, or technology."
+      ],
+      "avoid_when": [
+        "The requested mood is organic, handcrafted, heritage, or strongly photographic without a digital theme."
+      ],
+      "incompatible_with": [
+        "background_defocus_falloff",
+        "textured_surface",
+        "data_flow_accents"
+      ],
+      "works_well_with": [
+        "feature_icon_cluster",
+        "live_app_ui_mockup",
+        "data_flow_accents"
+      ],
+      "selection_notes": ""
+    },
+    "character_cutout_ground_shadow": {
+      "group": "product",
+      "brand": "general",
+      "label": "Photographic Subject Cutout + Grounding Shadow",
+      "description": "Tích hợp nhân vật ảnh thật dạng cutout vào foreground bằng bóng tiếp xúc hoặc grounding light đúng phối cảnh, giữ nguyên tuyệt đối nhận diện, pose, trang phục và realism để tránh cảm giác asset bị dán lên nền.",
+      "keywords": [
+        "photo cutout character",
+        "soft contact/ground shadow",
+        "anchoring glow beneath feet",
+        "grounded compositing"
+      ],
+      "prompt_instruction": "Integrate the supplied or explicitly requested human subject as a clean foreground cutout while preserving identity, facial features, skin tone, clothing, pose, expression, body proportions, and photographic realism. Add only a subtle contact shadow or localized grounding light beneath the visible base/feet, matched to the scene perspective and light direction; never add a sticker outline, floating aura, replacement body, or invented pose merely to create the grounding effect.",
+      "tags": [
+        "person",
+        "cutout",
+        "compositing",
+        "grounding"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A supplied or explicitly requested full-body or three-quarter human character is present as a foreground subject."
+      ],
+      "avoid_when": [
+        "There is no person, the person is tightly cropped, or the background already provides a natural physical floor and shadow."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "radial_spotlight",
+        "layered_depth_overlap"
+      ],
+      "selection_notes": "Treat this as foreground-subject integration despite the legacy product group. Never alter the supplied person's identity, pose, clothing, or realism."
+    },
+    "product_pop_out_frame": {
+      "group": "product",
+      "brand": "general",
+      "label": "Product Pop-Out / Break-Out From Frame",
+      "description": "Vật thể (thẻ voucher, số tiền, icon quà) bay vọt ra khỏi màn hình điện thoại/khung UI, đổ bóng lên mặt kính — tạo hiệu ứng 3D, cảm giác quà đang 'rơi ra' trực tiếp cho người xem thay vì chỉ nằm yên trong màn hình.",
+      "keywords": [
+        "object breaking out of phone screen",
+        "3D pop-out effect",
+        "voucher/reward flying off-screen",
+        "cast shadow on device glass"
+      ],
+      "prompt_instruction": "Show a key reward object (voucher card, coin, gift icon) appearing to physically break out of and float above the phone/device screen, tilted slightly toward the viewer, with a small cast shadow on the screen glass beneath it. This should read as a deliberate 3D pop-out effect -- the object escaping its UI frame toward the viewer -- while the device itself stays fully intact and undistorted.",
+      "tags": [
+        "device",
+        "3d",
+        "reward",
+        "dynamic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A phone/device or UI frame is present, and a reward/object can logically emerge from it."
+      ],
+      "avoid_when": [
+        "There is no device, the product asset is locked against perspective changes, or the campaign is restrained and informational."
+      ],
+      "incompatible_with": [
+        "product_lineup_strip",
+        "editorial_negative_space"
+      ],
+      "works_well_with": [
+        "floating_reward_particles",
+        "premium_reflection_glow"
+      ],
+      "selection_notes": ""
+    },
+    "numeric_ribbon_badge": {
+      "group": "product",
+      "brand": "general",
+      "label": "Numeric Ribbon / Ticket Badge",
+      "description": "Số tiền/ưu đãi luôn được đặt trong khung dạng dải ruy băng bẻ góc, nhãn phiếu giảm giá (ticket-shape răng cưa 2 đầu), hoặc thẻ bo góc nổi khối — không bao giờ để số liệu trôi tự do trên nền trơn. Tách biệt số liệu quan trọng khỏi nền bằng hình khối, không phải màu sắc.",
+      "keywords": [
+        "ribbon badge for numbers",
+        "ticket/coupon shape with notched edges",
+        "raised rounded price tag",
+        "value callout container"
+      ],
+      "prompt_instruction": "Only when an approved numeric offer is present and the image model is allowed to render text, place that exact value inside one compact folded-ribbon, ticket, or raised rounded badge chosen to match the campaign style. Maintain high contrast, comfortable inner padding, clean hierarchy, and exact characters; never invent a value, duplicate the badge, add unapproved labels, or overlap the badge with a face, logo, required copy, or supplied product artwork.",
+      "tags": [
+        "numeric-offer",
+        "promotion",
+        "badge",
+        "hierarchy"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The approved visible copy contains a key number, percentage, amount, rate, or date that the image model is allowed to render."
+      ],
+      "avoid_when": [
+        "text_by_code is true, there is no approved numeric value, or exact typography is handled outside the image model."
+      ],
+      "incompatible_with": [
+        "outlined_headline_typography",
+        "seasonal_corner_tag",
+        "giant_oversized_stat_graphic"
+      ],
+      "works_well_with": [
+        "comic_burst_rays",
+        "geometric_corner_accents"
+      ],
+      "selection_notes": ""
+    },
+    "callout_pointer_badge": {
+      "group": "product",
+      "brand": "general",
+      "label": "Callout Pointer Badge",
+      "description": "Icon tròn nổi bật kèm tay nhân vật đang chỉ vào, dẫn mắt người xem đến đúng vị trí hành động trên điện thoại — giống một chú thích UI thật, tăng tính hướng dẫn/tương tác.",
+      "keywords": [
+        "UI-style callout bubble",
+        "pointing hand gesture",
+        "action-highlight icon badge",
+        "guided interaction cue"
+      ],
+      "prompt_instruction": "Add a small circular callout badge/icon near the key action point on the device screen (e.g. a button or feature), paired with the character's hand gesturing toward it, mimicking a real UI annotation. Keep the badge compact and clearly secondary to the main headline/product, used only to guide the viewer's eye toward the intended call-to-action area.",
+      "tags": [
+        "device",
+        "ui",
+        "instructional",
+        "gesture"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A device UI has one clear action point and a person/hand gesture can be used without altering a locked asset."
+      ],
+      "avoid_when": [
+        "There is no device/action point, no permitted gesturing subject, or the UI asset must remain pixel-exact."
+      ],
+      "incompatible_with": [
+        "product_lineup_strip"
+      ],
+      "works_well_with": [
+        "live_app_ui_mockup",
+        "feature_icon_cluster"
+      ],
+      "selection_notes": ""
+    },
+    "outlined_headline_typography": {
+      "group": "product",
+      "brand": "general",
+      "label": "Controlled Outline for AI-Rendered Headline",
+      "description": "Tăng độ đọc cho headline ngắn do image model trực tiếp render bằng contour stroke và shadow tiết chế; không áp dụng khi text_by_code=true hoặc với typography premium tối giản.",
+      "keywords": [
+        "bold contour-outlined headline",
+        "high-contrast text stroke",
+        "drop-shadow display type",
+        "legible-on-busy-background typography"
+      ],
+      "prompt_instruction": "Only when the image model is responsible for typography, render the exact approved short headline in a bold display face with a restrained contrast stroke and a soft, consistent shadow chosen for local background legibility. Preserve every character and line break exactly; use one stroke treatment across the complete headline, avoid inflated bubble lettering or decorative prefixes, and do not apply this technique when text is composited separately by code.",
+      "tags": [
+        "typography",
+        "legibility",
+        "promotion",
+        "display-type"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "text_by_code is false and the image model is responsible for rendering an approved short headline."
+      ],
+      "avoid_when": [
+        "text_by_code is true, the headline is long, or the brand direction requires refined minimal typography without strokes."
+      ],
+      "incompatible_with": [
+        "numeric_ribbon_badge",
+        "editorial_negative_space"
+      ],
+      "works_well_with": [
+        "comic_burst_rays",
+        "duotone_diagonal_split"
+      ],
+      "selection_notes": "Legacy product-group item; apply only to AI-rendered headline typography, never to code-composited text."
+    },
+    "live_app_ui_mockup": {
+      "group": "product",
+      "brand": "general",
+      "label": "Live App UI Mockup",
+      "description": "Không chỉ hiện icon app mà là ảnh chụp màn hình giao diện thật (dashboard, danh sách dịch vụ, nút bấm) được chèn vào khung điện thoại — tăng độ tin cậy, cảm giác 'sản phẩm số thật' thay vì hình minh hoạ chung chung.",
+      "keywords": [
+        "realistic app screenshot mockup",
+        "dashboard UI inside device frame",
+        "functional interface elements",
+        "authentic digital product feel"
+      ],
+      "prompt_instruction": "When a phone/device and approved UI reference are supplied, place that UI faithfully inside the existing screen boundary with correct perspective, orientation, aspect ratio, brand colors, and visible feature hierarchy. Do not invent account balances, financial values, personal data, unsupported functions, or replacement screens; do not redraw or distort a locked device/product. If no approved UI reference exists, use only a restrained conceptual interface with non-sensitive, non-prominent micro-elements and no readable claims that were not provided in the request.",
+      "tags": [
+        "device",
+        "app",
+        "fintech",
+        "ui"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "A phone/device is required and an approved app UI reference is supplied or the brief explicitly permits a conceptual UI."
+      ],
+      "avoid_when": [
+        "No device is present, text_by_code rules prohibit incidental text, or a supplied product/UI must remain unchanged."
+      ],
+      "incompatible_with": [
+        "product_lineup_strip",
+        "editorial_negative_space"
+      ],
+      "works_well_with": [
+        "tech_pattern_overlay",
+        "callout_pointer_badge",
+        "feature_icon_cluster"
+      ],
+      "selection_notes": "Prefer a supplied UI reference. Never invent readable financial values, account data, or unsupported product functionality."
+    },
+    "feature_icon_cluster": {
+      "group": "product",
+      "brand": "general",
+      "label": "Feature Icon Cluster",
+      "description": "Các icon dịch vụ nhỏ (chuyển tiền, tiết kiệm...) đặt trong khối bo góc màu riêng, xếp thành cụm cạnh điện thoại như một 'chòm sao' tính năng — tách biệt khỏi nền chính, bổ sung thông tin mà không làm rối headline.",
+      "keywords": [
+        "clustered feature icons",
+        "rounded color-block icon chips",
+        "constellation icon layout",
+        "service highlight grouping"
+      ],
+      "prompt_instruction": "Arrange a small cluster of 3-5 rounded, color-blocked feature icons (e.g. transfer, savings, payment) next to the device/product, spaced like a loose constellation rather than a rigid grid. Keep each icon simple and flat, clearly separated from the main background and headline area, so it reads as supplementary feature information without competing with the primary message.",
+      "tags": [
+        "features",
+        "icons",
+        "fintech",
+        "information"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief contains multiple distinct service benefits that can be represented by simple approved icons."
+      ],
+      "avoid_when": [
+        "The brief has one focused benefit, the canvas is small/crowded, or num_decorative_elements is low."
+      ],
+      "incompatible_with": [
+        "product_lineup_strip",
+        "floating_reward_particles",
+        "editorial_negative_space"
+      ],
+      "works_well_with": [
+        "tech_pattern_overlay",
+        "live_app_ui_mockup"
+      ],
+      "selection_notes": ""
+    },
+    "product_lineup_strip": {
+      "group": "product",
+      "brand": "general",
+      "label": "Product Lineup Strip",
+      "description": "Nhiều mẫu thẻ/sản phẩm xếp chồng/xoè thành một dải ở cuối banner — như một 'danh mục sản phẩm' thu nhỏ, dùng khi muốn giới thiệu nhiều SKU/hạng sản phẩm trong cùng 1 banner.",
+      "keywords": [
+        "fanned product lineup",
+        "stacked card strip at banner edge",
+        "multi-SKU showcase row",
+        "product catalog strip"
+      ],
+      "prompt_instruction": "Arrange multiple product variants (e.g. different card designs/tiers) in a slightly overlapping, fanned-out row along one edge of the banner, each fully visible enough to distinguish its design. Keep this strip compact and clearly positioned as a supporting element beneath or beside the main hero product, never overlapping required text or the logo.",
+      "tags": [
+        "multi-product",
+        "portfolio",
+        "comparison",
+        "catalog"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "Two or more supplied product assets or explicitly approved product variants must be shown together."
+      ],
+      "avoid_when": [
+        "Only one product is supplied, variants must not be invented, or the campaign needs one dominant hero product."
+      ],
+      "incompatible_with": [
+        "product_pop_out_frame",
+        "callout_pointer_badge",
+        "feature_icon_cluster",
+        "floating_reward_particles",
+        "hero_pedestal_stage",
+        "live_app_ui_mockup",
+        "layered_depth_overlap",
+        "product_scale_hierarchy"
+      ],
+      "works_well_with": [
+        "architectural_light_planes",
+        "premium_reflection_glow"
+      ],
+      "selection_notes": ""
+    },
+    "seasonal_corner_tag": {
+      "group": "decoration",
+      "brand": "general",
+      "label": "Seasonal Corner Ribbon Tag",
+      "description": "Nhãn dạng cờ đuôi nheo/ruy băng nhỏ gắn ở góc trên, tách biệt với logo chính — báo hiệu campaign theo dịp lễ/mùa vụ mà không chiếm không gian bố cục chính.",
+      "keywords": [
+        "seasonal flag/ribbon tag",
+        "corner campaign label",
+        "small pennant badge",
+        "occasion marker"
+      ],
+      "prompt_instruction": "Only when the brief explicitly names a seasonal occasion and the image model is allowed to render its approved label, place one small flag- or ribbon-shaped tag in a genuinely open upper corner, clearly separated from the logo and required headline. Render only the exact approved occasion wording already present in the request; never invent a year, date, campaign name, or slogan. Keep the tag compact and lightweight, and omit it if no corner remains safely available.",
+      "tags": [
+        "seasonal",
+        "ribbon",
+        "corner-accent",
+        "campaign-label"
+      ],
+      "occasion": [
+        "explicit_seasonal_campaign"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief explicitly names a seasonal event or campaign label suitable for a small corner accent."
+      ],
+      "avoid_when": [
+        "There is no relevant event, text_by_code prohibits image-model lettering, or the corner is needed for required content/logo."
+      ],
+      "incompatible_with": [
+        "numeric_ribbon_badge",
+        "geometric_corner_accents"
+      ],
+      "works_well_with": [
+        "tet_holiday",
+        "noel",
+        "new_year"
+      ],
+      "selection_notes": "Moved from product to decoration in schema v2; do not invent unapproved words inside the tag."
+    },
+    "national_day_0209": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "02/09",
+      "label": "Quốc Khánh 2/9",
+      "description": "Trang trí dịp Quốc khánh 2/9 -- ruy băng đỏ-vàng, sao vàng 5 cánh, pháo hoa. KHÔNG vẽ lãnh tụ/chân dung/biểu tượng chính trị cụ thể, chỉ dùng hoạ tiết trung lập.",
+      "keywords": [
+        "red and gold ribbon",
+        "five-pointed gold star motif",
+        "fireworks burst",
+        "national flag color palette"
+      ],
+      "prompt_instruction": "Add subtle patriotic decorative accents referencing Vietnam's National Day (September 2nd): small red-and-gold ribbon streamers, a five-pointed gold star motif, and soft fireworks bursts in the background, using the flag's red-and-gold color palette. Do NOT depict any political leader, portrait, monument, or specific government symbol -- keep the motifs purely festive and abstract (stars, fireworks, ribbons, flag-inspired color blocks). Keep every decorative element secondary and never overlapping the product, headline text, or logo.",
+      "tags": [
+        "vietnam",
+        "national-day",
+        "patriotic",
+        "september-2"
+      ],
+      "occasion": [
+        "vietnam_national_day",
+        "02_09"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief explicitly concerns Vietnam National Day on 2 September."
+      ],
+      "avoid_when": [
+        "No National Day/patriotic context is present."
+      ],
+      "incompatible_with": [
+        "vn_unique_3004",
+        "tet_holiday",
+        "noel",
+        "mid_autumn",
+        "woman_day_0803",
+        "woman_day_2010",
+        "new_year",
+        "children_day"
+      ],
+      "works_well_with": [
+        "horizon_skyline_layer",
+        "architectural_light_planes"
+      ],
+      "selection_notes": ""
+    },
+    "woman_day_0803": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "08/03",
+      "label": "Quốc tế Phụ nữ 8/3",
+      "description": "Hoa hồng/tulip, ruy băng lụa, tông hồng-tím pastel, tôn vinh nét dịu dàng.",
+      "keywords": [
+        "soft pastel florals",
+        "rose and tulip bouquet motif",
+        "silk ribbon accents",
+        "feminine pastel palette"
+      ],
+      "prompt_instruction": "Add a delicate floral decorative motif for International Women's Day (March 8th): soft roses or tulips, thin silk ribbon curls, and scattered small petals, rendered in a soft pastel pink/lavender palette. Keep the florals graceful and airy rather than dense, placed around open background areas or corners, never overlapping the product, headline text, or logo.",
+      "tags": [
+        "women",
+        "flowers",
+        "elegant",
+        "march-8"
+      ],
+      "occasion": [
+        "international_womens_day",
+        "08_03"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief explicitly concerns International Women's Day on 8 March."
+      ],
+      "avoid_when": [
+        "No 8 March/women-celebration context is present or the campaign targets a different occasion."
+      ],
+      "incompatible_with": [
+        "woman_day_2010",
+        "children_day",
+        "national_day_0209",
+        "vn_unique_3004"
+      ],
+      "works_well_with": [
+        "organic_ribbon_flow",
+        "soft_bokeh_sparkles"
+      ],
+      "selection_notes": ""
+    },
+    "woman_day_2010": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "20/10",
+      "label": "Phụ nữ Việt Nam 20/10",
+      "description": "Hoa sen, hoạ tiết áo dài cách điệu, tông hồng đào-vàng ấm -- trang trọng hơn 8/3.",
+      "keywords": [
+        "lotus flower motif",
+        "elegant floral curls",
+        "traditional ao dai inspired pattern",
+        "warm rose-gold palette"
+      ],
+      "prompt_instruction": "Add an elegant floral motif for Vietnamese Women's Day (October 20th): lotus flowers or soft floral curls in a warm rose-gold palette, optionally paired with a subtle ao-dai-inspired fabric pattern texture (never a literal depiction of a person). Keep the decoration graceful and dignified, placed in open background space or along the edges, never overlapping the product, headline text, or logo.",
+      "tags": [
+        "women",
+        "flowers",
+        "elegant",
+        "october-20"
+      ],
+      "occasion": [
+        "vietnamese_womens_day",
+        "20_10"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief explicitly concerns Vietnamese Women's Day on 20 October."
+      ],
+      "avoid_when": [
+        "No 20 October/women-celebration context is present or the campaign targets 8 March."
+      ],
+      "incompatible_with": [
+        "woman_day_0803",
+        "children_day",
+        "national_day_0209",
+        "vn_unique_3004"
+      ],
+      "works_well_with": [
+        "organic_ribbon_flow",
+        "soft_bokeh_sparkles"
+      ],
+      "selection_notes": ""
+    },
+    "noel": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "25/12",
+      "label": "Noel / Christmas",
+      "description": "Quả châu, bông tuyết, đèn lấp lánh, chuông nhỏ, người tuyết, ông già noel, tùng lộc kéo xe, cây thông noel trang trí lấp lánh, hộp quà noel, đỏ-xanh lá-vàng.",
+      "keywords": [
+        "christmas ornament baubles",
+        "snowflake motif",
+        "twinkling string lights",
+        "red-green-gold palette"
+      ],
+      "prompt_instruction": "Add festive Christmas decorative motifs: small ornament baubles, snowflakes, twinkling string lights, a subtle pine-tree silhouette, or small bells, using a red/green/gold winter holiday palette. Scatter these lightly across open background areas or corners with soft depth-of-field, never dense or cluttered, and never overlapping the product, headline text, or logo.",
+      "tags": [
+        "christmas",
+        "noel",
+        "festive",
+        "winter"
+      ],
+      "occasion": [
+        "noel",
+        "christmas"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief explicitly concerns Noel or Christmas."
+      ],
+      "avoid_when": [
+        "No Noel/Christmas context is present."
+      ],
+      "incompatible_with": [
+        "tet_holiday",
+        "new_year",
+        "mid_autumn",
+        "national_day_0209",
+        "vn_unique_3004"
+      ],
+      "works_well_with": [
+        "soft_bokeh_sparkles",
+        "seasonal_corner_tag"
+      ],
+      "selection_notes": ""
+    },
+    "tet_holiday": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "Tết Nguyên Đán (âm lịch)",
+      "label": "Tết Nguyên Đán",
+      "description": "Hoa mai/đào, phong bao lì đỏ, đèn lồng, pháo giấy, tông đỏ-vàng chủ đạo.",
+      "keywords": [
+        "apricot/peach blossom branch",
+        "red lucky money envelope",
+        "lantern motif",
+        "gold coin and firecracker accents"
+      ],
+      "prompt_instruction": "Add Lunar New Year (Tet) decorative motifs: apricot blossom (hoa mai) or peach blossom (hoa dao) branches, small red lucky-money envelopes (li xi), red lanterns, or gold coin/firecracker accents, in a dominant red-and-gold festive palette. Arrange them along the edges or in open background space, keeping density moderate and never overlapping the product, headline text, or logo.",
+      "tags": [
+        "tet",
+        "lunar-new-year",
+        "vietnamese",
+        "festive"
+      ],
+      "occasion": [
+        "tet",
+        "lunar_new_year"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief explicitly concerns Vietnamese Tết or Lunar New Year."
+      ],
+      "avoid_when": [
+        "No Tết/Lunar New Year context is present."
+      ],
+      "incompatible_with": [
+        "noel",
+        "new_year",
+        "mid_autumn",
+        "national_day_0209",
+        "vn_unique_3004"
+      ],
+      "works_well_with": [
+        "floating_reward_particles",
+        "seasonal_corner_tag"
+      ],
+      "selection_notes": ""
+    },
+    "new_year": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "01/01",
+      "label": "Tết Dương lịch / New Year",
+      "description": "Pháo hoa, kim tuyến vàng-bạc, tông vàng-bạc-navy sang trọng. Không vẽ số năm cụ thể trừ khi nằm trong text yêu cầu.",
+      "keywords": [
+        "fireworks and sparkle motif",
+        "gold and silver confetti",
+        "festive glitter particles",
+        "navy-gold new year palette"
+      ],
+      "prompt_instruction": "Add New Year's Eve decorative motifs: fireworks bursts, gold/silver confetti or glitter particles, and soft sparkle accents, using a festive gold-silver-navy palette. Do NOT render any specific year digits or countdown numbers unless explicitly part of the required text content. Keep the sparkle/confetti light and airy, scattered across open background space, never overlapping the product, headline text, or logo.",
+      "tags": [
+        "new-year",
+        "celebration",
+        "countdown",
+        "festive"
+      ],
+      "occasion": [
+        "new_year",
+        "solar_new_year"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief explicitly concerns the solar New Year, countdown, or year-end celebration."
+      ],
+      "avoid_when": [
+        "The brief means Vietnamese Tết specifically or has no New Year context."
+      ],
+      "incompatible_with": [
+        "tet_holiday",
+        "noel",
+        "mid_autumn",
+        "national_day_0209",
+        "vn_unique_3004"
+      ],
+      "works_well_with": [
+        "soft_bokeh_sparkles",
+        "floating_reward_particles"
+      ],
+      "selection_notes": ""
+    },
+    "vn_unique_3004": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "30/04",
+      "label": "30/4 Giải Phóng Miền Nam, Thống Nhất Đất Nước",
+      "description": "Ruy băng cờ đỏ-vàng, chim bồ câu hoà bình, hoa sen. KHÔNG vẽ lãnh tụ/hình ảnh quân sự/vũ khí cụ thể.",
+      "keywords": [
+        "red and gold flag-inspired ribbon",
+        "peace dove motif",
+        "lotus flower accent",
+        "patriotic fireworks"
+      ],
+      "prompt_instruction": "Add patriotic decorative accents referencing Vietnam's Reunification Day (April 30th): a red-and-gold ribbon or flag-inspired color block, a peace dove silhouette, a lotus flower accent, or soft fireworks in the background, using the flag's red-and-gold palette. Do NOT depict any political leader, military imagery, weapon, or specific government symbol -- keep the motifs purely festive, peaceful, and abstract. Keep every decorative element secondary and never overlapping the product, headline text, or logo.",
+      "tags": [
+        "vietnam",
+        "reunification-day",
+        "patriotic",
+        "april-30"
+      ],
+      "occasion": [
+        "reunification_day",
+        "30_04"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief explicitly concerns 30 April, Reunification Day, or national reunification."
+      ],
+      "avoid_when": [
+        "No 30 April/reunification context is present."
+      ],
+      "incompatible_with": [
+        "national_day_0209",
+        "tet_holiday",
+        "noel",
+        "mid_autumn",
+        "woman_day_0803",
+        "woman_day_2010",
+        "new_year",
+        "children_day"
+      ],
+      "works_well_with": [
+        "horizon_skyline_layer",
+        "architectural_light_planes"
+      ],
+      "selection_notes": ""
+    },
+    "mid_autumn": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "Rằm tháng 8 (âm lịch)",
+      "label": "Trung Thu",
+      "description": "Lồng đèn ông sao/cá chép, trăng tròn, múa lân, tông vàng ánh trăng-đỏ.",
+      "keywords": [
+        "star-shaped lantern motif",
+        "full moon backdrop glow",
+        "koi-fish lantern accent",
+        "lion dance head silhouette"
+      ],
+      "prompt_instruction": "Add Mid-Autumn Festival decorative motifs: star-shaped or koi-fish paper lanterns, a soft glowing full-moon backdrop, drifting cloud shapes, or a small lion-dance head silhouette, using a warm moonlight-gold and red palette. Scatter lanterns lightly across open background areas or the upper portion of the frame, never dense or cluttered, and never overlapping the product, headline text, or logo.",
+      "tags": [
+        "mid-autumn",
+        "moon",
+        "lantern",
+        "vietnamese"
+      ],
+      "occasion": [
+        "mid_autumn"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief explicitly concerns Mid-Autumn Festival."
+      ],
+      "avoid_when": [
+        "No Mid-Autumn context is present."
+      ],
+      "incompatible_with": [
+        "tet_holiday",
+        "noel",
+        "new_year",
+        "national_day_0209",
+        "vn_unique_3004"
+      ],
+      "works_well_with": [
+        "soft_bokeh_sparkles",
+        "silhoutte_watermark"
+      ],
+      "selection_notes": ""
+    },
+    "children_day": {
+      "group": "decoration",
+      "brand": "general",
+      "date": "01/06",
+      "label": "Quốc tế Thiếu nhi 1/6",
+      "description": "Bóng bay nhiều màu, kẹo, đồ chơi, cầu vồng, phong cách vui tươi hoạt hình nhẹ.",
+      "keywords": [
+        "colorful floating balloons",
+        "candy and toy accents",
+        "rainbow motif",
+        "playful star confetti"
+      ],
+      "prompt_instruction": "Add playful, cheerful decorative motifs for International Children's Day (June 1st): colorful floating balloons, small candy or toy accents, a soft rainbow arc, or star-shaped confetti, using a bright, joyful, kid-friendly color palette. Keep the motifs light, whimsical, and scattered across open background space, never overlapping the product, headline text, or logo.",
+      "tags": [
+        "children",
+        "playful",
+        "colorful",
+        "june-1"
+      ],
+      "occasion": [
+        "international_childrens_day",
+        "01_06"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief explicitly concerns International Children's Day, children, or a family/young-customer campaign."
+      ],
+      "avoid_when": [
+        "The campaign is adult-only, solemn, premium-corporate, or has no child/family context."
+      ],
+      "incompatible_with": [
+        "woman_day_0803",
+        "woman_day_2010",
+        "national_day_0209",
+        "vn_unique_3004"
+      ],
+      "works_well_with": [
+        "comic_burst_rays",
+        "geometric_corner_accents"
+      ],
+      "selection_notes": ""
+    },
+    "mesh_gradient_depth": {
+      "group": "background",
+      "brand": "general",
+      "label": "Layered Mesh Gradient Depth",
+      "description": "Nền mesh gradient nhiều điểm màu được kiểm soát, tạo chuyển sắc có chiều sâu và vùng negative space rõ ràng mà không cần cảnh thật hay texture nặng.",
+      "keywords": [
+        "multi-point mesh gradient",
+        "controlled color fields",
+        "soft depth transitions",
+        "clean negative space"
+      ],
+      "prompt_instruction": "Build a full-bleed multi-point mesh gradient using only the approved campaign palette: blend two to four broad, softly overlapping color fields with smooth tonal transitions, a subtle sense of depth, and one intentionally calmer negative-space zone for the message. Keep the gradient continuous through every canvas edge, free of banding, hard seams, enclosing frames, random rainbow hues, or glossy blobs that compete with the hero product.",
+      "tags": [
+        "gradient",
+        "modern",
+        "clean",
+        "negative-space"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [],
+      "avoid_when": [
+        "The brief requires a literal photographic environment as the dominant background."
+      ],
+      "incompatible_with": [
+        "duotone_diagonal_split",
+        "textured_surface"
+      ],
+      "works_well_with": [
+        "editorial_negative_space",
+        "soft_bokeh_sparkles"
+      ],
+      "selection_notes": ""
+    },
+    "architectural_light_planes": {
+      "group": "background",
+      "brand": "general",
+      "label": "Architectural Light Planes",
+      "description": "Các mặt phẳng ánh sáng lớn, có perspective nhẹ và phân lớp sáng–tối để dựng không gian hiện đại, cao cấp mà vẫn trừu tượng và sạch.",
+      "keywords": [
+        "architectural light planes",
+        "perspective depth",
+        "large tonal surfaces",
+        "premium spatial backdrop"
+      ],
+      "prompt_instruction": "Construct the background from a small number of large architectural light planes with coherent perspective: broad illuminated surfaces, soft shadow transitions, and restrained diagonal or vertical overlaps that create a premium spatial stage. Keep the geometry abstract and full-bleed, with no enclosing frame, room-box outline, ruler-like lines, or small fragmented polygons; preserve a calm content zone and one consistent light direction.",
+      "tags": [
+        "premium",
+        "spatial",
+        "abstract",
+        "corporate"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [],
+      "avoid_when": [
+        "The campaign is playful, hand-drawn, organic, or requires a literal location."
+      ],
+      "incompatible_with": [
+        "comic_burst_rays",
+        "duotone_diagonal_split"
+      ],
+      "works_well_with": [
+        "hero_pedestal_stage",
+        "product_lineup_strip"
+      ],
+      "selection_notes": ""
+    },
+    "editorial_negative_space": {
+      "group": "background",
+      "brand": "general",
+      "label": "Editorial Negative-Space Composition",
+      "description": "Chủ động dành một vùng nền yên tĩnh, giàu khoảng thở và tương phản ổn định cho text/CTA, trong khi hero visual được gom thành một cụm có chủ đích ở phía đối diện.",
+      "keywords": [
+        "editorial negative space",
+        "asymmetric composition",
+        "clear message zone",
+        "premium restraint"
+      ],
+      "prompt_instruction": "Use a disciplined editorial composition with one generous, visually quiet negative-space area reserved for the approved headline/message/CTA and one compact hero cluster positioned on the opposite side. Maintain an intentional asymmetrical balance, strong alignment, and ample breathing room; allow only low-contrast background tone or texture inside the message zone, with no foreground object, icon, motif, flare, or high-frequency detail behind the copy.",
+      "tags": [
+        "minimal",
+        "editorial",
+        "premium",
+        "text-legibility"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The layout has a clear message zone and a compact hero cluster can occupy the opposite side."
+      ],
+      "avoid_when": [
+        "The brief explicitly requires a dense celebratory scene or many equally important visual elements."
+      ],
+      "incompatible_with": [
+        "floating_reward_particles",
+        "feature_icon_cluster",
+        "product_pop_out_frame",
+        "outlined_headline_typography",
+        "colored_corner_vignette",
+        "live_app_ui_mockup"
+      ],
+      "works_well_with": [
+        "mesh_gradient_depth",
+        "controlled_contact_shadow"
+      ],
+      "selection_notes": ""
+    },
+    "abstract_light_trails": {
+      "group": "decoration",
+      "brand": "general",
+      "label": "Abstract Light-Trail Accents",
+      "description": "Một đến vài dải sáng mềm có hướng chuyển động rõ, dùng để nối các vùng bố cục và dẫn mắt về hero product mà không tạo khung bao quanh banner.",
+      "keywords": [
+        "light trails",
+        "motion path",
+        "visual flow",
+        "luminous accent"
+      ],
+      "prompt_instruction": "Add one primary and at most two secondary soft light trails that follow the composition's perspective and guide the eye toward the hero product or CTA. Use tapered luminosity, restrained glow, and the approved accent color; keep each trail partially open and directional, never forming a closed ring, border, frame, random scribble, or bright line across required text, faces, logos, or product artwork.",
+      "tags": [
+        "motion",
+        "light",
+        "digital",
+        "premium"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [],
+      "avoid_when": [
+        "The composition is intentionally static, heritage-led, or already has strong directional lines."
+      ],
+      "incompatible_with": [
+        "organic_ribbon_flow",
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "radial_spotlight",
+        "premium_reflection_glow"
+      ],
+      "selection_notes": ""
+    },
+    "geometric_corner_accents": {
+      "group": "decoration",
+      "brand": "general",
+      "label": "Geometric Corner Accents",
+      "description": "Cụm hình học nhỏ, đồng nhất ở một hoặc hai góc trống để cân bằng bố cục và tăng tính hiện đại, không biến thành border hay frame toàn khung.",
+      "keywords": [
+        "corner geometry",
+        "modular accents",
+        "asymmetric balance",
+        "modern banking graphics"
+      ],
+      "prompt_instruction": "Place one restrained family of small geometric accents in only one or two genuinely empty corners: cropped arcs, short parallel bars, dots, or simple modular shapes sharing the same stroke weight and palette. Use them to counterbalance the hero cluster, not to decorate every edge; keep them sparse, partially cropped by the canvas when natural, and never connect them into an enclosing border or place them behind required text, logo, face, or product details.",
+      "tags": [
+        "geometric",
+        "modern",
+        "generic",
+        "balance"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [],
+      "avoid_when": [
+        "Required content already occupies all corners or the background contains strong geometry."
+      ],
+      "incompatible_with": [
+        "seasonal_corner_tag",
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "duotone_diagonal_split",
+        "mesh_gradient_depth"
+      ],
+      "selection_notes": ""
+    },
+    "soft_bokeh_sparkles": {
+      "group": "decoration",
+      "brand": "general",
+      "label": "Soft Bokeh and Sparkle Accents",
+      "description": "Các điểm bokeh/sparkle có phân cấp kích thước, focus và độ sáng để tạo không khí cao cấp hoặc celebratory nhẹ mà không cần motif ngày lễ cụ thể.",
+      "keywords": [
+        "soft bokeh",
+        "controlled sparkles",
+        "atmospheric particles",
+        "premium celebration"
+      ],
+      "prompt_instruction": "Introduce a sparse, depth-layered field of soft bokeh lights and tiny controlled sparkles using the campaign palette: a few crisp micro-highlights near the focal area and larger defocused circles farther back. Keep the distribution asymmetric and breathable, with no confetti clutter, starburst overuse, or particles crossing required text, faces, logos, or the product silhouette.",
+      "tags": [
+        "atmospheric",
+        "premium",
+        "generic",
+        "celebration"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [],
+      "avoid_when": [
+        "The requested style is strictly flat, technical, or documentary."
+      ],
+      "incompatible_with": [
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "theme_color_gradient_wash",
+        "noel",
+        "new_year"
+      ],
+      "selection_notes": ""
+    },
+    "organic_ribbon_flow": {
+      "group": "decoration",
+      "brand": "general",
+      "label": "Organic Ribbon Flow",
+      "description": "Dải ribbon/curve mềm tạo nhịp chuyển động và kết nối hero visual với vùng thông điệp, phù hợp thiết kế lifestyle, ưu đãi và campaign giàu cảm xúc.",
+      "keywords": [
+        "flowing ribbon",
+        "organic curve",
+        "visual rhythm",
+        "spatial connector"
+      ],
+      "prompt_instruction": "Use one broad, elegant ribbon-like curve as a compositional connector between the hero visual and the message zone, with a consistent material treatment, coherent perspective, and softly tapered ends. Let it weave behind foreground subjects and emerge only in open space; never wrap around the whole canvas, form a closed frame, cover approved copy, or intersect a face, logo, or critical product detail.",
+      "tags": [
+        "organic",
+        "motion",
+        "lifestyle",
+        "elegant"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [],
+      "avoid_when": [
+        "The composition already uses another dominant ribbon/diagonal path or requires rigid technical geometry."
+      ],
+      "incompatible_with": [
+        "abstract_light_trails",
+        "duotone_diagonal_split"
+      ],
+      "works_well_with": [
+        "woman_day_0803",
+        "woman_day_2010",
+        "layered_depth_overlap"
+      ],
+      "selection_notes": ""
+    },
+    "glassmorphism_accent_shapes": {
+      "group": "decoration",
+      "brand": "general",
+      "label": "Translucent Glass Accent Shapes",
+      "description": "Một vài khối kính mờ bán trong suốt làm accent chiều sâu cho campaign số/premium, không dùng làm container bao toàn bộ nội dung.",
+      "keywords": [
+        "glassmorphism accents",
+        "translucent shapes",
+        "frosted depth",
+        "premium digital aesthetic"
+      ],
+      "prompt_instruction": "Add at most two small translucent glass-like accent shapes in open background space, using subtle refraction, soft edge highlights, and a restrained frosted blur that remains consistent with the scene lighting. Treat them as secondary depth accents only—not as a large content card, safe-area panel, enclosing frame, or overlay behind required text—and keep them clear of the logo, faces, and supplied product artwork.",
+      "tags": [
+        "glass",
+        "digital",
+        "premium",
+        "generic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [],
+      "avoid_when": [
+        "The scene is heritage, natural, hand-crafted, or the prompt already uses translucent UI panels."
+      ],
+      "incompatible_with": [
+        "textured_surface",
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "mesh_gradient_depth",
+        "live_app_ui_mockup"
+      ],
+      "selection_notes": ""
+    },
+    "data_flow_accents": {
+      "group": "decoration",
+      "brand": "general",
+      "label": "Data-Flow Line Accents",
+      "description": "Các đường dữ liệu mảnh và node điểm tối giản diễn tả kết nối, giao dịch, tốc độ hoặc hệ sinh thái số mà không tạo cảm giác sơ đồ kỹ thuật.",
+      "keywords": [
+        "data flow",
+        "connection nodes",
+        "fintech motion",
+        "digital pathway"
+      ],
+      "prompt_instruction": "Use a small number of fine, softly luminous data-flow paths with occasional minimal nodes to suggest secure movement, connectivity, or digital transactions. Align the paths with the composition and converge them subtly toward the device or product; avoid dense circuit-board patterns, technical-diagram labels, arrows, measurements, or lines that cross required text, faces, logos, and product artwork.",
+      "tags": [
+        "fintech",
+        "data",
+        "connectivity",
+        "generic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief concerns technology, digital banking, payments, transfer, speed, connectivity, or an app."
+      ],
+      "avoid_when": [
+        "The campaign is non-digital, organic, heritage-led, or already uses a dense tech pattern."
+      ],
+      "incompatible_with": [
+        "tech_pattern_overlay",
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "live_app_ui_mockup",
+        "feature_icon_cluster"
+      ],
+      "selection_notes": ""
+    },
+    "hero_pedestal_stage": {
+      "group": "product",
+      "brand": "general",
+      "label": "Hero Product Pedestal Stage",
+      "description": "Đặt sản phẩm chính trên bệ thấp hoặc vùng sáng dạng stage để tạo hierarchy, trọng lượng thị giác và cảm giác premium mà không thay đổi hình học sản phẩm.",
+      "keywords": [
+        "product pedestal",
+        "hero stage",
+        "premium display",
+        "visual hierarchy"
+      ],
+      "prompt_instruction": "Present the single hero product on a low, understated pedestal or softly illuminated stage plane that establishes clear hierarchy and physical grounding. Match the scene perspective and light direction, keep the stage wider than the product base with natural contact shadow, and preserve the supplied product's exact artwork, proportions, orientation, silhouette, and material—never reshape the product to fit the pedestal or turn the stage into an enclosing display box.",
+      "tags": [
+        "premium",
+        "hero-product",
+        "grounding",
+        "display"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "At least one physical or card-like product asset is present and should be the hero."
+      ],
+      "avoid_when": [
+        "There is no physical product, the hero is a person only, or multiple products must have equal prominence."
+      ],
+      "incompatible_with": [
+        "product_lineup_strip"
+      ],
+      "works_well_with": [
+        "radial_spotlight",
+        "controlled_contact_shadow",
+        "architectural_light_planes"
+      ],
+      "selection_notes": ""
+    },
+    "controlled_contact_shadow": {
+      "group": "product",
+      "brand": "general",
+      "label": "Controlled Contact Shadow and Ambient Occlusion",
+      "description": "Bóng tiếp xúc và ambient occlusion chính xác theo mặt phẳng đặt sản phẩm giúp asset không bị cảm giác dán nổi, đồng thời giữ nguyên hình dạng và màu thật.",
+      "keywords": [
+        "contact shadow",
+        "ambient occlusion",
+        "grounded product",
+        "realistic compositing"
+      ],
+      "prompt_instruction": "Integrate the supplied product with a physically plausible contact shadow and restrained ambient occlusion at the exact points where it meets or approaches the supporting surface. Match shadow direction, softness, density, and color temperature to the scene lighting; keep the shadow separate from printed product artwork and preserve the product's exact silhouette, proportions, colors, logos, text, and orientation without adding an outline or artificial drop-shadow sticker effect.",
+      "tags": [
+        "realism",
+        "compositing",
+        "grounding",
+        "generic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A supplied foreground product or object must be integrated into a scene or stage."
+      ],
+      "avoid_when": [
+        "The product is intentionally floating with no supporting plane."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "hero_pedestal_stage",
+        "premium_reflection_glow"
+      ],
+      "selection_notes": ""
+    },
+    "layered_depth_overlap": {
+      "group": "product",
+      "brand": "general",
+      "label": "Layered Foreground Depth Overlap",
+      "description": "Tạo ba lớp foreground–hero–background bằng overlap có kiểm soát, giúp bố cục liền mạch và có chiều sâu mà không che nội dung quan trọng.",
+      "keywords": [
+        "foreground overlap",
+        "depth layering",
+        "occlusion hierarchy",
+        "integrated composition"
+      ],
+      "prompt_instruction": "Create a deliberate three-depth composition with one subtle foreground accent, the complete hero product/subject in the middle plane, and the background behind it. Use only small, natural partial overlaps at non-critical outer areas to connect the layers; never cover required text, faces, logos, UI, product corners, product names, or essential artwork, and never crop the complete hero silhouette at the final output edge.",
+      "tags": [
+        "depth",
+        "composition",
+        "integration",
+        "generic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The layout contains at least one hero foreground subject and enough open space for controlled layering."
+      ],
+      "avoid_when": [
+        "The canvas is extremely shallow/crowded or every supplied asset must remain completely isolated."
+      ],
+      "incompatible_with": [
+        "product_lineup_strip"
+      ],
+      "works_well_with": [
+        "character_cutout_ground_shadow",
+        "organic_ribbon_flow"
+      ],
+      "selection_notes": ""
+    },
+    "premium_reflection_glow": {
+      "group": "product",
+      "brand": "general",
+      "label": "Premium Edge Reflection and Controlled Glow",
+      "description": "Highlight viền và reflection rất tiết chế theo vật liệu thật để tách sản phẩm khỏi nền tối, không làm biến dạng màu, logo hoặc artwork.",
+      "keywords": [
+        "edge reflection",
+        "controlled rim light",
+        "material fidelity",
+        "premium glow"
+      ],
+      "prompt_instruction": "Use a restrained edge reflection or narrow rim light on the hero product, consistent with its real material and the scene's key light, to separate it from a similar-toned background. Keep highlights localized and physically plausible, with no neon outline, full-object aura, blown highlights, recoloring, or loss of printed logos/text/artwork; the supplied product identity and material finish must remain exact.",
+      "tags": [
+        "premium",
+        "lighting",
+        "material",
+        "separation"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A supplied product needs separation from a dark or similar-toned background."
+      ],
+      "avoid_when": [
+        "The product material is matte and the brief forbids glossy/premium lighting."
+      ],
+      "incompatible_with": [
+        "comic_burst_rays"
+      ],
+      "works_well_with": [
+        "radial_spotlight",
+        "controlled_contact_shadow"
+      ],
+      "selection_notes": ""
+    },
+    "product_scale_hierarchy": {
+      "group": "product",
+      "brand": "general",
+      "label": "Product-Led Scale Hierarchy",
+      "description": "Điều khiển tỷ lệ và khoảng cách để một sản phẩm là hero rõ ràng, các asset phụ nhỏ hơn theo cấp bậc, tránh tình trạng mọi vật thể cạnh tranh ngang nhau.",
+      "keywords": [
+        "scale hierarchy",
+        "hero product",
+        "supporting assets",
+        "focal dominance"
+      ],
+      "prompt_instruction": "Establish an unmistakable product-led scale hierarchy: one supplied product is the largest and clearest hero, while any secondary supplied assets are progressively smaller, lower-contrast, and spatially subordinate. Preserve every asset's internal proportions and artwork; change only its uniform overall scale and placement, maintain comfortable separation, and never invent duplicate products or enlarge a secondary motif until it competes with the hero or required message.",
+      "tags": [
+        "hierarchy",
+        "hero-product",
+        "multi-asset",
+        "generic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "At least one product asset is present; especially useful when multiple supplied assets compete for attention."
+      ],
+      "avoid_when": [
+        "The brief explicitly requires equal comparison between all products."
+      ],
+      "incompatible_with": [
+        "product_lineup_strip"
+      ],
+      "works_well_with": [
+        "editorial_negative_space",
+        "layered_depth_overlap"
+      ],
+      "selection_notes": ""
+    }
+  }
+}

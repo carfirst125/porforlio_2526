@@ -1,0 +1,346 @@
+{
+  "email_internal_newsletter": {
+    "source": "/mkt/page-017.png",
+    "display_size": "1600px wide",
+    "ppi": "",
+    "ratio": "",
+    "content": "EMAIL - INTERNAL NEWSLETTER FORMAT RULES:\n- Use a 1600px-wide grid. Preserve the standard header and footer structure.\n- Header/title area: 480px high; title uses Arial Bold 50pt.\n- Body copy: Arial Bold/Regular 25pt. Signature accent: Motherland Signature 40pt. English/contact footer: Arial Bold Italic/Regular Italic 20pt. CTA/link accent color: #E9AC5B.\n- Use 100px outer margins and 35px gaps between image modules.\n- Campaign colors and content may change, but keep the structure readable and use no more than three font sizes in the body.\n- Text and images shown in the source are examples only; never copy their campaign wording into another request.",
+    "short": "Internal newsletter email: 1600px-wide grid, fixed header/footer structure, 100px margins, 35px image gaps, Arial typography, no more than three body font sizes.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "email_customer": {
+    "source": "/mkt/page-018.png",
+    "display_size": "1600px wide",
+    "ppi": "",
+    "ratio": "",
+    "content": "EMAIL - CUSTOMER FORMAT RULES:\n- Use a 1600px-wide grid. Preserve the standard header and footer structure.\n- Header/title area: 480px high; title uses Arial Bold 50pt.\n- Body copy: Arial Bold/Regular 30pt. Signature accent: Motherland Signature 40pt. English/contact footer: Arial Bold Italic/Regular Italic 20pt.\n- Use 100px outer margins and 35px gaps between image modules.\n- Campaign colors and content may change, but keep the structure readable and use no more than three font sizes in the body.\n- Text and images shown in the source are examples only; never copy their campaign wording into another request.",
+    "short": "Customer email: 1600px-wide grid, fixed header/footer structure, 100px margins, 35px image gaps, Arial typography, no more than three body font sizes.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "key_visual": {
+    "source": "/mkt/page-019.png",
+    "display_size": "1920x1080",
+    "ppi": "",
+    "ratio": "16:9",
+    "content": "KEY VISUAL FORMAT RULES:\n- Frame: 1920x1080 (16:9), aligned on a consistent grid.\n- Place the OCB logo at top-left. When a partner logo is required, place it at top-right and keep its height within the 4x logo module shown in the source.\n- Mood and tone: clean, lively, minimal. Avoid clutter.\n- Headline must be concise and impactful. Use at most four USPs, with at most seven words per USP. Hierarchy: headline, then USP, then supporting information/CTA.\n- Use campaign-relevant, modern, professional, positive imagery. The campaign design shown in the source is an example only, not reusable content.",
+    "short": "1920x1080 key visual; grid alignment; OCB top-left; partner top-right within 4x module; clean/lively/minimal; max four USPs and seven words per USP.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "fb_post_banner": {
+    "source": "/mkt/page-020.png",
+    "display_size": "1200x1200",
+    "ppi": "300",
+    "ratio": "1:1",
+    "content": "FACEBOOK POST BANNER FORMAT RULES:\n- Frame: 1200x1200 (1:1), 300ppi.\n- Recommended font sizes: Photoshop 12-19pt; Illustrator 50-79pt.\n- Place the OCB logo at top-left. When an OCB OMNI/partner logo is required, place it in the upper-right logo zone and keep its height within the 3x logo module shown in the source.\n- Keep the headline in the upper title area with strong hierarchy and sufficient contrast.\n- The investment/travel scene and wording shown in the source are campaign examples only. Do not force those subjects, colors, wording, or composition into another request; follow the current brief and supplied assets.",
+    "short": "Facebook post: 1200x1200, 300ppi; OCB top-left; optional partner/OMNI logo upper-right within 3x module; headline in upper title area; source campaign is example only.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "fb_cover_banner": {
+    "source": "/mkt/page-021.png",
+    "display_size": "1920x730",
+    "ppi": "",
+    "ratio": "192:73",
+    "content": "FACEBOOK COVER BANNER FORMAT RULES:\n- Frame: 1920x730.\n- Keep all essential information inside the centered 1106px-wide horizontal safe zone so it remains visible across Facebook desktop/mobile UI. Background and nonessential decoration may extend across the full frame.\n- Use a grid for alignment and clear visual hierarchy.\n- The people, landscape, gifts, wording, and colors shown in the source are campaign examples only; follow the current request instead.",
+    "short": "Facebook cover: 1920x730 with a centered 1106px-wide safe zone for essential content; full-bleed background; source campaign is example only.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "e_standee": {
+    "source": "/mkt/page-022.png",
+    "display_size": "1080x1920",
+    "ppi": "",
+    "ratio": "9:16",
+    "content": "E-STANDEE FORMAT RULES:\n- Frame: 1080x1920 (9:16), portrait.\n- Use a vertically balanced, grid-aligned hierarchy: brand area, headline, key benefits/supporting copy, then hero imagery.\n- Keep the OCB logo clear and undistorted; use adequate breathing room around the outer edges.\n- The international-transfer headline, benefit claims, person, phone, globe, and decorative elements shown in the source are campaign examples only. Never copy them unless explicitly requested.",
+    "short": "E-standee: 1080x1920 portrait; clear vertical hierarchy and grid; preserve logo; source campaign content is example only.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "standee": {
+    "source": "/mkt/page-023.png",
+    "display_size": "80x200cm",
+    "ppi": "",
+    "ratio": "2:5",
+    "content": "PRINT STANDEE FORMAT RULES:\n- Frame: 80x200cm, portrait; keep the composition centered.\n- Without a partner logo: use the centered OCB logo with tagline.\n- With a partner logo: replace the tagline area with the partner logo and center the combined logo lockup. Preserve both logos' proportions and separation.\n- The campaign text and imagery in the source are examples only; use the active brief and assets.",
+    "short": "Print standee: 80x200cm, centered; use OCB logo with tagline when no partner, or replace tagline area with centered partner-logo lockup.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "lcd": {
+    "source": "/mkt/page-024.png",
+    "display_size": "1920x1080",
+    "ppi": "",
+    "ratio": "16:9",
+    "content": "LCD SCREEN FORMAT RULES:\n- Frame: 1920x1080 (16:9), grid-aligned.\n- Place OCB logo at top-left. When a partner/OCB OMNI logo is required, place it at top-right and keep its height within the 4x logo module shown in the source.\n- Keep text legible at viewing distance with strong hierarchy and generous spacing.\n- The campaign artwork in the source is an example only, not a mandatory style or composition.",
+    "short": "LCD: 1920x1080; OCB top-left; optional partner/OMNI top-right within 4x module; strong distance readability; source campaign is example only.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "atm_cdm_screen": {
+    "source": "/mkt/page-025.png",
+    "display_size": "1024x768 image; 1024x512 CDM video",
+    "ppi": "",
+    "ratio": "4:3 image; 2:1 CDM video",
+    "content": "ATM/CDM SCREEN FORMAT RULES:\n- Static image for ATM and CDM: 1024x768 (4:3).\n- CDM video canvas: 1024x512 (2:1).\n- Keep OCB logo at top-left and preserve clear space. For ATM static layouts, reserve the machine UI/action zone shown at the right edge and do not place critical artwork beneath it.\n- Ensure text and controls remain readable on the physical screen.\n- Campaign imagery and wording in the source are examples only.",
+    "short": "ATM/CDM static: 1024x768; CDM video: 1024x512; OCB top-left; keep critical content clear of machine UI/action zones.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "screen_saver": {
+    "source": "/mkt/page-026.png",
+    "display_size": "1920x1080",
+    "ppi": "",
+    "ratio": "16:9",
+    "content": "SCREEN SAVER FORMAT RULES:\n- Frame: 1920x1080 (16:9), grid-aligned.\n- Place OCB logo at top-left. When a partner/OCB OMNI logo is required, place it at top-right and keep its height within the 4x logo module shown in the source.\n- Use a simple, legible composition suitable for passive display.\n- The campaign artwork in the source is an example only.",
+    "short": "Screen saver: 1920x1080; OCB top-left; optional partner/OMNI top-right within 4x module; simple passive-display composition.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "wallpaper": {
+    "source": "/mkt/page-027.png",
+    "display_size": "1920x1080",
+    "ppi": "",
+    "ratio": "16:9",
+    "content": "WALLPAPER FORMAT RULES:\n- Frame: 1920x1080 (16:9).\n- Keep the left half visually quiet for desktop icons. Place the OCB logo and primary campaign content in the right half, with sufficient edge clearance and clear hierarchy.\n- Avoid dense detail across the full canvas.\n- The SME GreenBiz campaign shown in the source is an example only.",
+    "short": "Wallpaper: 1920x1080; reserve a quiet left half for desktop icons; logo and campaign content on the right; source campaign is example only.",
+    "general_guide": [
+      "ocb_logo"
+    ]
+  },
+  "ocb_logo": {
+    "source": [
+      "/general/logo_usage_01.png",
+      "/general/logo_usage_02.png"
+    ],
+    "display_size": "",
+    "ppi": "",
+    "ratio": "",
+    "content": "OCB LOGO USAGE RULES:\n- The standard OCB symbol plus OCB wordmark is the primary logo and should be preferred for normal brand applications.\n- Use the tagline version only where the display area is large enough for the tagline to remain legible. Use the OCB Bank version only for English/international communication, foreign partners, or when the banking context must be explicit; it does not replace the standard logo.\n- On light backgrounds use the positive full-color version: gold/green symbol and green wordmark. On OCB green or dark backgrounds use the approved reversed version: gold/green symbol and white wordmark/tagline.\n- Preserve the supplied logo exactly: no redrawing, recoloring, stretching, squeezing, rotating, rearranging, effects, cropping, or obstructing. Keep clear space.\n- These rules govern a logo only when the request requires one or a supplied asset already contains one; they do not authorize inventing an additional logo.",
+    "short": "Prefer standard OCB logo; tagline only when legible; OCB Bank only for international/explicit banking contexts; positive on light, approved reversed version on dark/green; never distort or recolor.",
+    "general_guide": []
+  },
+  "banner_useful_article": {
+    "source": "/db/page-3.png",
+    "display_size": "1035x420",
+    "ppi": "",
+    "ratio": "69:28",
+    "content": "USEFUL-TIPS ARTICLE BANNER FORMAT RULES:\n1. FRAME\n- Landscape 1035x420px.\n2. EXPORT\n- File size below 180KB.\n3. TITLE/SLOGAN\n- The standard format has no title or slogan embedded in the image. If the active request explicitly provides required text, the request takes priority.\n4. SAFE AREA\n- Keep essential illustration at least 48px from all edges. A phone showing app UI may extend beyond this safe margin only when necessary to make the UI readable.\n5. IMAGERY\n- Main imagery must represent the core content and may use the matching app-feature icon color group. Supporting imagery must be relevant. Use at most three decorative subjects/effects.\n- The source layout is a specification example, not artwork to copy.",
+    "short": "Useful-tips article banner: 1035x420, <180KB; normally no embedded title; 48px safe margin; phone UI may exceed it; max three decorative subjects/effects.",
+    "general_guide": [
+      "banner_general_standard"
+    ]
+  },
+  "banner_popup_noti": {
+    "source": "/db/page-4.png",
+    "display_size": "1035x420",
+    "ppi": "",
+    "ratio": "69:28",
+    "content": "BANNER POP-UP/NOTIFICATION FORMAT RULES:\n1. FRAME\n- Landscape 1035x420px.\n2. EXPORT\n- File size below 100KB.\n3. TITLE OR SLOGAN\n- Manrope Bold 57pt, right-aligned. Line 1: #E39717. Line 2: #079F42.\n4. SAFE AREA\n- Keep essential illustration and text at least 48px from all edges. A phone showing app UI may extend beyond this safe margin only when necessary for UI readability.\n5. IMAGERY\n- Main imagery must represent the core message/key visual and use the approved palette. Supporting imagery must be relevant. Use at most three decorative subjects/effects. For a standalone marketing notification, follow that campaign's key visual.\n- Compose the entire canvas as one uninterrupted campaign scene. Continue background color, texture, lighting, and scenery naturally through every edge.\n- The source screenshot is a specification example only; derive final artwork from the active request.",
+    "short": "Pop-up/noti: 1035x420, <100KB; Manrope Bold 57pt right-aligned, line 1 #E39717 and line 2 #079F42; 48px safe margin; max three decorative subjects/effects; full-bleed with no visible frame/panel/guide.",
+    "general_guide": [
+      "banner_general_standard"
+    ]
+  },
+  "banner_card": {
+    "source": "/db/page-5.png",
+    "display_size": "1035x384",
+    "ppi": "",
+    "ratio": "345:128",
+    "content": "CARD-SERVICE FEATURE BANNER FORMAT RULES:\n1. FRAME\n- Landscape 1035x384px.\n2. EXPORT\n- File size below 100KB.\n3. TITLE OR SLOGAN\n- Manrope SemiBold 57pt, aligned top-right, color #0D1117.\n4. PARTNER LOGO\n- 1x height is 20px at the reference banner size; preserve the logo's aspect ratio.\n5. SAFE AREA\n- Keep essential illustration and text at least 48px from all edges.\n6. IMAGERY\n- Main imagery follows the active campaign. Favor warm decorative accents. With one card use at most three supporting decorative subjects; with two cards use at most two. Choose the background from relevant app-icon/category colors so offer groups or card types remain distinguishable.\n- Compose the entire canvas as one uninterrupted campaign scene. Continue background color, texture, lighting, and scenery naturally through every edge.\n- The source screenshot is a specification example only; derive final artwork from the active request.",
+    "short": "Card-service banner: 1035x384, <100KB; Manrope SemiBold 57pt top-right #0D1117; partner logo 20px high at reference size; 48px margin; max three decorations for one card or two for two cards; no visible frame/guide.",
+    "general_guide": []
+  },
+  "banner_clevertap": {
+    "source": "/db/page-9.png",
+    "display_size": "1035x1346",
+    "ppi": "",
+    "ratio": "1035:1346",
+    "content": "CLEVERTAP IN-WRITING POPUP FORMAT RULES:\n1. FRAME\n- Portrait 1035x1346px with 72px corner radius.\n2. EXPORT\n- File size below 500KB.\n3. TITLE OR SLOGAN\n- Manrope SemiBold 60pt, centered, #00804B.\n4. SUPPORT TEXT\n- Manrope SemiBold 33pt. Center one paragraph; left-align two or more paragraphs. Normal text #545C57; highlighted text #00804B.\n5. SAFE AREA\n- With a partner: at least 64px on all sides. OCB-only: at least 96px top/bottom and 64px left/right.\n6. IMAGERY\n- Use a centered 60px-high logo only when OCB has a partner. Main imagery represents the core message and approved palette; supporting imagery must be relevant; use at most three decorative subjects/effects.\n- The source screenshot is a specification example, not artwork or app UI chrome to copy.",
+    "short": "Clevertap popup: 1035x1346, 72px radius, <500KB; title Manrope SemiBold 60pt centered #00804B; support 33pt; 64px or 96/64px safe margins; max three decorations.",
+    "general_guide": [
+      "banner_general_standard"
+    ]
+  },
+  "banner_promo_card_1024x440": {
+    "source": "",
+    "display_size": "1024x440",
+    "ppi": "",
+    "ratio": "128:55",
+    "content": "PROMO CARD BANNER FORMAT RULES (1024x440):\n1. FRAME\n- Landscape 1024x440px.\n2. TITLE OR SLOGAN\n- Manrope SemiBold 53pt, right-aligned. Line 1 color #00804B, subsequent line(s) #E39717. 2 lines recommended, 3 max.\n3. MESSAGE\n- Manrope Medium, color #545C57, right-aligned, directly below the headline (~3px gap). Keep it brief, up to 2 lines.\n4. CTA\n- Button: fill color #00804B, max width 412px, padding 40px left/right, 12px top, 16px bottom. Label: Manrope SemiBold 39pt, white, up to 5 words.\n5. IMAGERY\n- Main imagery follows the active campaign brief. Theme/context/product buckets apply as usual.\n- The source is a spec sheet only, not artwork to copy.",
+    "short": "Promo card banner 1024x440; Manrope SemiBold headline (2 colors)/Medium message/CTA button per spec; theme/context/product as usual.",
+    "general_guide": [
+      "banner_general_standard"
+    ]
+  },
+  "banner_promo_card_1024x256": {
+    "source": "",
+    "display_size": "1024x256",
+    "ppi": "",
+    "ratio": "4:1",
+    "content": "PROMO CARD BANNER FORMAT RULES (1024x256):\n1. FRAME\n- Landscape 1024x256px, shorter than the 1024x440 variant of the same campaign.\n2. TITLE OR SLOGAN\n- Manrope SemiBold 53pt, right-aligned, color #00804B, exactly 1 line (this compact size has no room for 2).\n3. MESSAGE\n- Manrope Medium, color #545C57, right-aligned, directly below the headline (~3px gap) -- ONLY include a message if the headline fit on 1 line with room to spare.\n4. CTA\n- No button container at this size. Label only: Manrope SemiBold 39pt, up to 5 words, right-aligned, in a color that stays legible against the background.\n5. IMAGERY\n- Main imagery follows the active campaign brief. Theme/context/product buckets apply as usual; keep the composition compact given the reduced height.\n- The source is a spec sheet only, not artwork to copy.",
+    "short": "Promo card banner 1024x256 (short variant); 1-line Manrope SemiBold headline, optional message, no-button CTA label; compact composition.",
+    "general_guide": [
+      "banner_general_standard"
+    ]
+  },
+  "mkt_banner_card_passport_1024x440": {
+    "source": "",
+    "font": [
+      "/font/manrope_medium.png",
+      "/font/manrope_semibold.png"
+    ],
+    "display_size": "1024x440",
+    "ppi": "",
+    "ratio": "128:55",
+    "content": "PROMO CARD BANNER FORMAT RULES (1024x440):\n1. FRAME\n- Landscape 1024x440px.\n2. TITLE OR SLOGAN\n- Manrope SemiBold 53pt, right-aligned. Line 1 color #00804B, subsequent line(s) #E39717. 2 lines recommended, 3 max.\n3. MESSAGE\n- Manrope Medium, color #545C57, right-aligned, directly below the headline (~3px gap). Keep it brief, up to 2 lines.\n4. CTA\n- Button: fill color #00804B, max width 412px, padding 40px right, 12px top, 16px bottom. Label: Manrope SemiBold 39pt, white, up to 5 words.\n5. IMAGERY\n- Main imagery follows the active campaign brief. Theme/context/product buckets apply as usual.\n- The source is a spec sheet only, not artwork to copy. 1- Text sẽ là 2 dòng, mỗi dòng tối đa 6 chữ. Có 2 trường hợp: Trường hợp 1 (1 dòng Title + 1 dòng Content); Trường hợp 2 (cả 2 dòng đều là Title hoặc cả 2 dòng đều là Content). Tùy vào bản chất của câu prompt để xác định trường hợp phù hợp.\n2- Ưu tiên nhân vật là người Việt Nam.\n3- Thiết kế được hiển thị trên app điện thoại với kích thước nhỏ, vì vậy cần sử dụng ít elements, giữ bố cục đơn giản và rõ ràng.\n4- Về sản phẩm sử dụng trong thiết kế (ví dụ: thẻ), chỉ sử dụng duy nhất một hình ảnh sản phẩm. Sản phẩm có thể được hiển thị trên tay nhân vật đang cầm thẻ, xuất hiện dạng popup trên điện thoại khi thanh toán Apple Pay, hoặc xuất hiện độc lập theo cách tự nhiên và mượt mà. Sản phẩm phải liên kết hài hòa với bối cảnh thiết kế và luôn giữ đúng ratio của ảnh sản phẩm gốc. Saen \n5- Hạn chế tối đa các decoration elements không cần thiết.\n6- STRICT COLOR RULE: Use ONLY the designated dominant color as the primary background color. A subtle gradient is allowed only when necessary, and it may transition exclusively from the dominant color to a slightly lighter shade of the SAME color. NEVER transition toward a darker shade, a more saturated/deeper tone, or any different color family. Do not introduce additional background colors. The dominant color must remain clearly visible and visually dominant throughout the design.\n7- Trang phục của nhân vật phải thể hiện sự đẳng cấp và sang trọng, áp dụng cho cả trang phục casual và công sở.\n8- Các hình ảnh và visual elements sử dụng trong thiết kế phải thể hiện cảm giác sang trọng và cao cấp.\n9- Nội dung text phải được đặt ở bên Trái hoặc bên Phải, KHÔNG ĐẶT Ở GIỮA. Text phải hiển thị trên vùng nền sạch, rõ ràng và không được đè lên nhân vật, sản phẩm hoặc các visual elements khác.\n10- Nhân vật phải thể hiện sự năng động, trẻ trung, vui vẻ và hiện đại; ánh mắt trong sáng và nhìn về phía người xem.\n11- Tất cả các thành phần trong thiết kế phải kết nối với nhau một cách tự nhiên và mượt mà, tránh cảm giác ghép nối thô hoặc các elements tồn tại rời rạc, thiếu liên kết. \nGround the scene in a realistic supermarket checkout counter: stage the POS terminal, grocery bag, and hero card/product naturally on or beside the counter, with a narrow zone around them kept in sharp photographic focus while the surrounding shelves and background details progressively defocus into soft bokeh the farther they are from that focal point. Do not let the checkout scene fill the whole canvas edge-to-edge — instead blend it seamlessly into a full-bleed wash of the campaign's dominant theme color: apply a soft-light/multiply color gradient that intensifies smoothly from the sharp central scene outward, so the top and side/corner regions read as a clean, smooth expanse of the theme color rather than literal supermarket detail. The theme color must cover roughly 40-60% of the total canvas, wrap continuously and symmetrically around the photographic scene with no hard edge, seam, ring, halo, or visible boundary line between the wash and the photographic area, and extend fully to all four canvas edges (true full-bleed — never as an inset panel, frame, or bordered card). Keep the transition gradual and organic, matching the lighting direction and tone of the scene beneath it, and never discolor or wash out the hero subject, product, headline text, or logo. Optional soft floating gold coin/sparkle particles may drift across the color-wash areas to reinforce the reward/promo mood, staying subtle and never overlapping required text or the locked product asset.\n12- IMPORTANT: nhân vật sử dụng trong thiết kế phải là người thật, tự nhiên, KHÔNG để người xem có cảm giác hình giả do AI tạo. \nFollow these composition and visual-design requirements strictly: Allocate approximately half of the composition to a dedicated text area and the remaining space to visual elements, following the Marketing Team reference; treat this as a flexible visual balance rather than a strict 50/50 split or fixed left-right layout. Keep the text area clean, spacious, and visually separated, and never place the product or major visual subjects inside the designated text area even if they do not directly overlap the text. Ensure imagery does not dominate, obstruct, or reduce the readability of the text; keep the main product clearly visible, appropriately sized, well balanced, and surrounded by sufficient negative space. When people are included, use clothing appropriate to the context, target customer, campaign brief, and brand positioning; avoid overly casual, rugged, messy, or unprofessional styling unless explicitly required by the brief. Preserve the declared background color as the dominant and recognizable color; minimize gradients toward other colors, including excessive fading toward white, to prevent the background from becoming washed out or deviating from the specified brand color. Maintain a harmonious and consistent visual style across all elements according to the design guidelines and reference examples, and use photography, realistic imagery, illustration, or graphic elements only as appropriate to the brief. Remove or minimize unnecessary decorative elements that create clutter or do not support the campaign message, such as coins, fireworks, white podiums, floating dots, excessive particles, or redundant visual effects. Show exactly one instance of each intended product in the creative, for example only one Passport card; never duplicate, clone, mirror, or repeat the same product in multiple positions, and preserve the product's original shape, proportions, orientation, details, and brand identity according to the supplied reference asset. Render all text exactly as provided, with correct Vietnamese spelling, diacritics, punctuation, and wording; ensure text is clearly readable, never obscured, cropped, distorted, or altered. When displaying Headline or Message in two lines, use a semantically natural line break with no more than 6 words per line. Promotional messages, benefits, offers, percentages, rewards, or other textual claims must remain clearly represented as text and must never be transformed, interpreted, or visualized as physical objects, product features, gifts, or illustrative elements that could misrepresent the actual product or customer benefit. When people are present, ensure natural anatomy, facial expression, gaze direction, posture, and interaction appropriate to the brief; if a person interacts with a product, ensure realistic hand placement, grip, scale, orientation, and physical relationship between the person and product. When a smartphone and popup are shown together, the popup must follow the same orientation, viewing angle, perspective, and spatial alignment as the smartphone screen so they appear as a coherent interface; apply this rule consistently to both current and future use cases containing these elements.\nFollow these use-case-specific visual and design requirements strictly: For use cases involving vehicles, transportation, riding, or participation in road traffic, ensure characters wear appropriate safety equipment, especially helmets when required by the transportation context; the helmet must look natural, correctly fitted, and consistent with the character and scene. When a partner brand is explicitly referenced in the brief, preserve the partner's official visual identity accurately; for example, in Xanh SM-related use cases, ensure the character's clothing, especially uniform colors, follows the correct Xanh SM brand identity and must not be replaced with approximate or unrelated colors. When people are included, select character models that match the Marketing Team's brief and feedback, prioritizing natural and contextually appropriate Vietnamese-looking characters when explicitly required by the use case; ensure age, appearance, clothing, expression, and overall styling are appropriate for the intended customer segment and campaign context. For use cases containing country icons, select a visually harmonious and consistent icon set; all country icons must follow the same illustration style, shape language, perspective, level of detail, visual weight, and rendering treatment rather than mixing unrelated icon styles. Follow topic-specific background requirements strictly: when a topic specifies a particular background style, use that style consistently and minimize unnecessary graphics, decorative elements, patterns, or visual effects that compete with the main content. When a smartphone or mobile interface is shown, display the correct and approved UX/UI screen corresponding to the referenced feature, product, or service; never invent, substitute, redesign, or use an unrelated interface when a standard reference screen is provided. When a use case explicitly requires a character to interact with or hold a card, use a natural and realistic card-holding pose or follow the supplied reference image; ensure correct hand anatomy, finger placement, grip, card orientation, scale, visibility, and physical interaction, but do not automatically add a person holding the card to use cases where such interaction is not required. If an existing generated image is judged to be generally unacceptable or requires a complete redesign, first identify the specific reasons it fails and determine the expected visual direction or reference example before regenerating; do not arbitrarily recreate the image without clear design requirements, identified issues, or an intended target style.",
+    "short": "Promo card banner 1024x440; Manrope SemiBold headline (2 colors)/Medium message/CTA button per spec; theme/context/product as usual.",
+    "general_guide": []
+  },
+  "banner_general_standard": {
+    "source": "/db/page-2.png",
+    "display_size": "",
+    "ppi": "",
+    "ratio": "",
+    "content": "GENERAL OCB DIGITAL-BANNER COLOR AND ART-DIRECTION RULES:\n1. BACKGROUND COLOR\n- The standard light-green background gradient is #F5FFF2 to #B7F3B7. It is a preferred OCB base; when selected, apply it continuously across the full canvas. A campaign brief or supplied theme may require another coherent background treatment.\n2. MAIN PALETTE\n- Approved main colors: #FFFFF3, #F5FFF2, #F2FFE8, #D3F8E0, #AFFBC7, #3DE6A0, #079F42, #008C44, #00804B, #FCF3C5, #FFDF9F, #FFB73E, #E09F12, #E39717, #76540C. Main colors should dominate; close neighboring shades may be used without drifting away from the palette.\n3. ACCENT PALETTE\n- Approved accents: #FFC4A2, #EAA680, #FEE4E2, #F04438, #80231C, #DCE9FD, #3878F0, #213887, #D3CDFB, #8F80F5, #352B7C, #DCDFE3, #A4ABA7, #000000. Accents should occupy about 5-10% and support the focal subject.\n4. VISUAL MEDIUM\n- Select the medium from the active design brief and supplied references. When photographic people or commercial products are supplied, keep them photographic and exact; create a polished advertising background that harmonizes naturally with them. Background motifs may be enhanced or recomposed while preserving the campaign's nature and OCB tone.\n5. ILLUSTRATION STROKES\n- The source defines 0px, 3px, and 6px stroke levels according to importance. Apply these stroke weights only to outlines within individual illustrated subjects when the selected artwork uses illustration.\n6. FULL-CANVAS COMPOSITION\n- Treat the complete image as one continuous campaign scene. Background color, texture, lighting, and scenery extend naturally through every edge.",
+    "short": "OCB digital banner: exact main/accent palettes; preferred full-bleed #F5FFF2 to #B7F3B7 base; medium follows brief/assets, not forced 2D; preserve photographic people/products; stroke levels apply only inside illustrations, never as an outer frame; no visible guides.",
+    "general_guide": []
+  },
+  "ocb_omni_110926_mass_1024x440": {
+    "source": "",
+    "font": [
+      "/font/manrope_medium.png",
+      "/font/manrope_semibold.png"
+    ],
+    "display_size": "1024x440",
+    "ppi": "",
+    "ratio": "128:55",
+    "content": "OCB OMNI — QUY CÁCH ĐỢT 11/09/2026 — MASS\nMàu nền chủ đạo chính xác #B3F3BB; màu phối/gradient không lệch quá 15% về hue/saturation/brightness. Đây là bảng màu chiến dịch được chỉ định.\ntext.headline: Manrope Semibold 40 tới 52px - Khuyến nghị từ 8 đến 12 chữ, cho tối đa 2 dòng - Color dòng trên #00804B, dòng dưới #E39717, đảm bảo chữ nổi bật trên nền theme và dễ nhìn\ntext.message: Manrope Medium 28 tới 36px - Color #545C57 - Kề dưới Slogan (headline) 1 khoảng từ 8 đến 16 px, Khuyến nghị hạn chế hiện, max 8 chữ, 1 dòng\nbutton: Color: #00804B - Độ dài bám theo padding với text.cta_label được mô tả ở dưới - Max width 512px\ntext.cta_label: text Manrope Semibold 39px - TextColor #FFFFFF - padding Left-Right 40px,Top 12px, Bottom 16px, từ 2 đến 4 chữ, mang sắc thái thân thiện và gợi mở; không dùng từ 'ngay' hoặc cách diễn đạt tạo cảm giác thúc ép, ra lệnh\nNhân vật/ngữ cảnh và sản phẩm ở bên trái; chữ và CTA căn phải ở bên phải. Trên ảnh đầu ra 1024x440, chừa lề nội dung 64px mỗi cạnh; vùng chữ rộng 420px, chỉ mở rộng thêm tối đa 40px sang phía hình khi không đè lên hình. Vùng sản phẩm nằm trong vùng ngữ cảnh, sản phẩm ở lớp trước cùng. Nền liên tục full-bleed. Đây là hướng dẫn bố cục vô hình, không vẽ đường phân vùng, thước, nhãn hay ô màu của bản spec.\nẢnh quảng cáo dễ đọc trên điện thoại, chữ và hình có tương phản rõ. Không sao chép chữ minh họa hoặc bảng màu trong spec.",
+    "short": "OCB OMNI 11/09/2026 MASS; Manrope; background #B3F3BB; 1024x440.",
+    "general_guide": [
+      "ocb_omni_110926_common"
+    ]
+  },
+  "ocb_omni_110926_mass_aff_1024x440": {
+    "source": "",
+    "font": [
+      "/font/manrope_medium.png",
+      "/font/manrope_semibold.png"
+    ],
+    "display_size": "1024x440",
+    "ppi": "",
+    "ratio": "128:55",
+    "content": "OCB OMNI — QUY CÁCH ĐỢT 11/09/2026 — MASS_AFF\nMàu nền chủ đạo chính xác #3DE6A0; màu phối/gradient không lệch quá 15% về hue/saturation/brightness. Đây là bảng màu chiến dịch được chỉ định.\ntext.headline: Manrope Semibold 40 tới 52px - Khuyến nghị từ 8 đến 12 chữ, cho tối đa 2 dòng - Color dòng trên #00804B, dòng dưới #E39717, đảm bảo chữ nổi bật trên nền theme và dễ nhìn\ntext.message: Manrope Medium 28 tới 36px - Color #545C57 - Kề dưới Slogan (headline) 1 khoảng từ 8 đến 16 px, Khuyến nghị hạn chế hiện, max 8 chữ, 1 dòng\nbutton: Color: #00804B - Độ dài bám theo padding với text.cta_label được mô tả ở dưới - Max width 512px\ntext.cta_label: text Manrope Semibold 39px - TextColor #FFFFFF - padding Left-Right 40px,Top 12px, Bottom 16px, từ 2 đến 4 chữ, mang sắc thái thân thiện và gợi mở; không dùng từ 'ngay' hoặc cách diễn đạt tạo cảm giác thúc ép, ra lệnh\nNhân vật/ngữ cảnh và sản phẩm ở bên trái; chữ và CTA căn phải ở bên phải. Trên ảnh đầu ra 1024x440, chừa lề nội dung 64px mỗi cạnh; vùng chữ rộng 420px, chỉ mở rộng thêm tối đa 40px sang phía hình khi không đè lên hình. Vùng sản phẩm nằm trong vùng ngữ cảnh, sản phẩm ở lớp trước cùng. Nền liên tục full-bleed. Đây là hướng dẫn bố cục vô hình, không vẽ đường phân vùng, thước, nhãn hay ô màu của bản spec.\nẢnh quảng cáo dễ đọc trên điện thoại, chữ và hình có tương phản rõ. Không sao chép chữ minh họa hoặc bảng màu trong spec.",
+    "short": "OCB OMNI 11/09/2026 MASS_AFF; Manrope; background #3DE6A0; 1024x440.",
+    "general_guide": [
+      "ocb_omni_110926_common"
+    ]
+  },
+  "ocb_omni_110926_aff_1024x440": {
+    "source": "",
+    "font": [
+      "/font/manrope_medium.png",
+      "/font/manrope_semibold.png"
+    ],
+    "display_size": "1024x440",
+    "ppi": "",
+    "ratio": "128:55",
+    "content": "OCB OMNI — QUY CÁCH ĐỢT 11/09/2026 — AFF\nMàu nền chủ đạo chính xác #0F472F; màu phối/gradient không lệch quá 15% về hue/saturation/brightness. Đây là bảng màu chiến dịch được chỉ định.\ntext.headline: Manrope Semibold 40 tới 52px - Khuyến nghị từ 6 đến 12 chữ, cho tối đa 2 dòng - Color có thể sử dụng 2 trong 3 màu: C5A049, DDC37D, E4DABF để tạo hiệu ứng gradient hoặc chia mỗi dòng 1 màu, đảm bảo chữ nổi bật trên nền theme và dễ nhìn\ntext.message: Manrope Medium 28 tới 36px - Color #FCF3C5 - Kề dưới Slogan (headline) 1 khoảng từ 8 đến 16 px, Khuyến nghị hạn chế hiện, max 8 chữ, 1 dòng\nbutton: Color: #00804B - Độ dài bám theo padding với text.cta_label được mô tả ở dưới - Max width 512px\ntext.cta_label: text Manrope Semibold 39px - TextColor #FFFFFF - padding Left-Right 40px,Top 12px, Bottom 16px, từ 2 đến 4 chữ, mang sắc thái thân thiện và gợi mở; không dùng từ 'ngay' hoặc cách diễn đạt tạo cảm giác thúc ép, ra lệnh\nChữ và CTA căn trái ở bên trái; nhân vật/ngữ cảnh và sản phẩm ở bên phải. Trên ảnh đầu ra 1024x440, chừa lề nội dung 64px mỗi cạnh; vùng chữ rộng 420px, chỉ mở rộng thêm tối đa 40px sang phía hình khi không đè lên hình. Vùng sản phẩm nằm trong vùng ngữ cảnh, sản phẩm ở lớp trước cùng. Nền liên tục full-bleed. Đây là hướng dẫn bố cục vô hình, không vẽ đường phân vùng, thước, nhãn hay ô màu của bản spec.\nẢnh quảng cáo dễ đọc trên điện thoại, chữ và hình có tương phản rõ. Không sao chép chữ minh họa hoặc bảng màu trong spec.",
+    "short": "OCB OMNI 11/09/2026 AFF; Manrope; background #0F472F; 1024x440.",
+    "general_guide": [
+      "ocb_omni_110926_common"
+    ]
+  },
+  "ocb_omni_110926_common": {
+    "source": "",
+    "general_guide": [],
+    "content": "Nhập vai agency thiết kế chuyên nghiệp cho ngân hàng OCB. Banner hiển thị trên ứng dụng OCB OMNI tại màn hình chính, màn hình chuyển khoản và các vị trí có nhiều lượt truy cập. Mục tiêu tăng lượt bấm; hình ảnh và chữ phải rõ, có tương phản tốt trên thiết bị di động.\nNội dung sản phẩm trong design_brief là tư liệu gợi ý, không phải câu phải in nguyên văn. Chỉ dùng quyền lợi/số liệu đã cung cấp, không tự thêm ưu đãi hoặc suy diễn điều kiện. Text do AI sáng tạo theo các cờ bật/tắt của request. Version 1 quảng bá/khám phá sản phẩm; version 2 thúc đẩy sử dụng; version 3 nếu có dùng bối cảnh/ý tưởng sử dụng khác.\nBucket 1: nền full-bleed, không chữ, không người; gradient từ dominant_color với độ lệch tối đa 15% hue/saturation/brightness. Có thể dùng Trung thu, du lịch, foodie, wellness hoặc eco green khi phù hợp.\nBucket 2: nhân vật/ngữ cảnh tách nền về mặt bố cục, hòa vào cảnh tự nhiên, không xuất nền caro.\nBucket 3: sản phẩm/vật phẩm tách nền về mặt bố cục, đặt lớp trên cùng, kết nối ánh sáng và phối cảnh với ngữ cảnh. Không tự bịa giao diện chính thức hoặc chữ ưu đãi. Giữ đúng nhận diện và tỷ lệ asset được cung cấp. Mọi chữ tự sinh trên giao diện màn hình điện thoại (nếu có) phải là tiếng Việt, không dùng tiếng Anh.\nKhông in thông số kỹ thuật, nhãn phiên bản hoặc chỉ dẫn lên ảnh. Không in tên font (Manrope, Semibold, Medium, Bold), mã hex (kể cả khi mất dấu #, ví dụ E39717 / dE39717), số px hay padding thành một dòng chữ trên banner — đó chỉ là kiểu/màu cho headline/message/CTA, không phải nội dung quảng cáo.\nBucket 4: brand-text asset là tên/logo sản phẩm đã duyệt dưới dạng ảnh chữ hoàn chỉnh. Đặt đúng một lần ở đầu cụm nội dung trong vùng chữ, trước headline/message/CTA, và giữ nguyên nội dung, kiểu chữ, màu sắc, artwork và tỷ lệ; không vẽ lại, gõ lại, đổi màu, cắt, bóp méo hoặc tạo bản sao. Không sinh lại hoặc diễn đạt lại tên sản phẩm và tagline đã có trong asset bằng text riêng; phần chữ sinh thêm chỉ bổ sung lợi ích/thông tin mới.",
+    "batch_plan": {
+      "products_per_segment": 19,
+      "segments": [
+        "MASS",
+        "MASS_AFF",
+        "AFF"
+      ],
+      "images_per_segment": 45,
+      "total_images": 135,
+      "min_versions_per_product": 2,
+      "products_with_three_versions": 7,
+      "note": "Kế hoạch toàn bộ đợt; mỗi JSON chạy num_version của chính nó."
+    }
+  },
+  "ocb_omni_popup_mass_720x1280": {
+    "source": "",
+    "font": [
+      "/font/manrope_medium.png",
+      "/font/manrope_semibold.png"
+    ],
+    "display_size": "720x1280",
+    "ppi": "",
+    "ratio": "9:16",
+    "content": "OCB OMNI — QUY CÁCH POPUP MỞ APP — MASS (720x1280)\nMàu nền chủ đạo chính xác #B3F3BB; màu phối/gradient không lệch quá 15% về hue/saturation/brightness. Đây là bảng màu chiến dịch được chỉ định.\ntext.headline: Headline nổi bật: Bai Jamjuree Bold 58 tới 76px, Color #E39717, tối đa 2 dòng và 10 từ. Headline phụ: Manrope Bold 40 tới 46px, Color #0A9646, từ 1 đến 2 dòng (8 đến 14 từ). Đảm bảo chữ nổi bật trên nền theme và dễ nhìn.\ntext.message: Manrope Semibold 36px - Color #545C57 - Kề dưới headline 1 khoảng 27px, Khuyến nghị hạn chế hiện, max 14 từ và 2 dòng. Có thể dùng Bold và mã màu #0D1117 để highlight cụm từ chủ chốt.\nbutton: Color gradient: #008C55 tới #00804B - Dạng pill bo tròn - Fixed width 620px và height 96px, căn giữa với lề an toàn 50px mỗi bên.\ntext.cta_label: Text Manrope Bold 36px - TextColor #FFFFFF - padding Left-Right 40px, Top-Bottom 24px, tối đa 4 từ, mang sắc thái thân thiện và gợi mở; không dùng từ 'ngay' hoặc cách diễn đạt tạo cảm giác thúc ép, ra lệnh.\nBố cục dọc 720x1280: Vùng trên là cụm text (Headline + Message); Vùng giữa là ngữ cảnh/sản phẩm (kết hợp nhân vật chỉ khi có cờ generate_person hoặc asset context); Vùng dưới là nút CTA 620x96px. Giữ khoảng cách thoáng, không để hình ảnh che khuất chữ và CTA.",
+    "short": "OCB OMNI Popup MASS 720x1280; background #B3F3BB; button 620x96 #008C55->#00804B; CTA #FFFFFF.",
+    "general_guide": [
+      "ocb_omni_popup_common"
+    ]
+  },
+  "ocb_omni_popup_mass_aff_720x1280": {
+    "source": "",
+    "font": [
+      "/font/manrope_medium.png",
+      "/font/manrope_semibold.png"
+    ],
+    "display_size": "720x1280",
+    "ppi": "",
+    "ratio": "9:16",
+    "content": "OCB OMNI — QUY CÁCH POPUP MỞ APP — MASS_AFF (720x1280)\nMàu nền chủ đạo chính xác #3DE6A0; màu phối/gradient không lệch quá 15% về hue/saturation/brightness. Đây là bảng màu chiến dịch được chỉ định.\ntext.headline: Headline nổi bật: Bai Jamjuree Bold 58 tới 76px, Color #E39717, tối đa 2 dòng và 10 từ. Headline phụ: Manrope Bold 40 tới 46px, Color #0A9646, từ 1 đến 2 dòng (8 đến 14 từ). Đảm bảo chữ nổi bật trên nền theme và dễ nhìn.\ntext.message: Manrope Semibold 36px - Color #545C57 - Kề dưới headline 1 khoảng 27px, Khuyến nghị hạn chế hiện, max 14 từ và 2 dòng. Có thể dùng Bold và mã màu #0D1117 để highlight cụm từ chủ chốt.\nbutton: Color gradient: #008C55 tới #00804B - Dạng pill bo tròn - Fixed width 620px và height 96px, căn giữa với lề an toàn 50px mỗi bên.\ntext.cta_label: Text Manrope Bold 36px - TextColor #FFFFFF - padding Left-Right 40px, Top-Bottom 24px, tối đa 4 từ, mang sắc thái thân thiện và gợi mở; không dùng từ 'ngay' hoặc cách diễn đạt tạo cảm giác thúc ép, ra lệnh.\nBố cục dọc 720x1280: Vùng trên là cụm text (Headline + Message); Vùng giữa là ngữ cảnh/sản phẩm (kết hợp nhân vật chỉ khi có cờ generate_person hoặc asset context); Vùng dưới là nút CTA 620x96px. Giữ khoảng cách thoáng, không để hình ảnh che khuất chữ và CTA.",
+    "short": "OCB OMNI Popup MASS_AFF 720x1280; background #3DE6A0; button 620x96 #008C55->#00804B; CTA #FFFFFF.",
+    "general_guide": [
+      "ocb_omni_popup_common"
+    ]
+  },
+  "ocb_omni_popup_aff_720x1280": {
+    "source": "",
+    "font": [
+      "/font/manrope_medium.png",
+      "/font/manrope_semibold.png"
+    ],
+    "display_size": "720x1280",
+    "ppi": "",
+    "ratio": "9:16",
+    "content": "OCB OMNI — QUY CÁCH POPUP MỞ APP — AFF (720x1280)\nMàu nền chủ đạo chính xác #0F472F; màu phối/gradient không lệch quá 15% về hue/saturation/brightness. Đây là bảng màu chiến dịch được chỉ định.\ntext.headline: Manrope Semibold 40 tới 52px - Khuyến nghị từ 6 đến 12 chữ, cho tối đa 2 dòng - Color có thể sử dụng 2 trong 3 màu: #C5A049, #DDC37D, #E4DABF để tạo hiệu ứng gradient hoặc chia mỗi dòng 1 màu, đảm bảo chữ nổi bật trên nền theme và dễ nhìn.\ntext.message: Manrope Semibold 36px - Color #FAF0D7 - Kề dưới Slogan (headline) 1 khoảng 27px, Khuyến nghị hạn chế hiện, max 14 từ và 2 dòng. Có thể dùng Bold để highlight 1 cụm danh từ hoặc hành động chủ chốt.\nbutton: Color gradient: #E1C364 tới #D2A046 - Dạng pill bo tròn - Fixed width 620px và height 96px, căn giữa với lề an toàn 50px mỗi bên.\ntext.cta_label: Text Manrope Bold 36px - TextColor #553C00 - padding Left-Right 40px, Top-Bottom 24px, tối đa 4 từ, mang sắc thái thân thiện và gợi mở; không dùng từ 'ngay' hoặc cách diễn đạt tạo cảm giác thúc ép, ra lệnh.\nBố cục dọc 720x1280: Vùng trên là cụm text (Headline + Message); Vùng giữa là ngữ cảnh/sản phẩm (kết hợp nhân vật chỉ khi có cờ generate_person hoặc asset context); Vùng dưới là nút CTA 620x96px. Giữ khoảng cách thoáng, không để hình ảnh che khuất chữ và CTA.",
+    "short": "OCB OMNI Popup AFF 720x1280; background #0F472F; button 620x96 #E1C364->#D2A046; CTA #553C00.",
+    "general_guide": [
+      "ocb_omni_popup_common"
+    ]
+  },
+  "ocb_omni_popup_common": {
+    "source": "",
+    "general_guide": [],
+    "content": "Nhập vai agency thiết kế chuyên nghiệp cho ngân hàng OCB. Thiết kế ảnh popup khi mở ứng dụng OCB OMNI (kích thước 720x1280, tỉ lệ dọc 9:16). Mục tiêu thu hút sự chú ý, quảng bá và thúc đẩy sử dụng sản phẩm tài chính; hình ảnh và chữ phải cực kỳ sắc nét, rõ ràng, tương phản tốt trên màn hình di động.\nBố cục dọc tổng thể: Chia làm 3 tầng rõ rệt: Tầng trên (Top) là cụm Text (Headline + Message); Tầng giữa (Middle) là visual chính gồm Ngữ cảnh (Bucket 2) và Sản phẩm (Bucket 3 đặt layer trên cùng); Tầng dưới (Bottom) là nút CTA kích thước cố định 620x96px dạng pill bo tròn đặt căn giữa với lề an toàn 50px mỗi bên.\nQuy tắc nhân vật: Khi thiết kế có người (cờ generate_person bật hoặc có asset context), sử dụng hình mẫu người Việt Nam tự nhiên, hiện đại, trang phục lịch sự/sang trọng phù hợp với phân khúc khách hàng. Biểu cảm tươi vui, rạng rỡ, ánh mắt trong sáng và nhìn thẳng về phía người xem. Khi không có người, tập trung vào sản phẩm và bối cảnh đồ họa theo chủ đề.\nQuy tắc sản phẩm: Giữ nguyên nhận diện, tỷ lệ, chi tiết của sản phẩm theo asset được cung cấp. Đặt ở vị trí nổi bật, kết nối mượt mà với ngữ cảnh, không bị che khuất và không biến các ưu đãi trừu tượng thành đồ vật phi thực tế.\nQuy tắc CTA: Câu kêu gọi hành động tối đa 4 từ, mang sắc thái thân thiện, gợi mở (ví dụ: 'Thử khám phá', 'Mở tiết kiệm', 'Mở thẻ', 'Đăng ký', 'Tìm hiểu thêm'...), tuyệt đối không dùng từ 'ngay' hoặc tạo cảm giác ra lệnh thúc ép.\nNền full-bleed, gradient từ dominant_color với độ lệch tối đa 15% hue/saturation/brightness. Không in thông số kỹ thuật, thước đo hay nhãn hướng dẫn lên ảnh.",
+    "batch_plan": {
+      "products_per_segment": 20,
+      "segments": [
+        "MASS",
+        "MASS_AFF",
+        "AFF"
+      ],
+      "images_per_segment": 40,
+      "total_images": 120,
+      "versions_per_product": 2,
+      "note": "Kế hoạch Popup OCB OMNI: 20 sản phẩm x 2 versions = 40 banners / segment."
+    }
+  }
+}

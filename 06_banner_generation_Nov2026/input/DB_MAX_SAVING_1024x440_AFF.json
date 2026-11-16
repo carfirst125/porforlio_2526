@@ -1,0 +1,74 @@
+{
+  "creative_id": "DB_MAX_SAVING_1024x440_AFF",
+  "format_type": "ocb_omni_110926_aff_1024x440",
+  "design_brief": "Tiền gửi sinh lời tối ưu, lĩnh lãi định kỳ\nLãi suất hấp dẫn, luôn cao hơn so với sản phẩm tiết kiệm truyền thống từ 0,5%/năm. Chuyển nhượng nhanh chóng, được bảo hiểm tiền gửi.\nSản phẩm này là sản phẩm tiền gửi hướng đến khách hàng muốn tối ưu khả năng sinh lời nhưng vẫn có nhu cầu quản lý nguồn vốn linh hoạt. Sản phẩm cung cấp hình thức lĩnh lãi định kỳ và mức lãi suất hấp dẫn so với sản phẩm tiết kiệm truyền thống theo chính sách áp dụng của OCB. Khách hàng có thể chuyển nhượng khoản tiền gửi theo điều kiện sản phẩm khi phát sinh nhu cầu về vốn. Đây là lựa chọn phù hợp cho khách hàng muốn kết hợp mục tiêu tích lũy dài hạn với khả năng chủ động tài chính.\nTên sản phẩm đã được cung cấp dưới dạng brand-text asset hoàn chỉnh. Dùng nguyên asset này trong vùng chữ; không tự viết lại hoặc lặp lại tên sản phẩm.",
+  "buckets": {
+    "theme": [
+      "AI chọn bối cảnh phù hợp sản phẩm Max saving và phân khúc AFF, theo design_brief."
+    ],
+    "context": [],
+    "product": "Tiền gửi Max saving sinh lời và lĩnh lãi định kỳ.",
+    "brand_text": [
+      "Bucket_4/MaxText03.png"
+    ]
+  },
+  "reference": "",
+  "text": {
+    "headline": "",
+    "message": "",
+    "cta_label": "",
+    "cta_deep_link": ""
+  },
+  "guidelines": "",
+  "num_version": 3,
+  "design_options": {
+    "generate_person": false,
+    "has_logo": false,
+    "text_by_code": false,
+    "auto_generate_text": false,
+    "generate_text": true,
+    "generate_text_headline": true,
+    "generate_text_message": true,
+    "generate_text_cta_label": true,
+    "dominant_color": "#0F472F",
+    "technique_selection": {
+      "mode": "auto",
+      "manual_techniques": [],
+      "observe_brand": [
+        "general",
+        "ocb_db"
+      ],
+      "auto_config": {
+        "max_background_techniques": 3,
+        "max_product_techniques": 3,
+        "max_decoration_techniques": 3,
+        "selection_constraints": [
+          "prompts/ocb_omni_110926_techniques_sel.txt"
+        ]
+      }
+    },
+    "dominant_color_tolerance_percent": 15,
+    "num_decorative_elements": 2
+  },
+  "generation": {
+    "canvas": {
+      "width": 1024,
+      "height": 440
+    },
+    "safe_area": {
+      "width": 1024,
+      "height": 440,
+      "position": "center",
+      "x": 0,
+      "y": 0
+    },
+    "instruction": ""
+  },
+  "output": {
+    "size": {
+      "width": 1024,
+      "height": 440
+    },
+    "clone": []
+  }
+}

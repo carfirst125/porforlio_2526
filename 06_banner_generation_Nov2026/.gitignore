@@ -1,0 +1,17 @@
+.env
+.env.local
+__pycache__/
+*.pyc
+.pytest_cache/
+.pytest-cache/
+output/
+usage/
+*.egg-info/
+.venv/
+venv/
+.DS_Store
+
+# The portfolio repo's root .gitignore contains a generic `lib/` rule
+# (Python packaging). In this project `lib/` is the asset / guideline
+# library that the app reads at runtime, so re-include it here.
+!lib/

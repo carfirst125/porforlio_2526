@@ -1,0 +1,71 @@
+{
+  "creative_id": "DB_AUTOBILL_1024x440_MASS",
+  "format_type": "ocb_omni_110926_mass_1024x440",
+  "design_brief": "Tự động thanh toán, một chạm dễ dàng\nTặng 10.000 OMNI coin cho lần đầu đăng ký\n\nAutobill – Thanh toán hóa đơn tự động\nAutobill cho phép khách hàng đăng ký thanh toán tự động các hóa đơn định kỳ thông qua OCB OMNI. Sau khi đăng ký, hệ thống hỗ trợ xử lý khoản thanh toán theo điều kiện đã thiết lập, giúp khách hàng giảm nguy cơ quên ngày đến hạn. Tính năng phù hợp với các khoản chi thường xuyên như điện, nước, internet và những dịch vụ định kỳ khác. OCB cũng đã đưa việc đăng ký thanh toán tự động vào chương trình OMNI Rewards, với quyền lợi tích lũy OMNI Coins tùy từng chương trình.",
+  "buckets": {
+    "theme": [
+      "AI chọn bối cảnh phù hợp sản phẩm Autobill và phân khúc MASS, theo design_brief."
+    ],
+    "context": [],
+    "product": "Điện thoại với tính năng thanh toán hóa đơn tự động."
+  },
+  "reference": "",
+  "text": {
+    "headline": "",
+    "message": "",
+    "cta_label": "",
+    "cta_deep_link": ""
+  },
+  "guidelines": "",
+  "num_version": 3,
+  "design_options": {
+    "generate_person": false,
+    "has_logo": false,
+    "text_by_code": false,
+    "auto_generate_text": false,
+    "generate_text": true,
+    "generate_text_headline": true,
+    "generate_text_message": true,
+    "generate_text_cta_label": true,
+    "dominant_color": "#B3F3BB",
+    "technique_selection": {
+      "mode": "auto",
+      "manual_techniques": [],
+      "observe_brand": [
+        "general",
+        "ocb_db"
+      ],
+      "auto_config": {
+        "max_background_techniques": 3,
+        "max_product_techniques": 3,
+        "max_decoration_techniques": 3,
+        "selection_constraints": [
+          "prompts/ocb_omni_110926_techniques_sel.txt"
+        ]
+      }
+    },
+    "dominant_color_tolerance_percent": 15,
+    "num_decorative_elements": 2
+  },
+  "generation": {
+    "canvas": {
+      "width": 1024,
+      "height": 440
+    },
+    "safe_area": {
+      "width": 1024,
+      "height": 440,
+      "position": "center",
+      "x": 0,
+      "y": 0
+    },
+    "instruction": ""
+  },
+  "output": {
+    "size": {
+      "width": 1024,
+      "height": 440
+    },
+    "clone": []
+  }
+}

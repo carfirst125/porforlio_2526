@@ -62,6 +62,16 @@ This portfolio showcases three end-to-end AI & Machine Learning demo projects th
 
 - Exposed trained models through a RESTful inference API using FastAPI, supporting real-time prediction requests and demonstrating the transition from experimental ML code to a production-oriented MLOps workflow.
 
+### Project 06 – Banner Generation (Multi-model Image GenAI + LangGraph Pipeline)
+
+- Built a Dynamic Creative Optimization (DCO) system that turns a single `request.json` (product, audience, assets, text, banner format) into multiple banner designs using Image GenAI models (Gemini, GPT-Image-2, MAI-Image, FLUX) behind one provider registry.
+
+- Orchestrated the prompt pipeline with LangGraph (request, assets, design guideline, image preparation, prompt), with a swappable text-LLM layer (OpenAI / Claude / Llama / DeepSeek / Ollama) and a generate → validate → repair loop with safe-area aware cropping.
+
+- Delivered the system as a FastAPI service and a Streamlit review/release/clone webapp, containerized with Docker, and covered by a pytest evaluation suite (unit / smoke / stress) with a documented change log of real-run findings.
+
+Details: [`06_banner_generation_Nov2026`](06_banner_generation_Nov2026/README.md)
+
 # END
 Xây dựng Voice Bot tiếng Việt: kiến trúc, công nghệ và phương pháp đánh giá
 Essay kỹ thuật — cập nhật tháng 10/2026. Phạm vi: toàn bộ đường đi của một câu nói, từ micro của khách hàng, qua nhận dạng giọng nói (STT), xử lý ở backend, đến tổng hợp giọng nói (TTS) trả ngược về thiết bị; kèm phương pháp đánh giá để biết hệ thống có "ổn" và "có chất lượng" hay không.

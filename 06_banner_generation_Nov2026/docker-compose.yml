@@ -1,0 +1,44 @@
+services:
+  backend:
+    build: .
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./input:/app/input
+      - ./output:/app/output
+
+  # webapp/ is intentionally NOT baked into the backend image (see
+  # .dockerignore -- keeps the API image focused/small); this service reuses
+  # the same image and just mounts webapp/ + overrides the command.
+  # `.streamlit/config.toml` (OCB brand theme, REQUEST.md [8e] -- added
+  # 2026-08-20) is mounted too: Streamlit reads it relative to CWD
+  # (`/app` here), so without this mount the webapp would silently fall
+  # back to Streamlit's default (non-OCB) theme inside the container.
+  webapp:
+    build: .
+    command: ["streamlit", "run", "webapp/Home.py", "--server.address=0.0.0.0", "--server.port=8501"]
+    env_file: .env
+    environment:
+      BACKEND_BASE_URL: http://backend:8000
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./webapp:/app/webapp
+      - ./.streamlit:/app/.streamlit
+    depends_on:
+      - backend
+
+  # Optional -- self-hosted LLM for local dev/testing of app/llm/ (set
+  # LLM_PROVIDER=ollama, LLM_BASE_URL=http://ollama:11434 in .env to use it).
+  # Not started by default: `docker compose --profile ollama up`.
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["ollama"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+
+volumes:
+  ollama_models:

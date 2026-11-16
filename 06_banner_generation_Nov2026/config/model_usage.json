@@ -1,0 +1,9 @@
+{
+  "default": ["gemini-3.1-flash-image"],
+  "quality": ["gemini-3.1-flash-image"],
+  "eco": ["gemini-3.1-flash-image"],
+  "custom": [],
+  "all": ["quality", "eco"],
+  "_note_mai-image-2.5-pro_mai-image-2.5_flux.2-pro_gemini-3-pro-image_removed_from_quality": "Remove MAI because of strict real human image violation rule, Remove FLUX.2_pro because unsufficient quality design, change human face in context.",
+  "_note_2026-08-25_gpt-image-2_removed_from_quality": "Temporarily locked to gemini-3.1-flash-image only (all modes) per user decision -- gpt-image-2 credentials/registry entry left untouched, just not referenced by any mode."
+}

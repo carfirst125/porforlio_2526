@@ -1,0 +1,74 @@
+{
+  "creative_id": "DB_POPUP_TH_PASSPORT_DEBIT_720x1280_AFF",
+  "format_type": "ocb_omni_popup_aff_720x1280",
+  "design_brief": "Thẻ Passport Debit\nHoàn tiền đến 3% mỗi ngày. Mở thẻ OCB Mastercard Passport miễn phí trên OCB OMNI, hoàn tiền và thanh toán quốc tế thông minh.",
+  "buckets": {
+    "theme": [
+      "AI chọn bối cảnh phù hợp sản phẩm Thẻ Passport Debit và phân khúc AFF, theo design_brief."
+    ],
+    "context": [],
+    "product": [
+      "Bucket_3/passport_card.png"
+    ],
+    "brand_text": []
+  },
+  "reference": "",
+  "text": {
+    "headline": "",
+    "message": "",
+    "cta_label": "",
+    "cta_deep_link": ""
+  },
+  "guidelines": "",
+  "num_version": 2,
+  "design_options": {
+    "generate_person": false,
+    "has_logo": false,
+    "text_by_code": false,
+    "auto_generate_text": false,
+    "generate_text": true,
+    "generate_text_headline": true,
+    "generate_text_message": true,
+    "generate_text_cta_label": true,
+    "dominant_color": "#0F472F",
+    "technique_selection": {
+      "mode": "auto",
+      "manual_techniques": [],
+      "observe_brand": [
+        "general",
+        "ocb_db"
+      ],
+      "auto_config": {
+        "max_background_techniques": 3,
+        "max_product_techniques": 3,
+        "max_decoration_techniques": 3,
+        "selection_constraints": [
+          "prompts/ocb_omni_110926_techniques_sel.txt"
+        ]
+      }
+    },
+    "dominant_color_tolerance_percent": 15,
+    "num_decorative_elements": 2
+  },
+  "generation": {
+    "canvas": {
+      "width": 720,
+      "height": 1280
+    },
+    "safe_area": {
+      "width": 720,
+      "height": 1280,
+      "position": "center",
+      "x": 0,
+      "y": 0
+    },
+    "instruction": ""
+  },
+  "output": {
+    "size": {
+      "width": 720,
+      "height": 1280
+    },
+    "clone": []
+  }
+}

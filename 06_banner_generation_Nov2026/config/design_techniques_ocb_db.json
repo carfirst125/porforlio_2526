@@ -1,0 +1,996 @@
+{
+  "schema_version": "2.0-ref",
+  "schema_notes": "File THAM KHẢO (không phải file config app đang load) dùng để lưu kiến trúc và ví dụ design techniques theo TỪNG NGÂN HÀNG/BRAND riêng biệt, phân tích từ creative thực tế của brand đó. Đây là bản mở rộng cho brand 'ocb_db', cùng cấu trúc field với design_techniques_ref.json (brand 'acb'); có thể merge 2 file (gộp chung 'design_techniques' + cộng 'brands_included') khi cần dùng chung, không cần tạo file riêng theo brand. Không có key nào ở đây trùng tên với các key đã dùng cho acb, nên chưa cần prefix brand vào tên key theo quy ước; nếu sau này phát sinh trùng tên với brand khác, đổi tên key theo prefix (vd 'ocbdb_xxx'). Nhóm techniques hiện có (brand=ocb_db) rút ra từ việc phân tích trực quan 20 banner/29 hình thực tế của OCB trong file 'Tổng hợp Native 1.pptx' (slide 3-22, trừ slide 1 là slide tiêu đề không có banner và slide 2 'Vietlott' được ghi chú 'Đề xuất bỏ' nên không đưa vào phân tích). Giữ đúng cấu trúc field với config/design_techniques.json (schema_version 2.0) để có thể copy thẳng technique nào phù hợp vào file config chính khi cần dùng thật. Khác biệt so với config gốc: (1) bổ sung nhóm thứ 4 'text' (text display style) vì 3 nhóm gốc (background/decoration/product) không có chỗ mô tả cách trình bày chữ/headline/CTA; (2) mỗi technique có thêm field 'brand' để phân biệt theo ngân hàng. Đặc điểm riêng của bộ creative OCB so với ACB: hầu hết mọi chủ đề đều dựng thành 1 CẶP song song 'PRIO' (tệp khách ưu tiên/priority banking — luôn dùng nền xanh đậm glow + chữ vàng kim) và 'MASS' (tệp khách phổ thông — luôn dùng nền mint sáng + chữ xanh/cam) cho cùng 1 nội dung; đây không phải một 'kỹ thuật' riêng mà là quy ước phối cặp giữa background+text techniques, được đánh dấu qua tag 'tier-prio'/'tier-mass' trên các technique liên quan. Một số slide có ghi chú review nội bộ (thiếu logo, hiệu ứng sáng/glow quá đà, ảnh điện thoại bị bóp méo tỉ lệ, dùng '$' thay 'đ') — đây là LỖI cần tránh, không phải kỹ thuật, nên được đưa vào avoid_when/prompt_instruction của các technique liên quan (glow_halo_ring_accent, phone_device_mockup_hero, labeled_value_tag_scatter) như một ràng buộc chất lượng, không phải một lựa chọn sáng tạo.",
+  "source_analysis": {
+    "assets_reviewed": [
+      "Thẻ Passport debit — Native nhỏ/lớn (người thật giơ điện thoại+thẻ, vòng chữ khẩu hiệu lặp lại dạng cung tròn, nền mint)",
+      "Thẻ World (Done) — Native nhỏ/lớn (thẻ đen-vàng OCB Mastercard World nổi giữa nền gold radial, icon du lịch/xa xỉ (du thuyền, khí cầu, máy bay, ghế bành) xếp quanh theo vòng tròn)",
+      "Gửi FD 1 Tỷ thăng hạng — Native nhỏ/lớn (hộp icon 3D kính xanh đậm đặt trên bệ kính phản chiếu màu mint, đồng xu vàng rơi vào khe)",
+      "Loan on card / Sản phẩm FLEX FUND (điện thoại hiển thị màn hình đăng ký khoản vay + thẻ World lồng trong màn hình, đồng xu vàng bay quanh)",
+      "CT Trung thu – Mass AF trở lên (cặp đôi ảnh thật trao hộp quà trung thu, hậu cảnh skyline đêm phủ xanh + đèn lồng/hoa giấy bay, headline vàng kim)",
+      "Voucher cộng lãi suất – tệp KH chọn lọc, Native lớn (2 banner: 1) icon hộp kính glow xanh đậm + hàng 3 icon lợi ích; 2) điện thoại mockup nền mint + số liệu lãi suất)",
+      "Thanh toán điện nước — PRIO/MASS (icon hoá đơn 3D kính + icon tiện ích (nước/điện/hoá đơn) rải quanh bản PRIO; điện thoại mockup + lưới icon dịch vụ bản MASS)",
+      "Pre approve nhà dự án (Done) + Pre approve nhà dự án (Trên 20B) — ảnh thật kiến trúc/toà nhà phủ gradient glow xanh + số liệu hạn mức vàng kim",
+      "TOP UP – DATA — PRIO/MASS (icon nạp tiền/dữ liệu 3D kính bản PRIO; điện thoại mockup + logo nhà mạng (mobifone/vinaphone/viettel) dạng thẻ bay quanh bản MASS)",
+      "AUTO BILL — PRIO/MASS (cùng khuôn icon 3D kính + điện thoại mockup như Thanh toán điện nước, đổi icon thẻ+đồng hồ)",
+      "Flexi Savings — MASS/Prio (bản MASS: ảnh thật người đi bộ + điện thoại mockup composite + số lãi suất vàng kim lớn; bản Prio: nền xanh đậm + điện thoại mockup UI card-stack + logo chữ FLEXISAVINGS)",
+      "Esaving thường — PRIO/Mass (hộp icon 3D kính bo góc bản PRIO; điện thoại mockup + đồng xu + số '+0,3%' vàng kim lớn kèm icon tay bản Mass) — note nội bộ: bỏ logo, giảm hiệu ứng sáng; ảnh điện thoại bản mass bị bóp méo cần chỉnh",
+      "Vay thấu chi tín chấp — PRIO/Mass (bản PRIO: người thật đứng ở bàn làm việc có toà nhà nhìn ra sông + icon 3D mini (nhà, vali, túi golf, xe) đặt trên bàn quanh 1 vòng sáng đô-la; bản Mass: người thật cầm điện thoại + icon nhỏ bay quanh) — cùng note giảm hiệu ứng sáng/bóp méo điện thoại như trên",
+      "Auto TOPUP — 2 biến thể (điện thoại mockup nền mint + thẻ nhãn nhà mạng kèm số tiền bay quanh; icon 3D kính nền xanh đậm) — note: bóp lại tỉ lệ điện thoại",
+      "Vé xem phim — 2 biến thể (áp phích phim + điện thoại mockup + người thật ngồi trên cuộn phim khổ lớn cầm bắp rang) — note: giảm icon, kiểm tra lại chữ",
+      "Bảo hiểm an ninh mạng — Prio/Mass đã có (điện thoại mockup + icon khiên tick 3D glow lớn đè lên màn hình, kèm cụm icon bảo vệ nhỏ bản Mass) — note: đổi màn hình minh hoạ, đồng bộ khiên 2 bản",
+      "Tách lệnh chuyển tiền — Mass/Prior (điện thoại mockup + nhãn số tiền (1 Tỷ/490 Triệu/20 Triệu) bay quanh bản Mass; điện thoại + icon đồng xu mũi tên xoay glow bản Prior)",
+      "Vé máy bay — Prio/Mass (điện thoại mockup + icon 3D vé/máy bay + thẻ hộ chiếu/boarding-pass bay quanh, khác nền màu theo tier) — note: giảm hiệu ứng sáng của text",
+      "Quét QR — 2 biến thể cùng bố cục (điện thoại mockup nền mint + icon QR tròn lớn đè lên màn hình + đồng xu vàng bay)"
+    ],
+    "note": "20 banner trên chia thành 2 hình mẫu lặp lại xuyên suốt gần như mọi chủ đề: (1) cặp PRIO (nền xanh lá đậm glow, icon/card kính 3D, chữ vàng kim) và MASS (nền mint sáng, điện thoại mockup thật, chữ xanh/cam) cho cùng 1 nội dung; (2) khối icon 3D kính bo góc + vòng sáng (glow ring) xuất hiện lại y nguyên ở rất nhiều banner PRIO khác nhau (Thanh toán điện nước, Top up Data, Auto Bill, Esaving, Tách lệnh) chỉ đổi icon bên trong — đây thực chất là 1 UI kit icon dùng lại nhiều lần chứ không phải sáng tạo riêng theo từng creative, nhưng vẫn được ghi thành 1 technique (glassy_rounded_icon_cube_hero) vì là khuôn mẫu chủ đạo đại diện cho phong cách 'feature icon' của OCB. Loại trừ slide 1 (slide tiêu đề, không có banner thật) và slide 2 (Vietlott, ghi chú 'Đề xuất bỏ' — không phải creative final). Một số banner có ghi chú lỗi cần sửa từ đội review nội bộ (thiếu logo + hiệu ứng sáng quá đà ở slide 15/16/21, ảnh điện thoại bị bóp méo tỉ lệ ở slide 15/16/17, dùng '$' cần đổi thành 'đ' ở slide 9) — các lỗi này KHÔNG được đưa vào như một lựa chọn kỹ thuật mà chỉ dùng để bổ sung avoid_when/prompt_instruction cảnh báo.",
+    "brand": "ocb_db"
+  },
+  "selection_policy": {
+    "min_per_group": 0,
+    "max_per_group": 3,
+    "prefer_fewer_when_sufficient": true,
+    "max_total_per_version": 8,
+    "must_not_force_irrelevant_technique": true,
+    "group_order": [
+      "background",
+      "product",
+      "decoration",
+      "text"
+    ]
+  },
+  "group_definitions": {
+    "background": "Xử lý toàn bộ nền/bối cảnh khung hình: gradient, ảnh thật, texture, đường phân vùng — lớp thấp nhất, luôn phụ (subordinate) so với nhân vật/sản phẩm/chữ.",
+    "product": "Nhân vật (context) và sản phẩm/hero-asset ở lớp foreground: cách tích hợp người thật, mascot, thiết bị, con số/graphic phóng to, ghép chữ khổ lớn dạng monogram.",
+    "decoration": "Chi tiết trang trí bổ trợ rải quanh chủ thể (sparkle, icon bay, confetti, cụm trụ trang trí, UI-chrome cố định) — tạo nhịp/không khí, không bao giờ là trọng tâm.",
+    "text": "Cách trình bày headline/subtext/CTA/badge số liệu: font, màu, hiệu ứng chữ, hình khối chứa chữ (pill button, ribbon tag, info chip)."
+  },
+  "metadata_contract": {
+    "brand": "Ma brand/ngan hang ma technique nay duoc rut ra/ap dung (vd 'acb', 'vpb', 'vcb'); dung de loc technique theo tung brand khi co nhieu brand trong cung file.",
+    "tags": "Từ khoá tra cứu/suy luận; không phải nội dung hiển thị.",
+    "occasion": "generic hoặc dịp campaign cụ thể cần motif riêng.",
+    "visual_density": "low | medium | high; dùng cùng num_decorative_elements để tránh rối khung hình.",
+    "preconditions": "Điều kiện phải đúng/được gợi ý rõ trong request trước khi chọn kỹ thuật.",
+    "avoid_when": "Tín hiệu phủ định rõ ràng — nên loại bỏ kỹ thuật nếu đúng.",
+    "incompatible_with": "Các key kỹ thuật không nên xuất hiện cùng version.",
+    "works_well_with": "Gợi ý cặp kỹ thuật hợp nhau; không bắt buộc chọn cùng lúc.",
+    "selection_notes": "Ghi chú thêm cho người chọn kỹ thuật/review; không phải nội dung vẽ ra."
+  },
+  "design_techniques": {
+    "ocb_dark_glow_radial_field": {
+      "group": "background",
+      "brand": "ocb_db",
+      "label": "Dark Green Glowing Radial Field (PRIO tier)",
+      "description": "Nền phủ full-bleed đậm theo {{dominant_color}} (đổ về {{shade_hex}} ở góc, {{dominant_color}} rõ hơn ở giữa) với 1-2 quầng sáng glow mềm toả tròn từ phía sau hero icon/sản phẩm, có cảm giác bề mặt kính/kim loại phản chiếu nhẹ. Là nền chuẩn cho mọi banner thuộc tệp 'PRIO'/khách ưu tiên. Thấy ở Thanh toán điện nước (PRIO), Top up Data (PRIO), Auto Bill (PRIO), Esaving thường (PRIO), Vay thấu chi (PRIO), Vé máy bay (Prio), Tách lệnh chuyển tiền (Prior), Flexi Savings (Prio).",
+      "keywords": [
+        "dark radial glow field in dominant color",
+        "premium tier dark background",
+        "soft glass-like sheen",
+        "glow emanating from hero icon"
+      ],
+      "prompt_instruction": "Render a full-bleed dark background anchored on {{dominant_color}} (near-{{shade_hex}} at the corners, richer/more saturated {{dominant_color}} toward the center) with one or two soft radial glow halos emanating from behind the hero icon/product, giving a faint glassy/metallic sheen without literal photographic texture. Keep the glow soft-edged and concentrated behind the hero element; do not let it wash out or overlap required headline text.",
+      "tags": [
+        "dark-tier",
+        "premium",
+        "glow",
+        "brand-color"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The request targets the priority/premium (PRIO) customer segment or wants a premium dark-toned banner."
+      ],
+      "avoid_when": [
+        "The brief targets the mass/consumer segment or needs a light, friendly tone."
+      ],
+      "incompatible_with": [
+        "ocb_mint_soft_gradient_field",
+        "festive_night_skyline_photo_wash",
+        "architecture_photo_spotlight_overlay"
+      ],
+      "works_well_with": [
+        "glassy_rounded_icon_cube_hero",
+        "gold_metallic_headline_on_dark"
+      ],
+      "selection_notes": "Tag 'tier-prio' — luôn đi cùng chữ vàng kim (gold_metallic_headline_on_dark), không đi cùng chữ xanh/cam."
+    },
+    "ocb_mint_soft_gradient_field": {
+      "group": "background",
+      "brand": "ocb_db",
+      "label": "Light Mint Soft Gradient Field (MASS tier)",
+      "description": "Nền gradient rất mềm theo tông nhạt/sáng của {{dominant_color}} (ví dụ {{tint_hex}}), gần như phẳng, sáng và thân thiện — chuẩn nền cho mọi banner thuộc tệp 'MASS'/khách phổ thông, luôn đi kèm điện thoại mockup thật. Thấy ở gần như mọi banner bản 'MASS'/'Mass': Voucher cộng lãi suất, Thanh toán điện nước, Top up Data, Auto Bill, Esaving thường, Vay thấu chi, Auto TOPUP, Vé xem phim, Bảo hiểm an ninh mạng, Tách lệnh chuyển tiền, Vé máy bay, Quét QR.",
+      "keywords": [
+        "light gradient background in dominant color",
+        "mass tier friendly background",
+        "clean flat consumer tone",
+        "bright approachable field"
+      ],
+      "prompt_instruction": "Render a full-bleed soft, mostly flat gradient in a light tint of {{dominant_color}} (around {{tint_hex}}; top slightly lighter than bottom, or vice versa), with no strong texture or literal scene layered beneath it. Keep it clean and bright so a foreground phone mockup and its floating labels remain the clear visual focus.",
+      "tags": [
+        "mass-tier",
+        "friendly",
+        "clean",
+        "brand-color"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The request targets the mass/everyday consumer segment or needs a light, approachable banner tone."
+      ],
+      "avoid_when": [
+        "The brief targets the priority/premium segment or needs a dark, luxury mood."
+      ],
+      "incompatible_with": [
+        "ocb_dark_glow_radial_field",
+        "luxury_gold_radial_vignette_orbit_scene",
+        "festive_night_skyline_photo_wash"
+      ],
+      "works_well_with": [
+        "phone_device_mockup_hero",
+        "two_tone_green_orange_headline_on_mint"
+      ],
+      "selection_notes": "Tag 'tier-mass' — luôn đi cùng chữ 2 tông xanh/cam (two_tone_green_orange_headline_on_mint), không đi cùng chữ vàng kim."
+    },
+    "luxury_gold_radial_vignette_orbit_scene": {
+      "group": "background",
+      "brand": "ocb_db",
+      "label": "Luxury Gold Radial Vignette with Orbiting Lifestyle Scene",
+      "description": "Nền gradient ấm dạng vignette tròn đồng tâm theo {{dominant_color}} (đổ sáng về {{tint_hex}} ở giữa, đậm về {{shade_hex}} ở viền), phía trên phủ mờ các icon/silhouette đời sống xa xỉ (du thuyền, khí cầu, máy bay riêng, ghế bành, ly champagne) sắp xếp thành 1-2 vòng tròn đồng tâm quanh sản phẩm — tạo cảm giác 'thế giới đặc quyền' cho hạng thẻ cao cấp nhất. Thấy ở banner Thẻ World (Done).",
+      "keywords": [
+        "warm concentric vignette in dominant color",
+        "orbiting luxury lifestyle silhouettes",
+        "premium card-tier world backdrop",
+        "radial gradient anchored on dominant color"
+      ],
+      "prompt_instruction": "Render a warm radial gradient background anchored on {{dominant_color}} (lightened toward {{tint_hex}} near the center, deepened toward {{shade_hex}} at the outer rings) with soft concentric ring glows, then arrange small semi-transparent luxury lifestyle icons/silhouettes (yacht, hot-air balloon, private jet, armchair, champagne glasses) loosely along one or two concentric orbits around the hero card. Keep every orbiting element small, low-contrast, and clearly secondary so the card artwork stays the unmistakable focal point.",
+      "tags": [
+        "luxury",
+        "gold",
+        "concentric",
+        "top-tier-card"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The product is the bank's top-tier/luxury card and the tone calls for an aspirational, exclusive world."
+      ],
+      "avoid_when": [
+        "The product is a mass-market/everyday feature or the tone should stay understated."
+      ],
+      "incompatible_with": [
+        "ocb_dark_glow_radial_field",
+        "ocb_mint_soft_gradient_field",
+        "festive_night_skyline_photo_wash"
+      ],
+      "works_well_with": [
+        "floating_luxury_card_hero",
+        "stat_badge_trio_row"
+      ],
+      "selection_notes": ""
+    },
+    "festive_night_skyline_photo_wash": {
+      "group": "background",
+      "brand": "ocb_db",
+      "label": "Festive Night Skyline Photo with Green Wash",
+      "description": "Ảnh chụp thật khung cảnh đêm (skyline/công viên/nội thất có cửa sổ nhìn ra thành phố) phủ 1 lớp wash theo {{dominant_color}}, kết hợp thêm mô-típ trang trí theo dịp lễ (đèn lồng, hoa giấy bay) — dùng cho banner có yếu tố mùa vụ/lễ hội. Thấy ở banner CT Trung thu.",
+      "keywords": [
+        "night photographic scene wash",
+        "dominant-color overlay on photo",
+        "seasonal festive motif layer",
+        "warm lifestyle photo backdrop"
+      ],
+      "prompt_instruction": "Use a real night-time photographic scene (city skyline, park, or window view) as the background base, apply a semi-transparent {{dominant_color}} color wash over it so contrast recedes while lights and silhouettes stay faintly visible, then add a few floating seasonal decorative elements (e.g. lanterns) appropriate to the occasion. Keep the photographic depth and warm lighting readable behind the foreground lifestyle cutout.",
+      "tags": [
+        "photographic",
+        "seasonal",
+        "warm",
+        "brand-wash"
+      ],
+      "occasion": [
+        "mid_autumn_trung_thu",
+        "seasonal_festive"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The campaign ties to a specific seasonal/festive occasion with a lifestyle photo asset."
+      ],
+      "avoid_when": [
+        "The campaign is generic/always-on with no occasion motif, or needs a flat graphic background."
+      ],
+      "incompatible_with": [
+        "ocb_dark_glow_radial_field",
+        "ocb_mint_soft_gradient_field",
+        "luxury_gold_radial_vignette_orbit_scene"
+      ],
+      "works_well_with": [
+        "lifestyle_scene_with_prop_cluster",
+        "festive_lantern_motif_accents"
+      ],
+      "selection_notes": ""
+    },
+    "architecture_photo_spotlight_overlay": {
+      "group": "background",
+      "brand": "ocb_db",
+      "label": "Architecture Photo with Spotlight Glow Overlay",
+      "description": "Ảnh chụp/render thật của toà nhà hoặc khu dự án bất động sản, phía trên phủ thêm gradient glow dạng chùm sáng (spotlight) theo {{dominant_color}} toả từ trên xuống để đồng bộ tông và làm nổi bật công trình như đang được 'giới thiệu'. Thấy ở banner Pre approve nhà dự án (Done) và (Trên 20B).",
+      "keywords": [
+        "real estate architecture photograph",
+        "spotlight beam glow overlay",
+        "dominant-color light wash on building photo",
+        "showcase lighting effect"
+      ],
+      "prompt_instruction": "Use a real or photorealistic architectural rendering of the building/project as the background, then add one or two soft vertical spotlight-style glow beams in {{dominant_color}} descending onto the structure to give it a 'being showcased' feel. Preserve the building's real proportions and detail; keep the glow subtle enough not to obscure the architecture.",
+      "tags": [
+        "real-estate",
+        "photographic",
+        "spotlight",
+        "showcase"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief is a real-estate/mortgage/project-loan offer with a building or project photo asset."
+      ],
+      "avoid_when": [
+        "No architecture/building asset is supplied or the offer is unrelated to real estate."
+      ],
+      "incompatible_with": [
+        "ocb_dark_glow_radial_field",
+        "ocb_mint_soft_gradient_field",
+        "luxury_gold_radial_vignette_orbit_scene"
+      ],
+      "works_well_with": [
+        "architecture_hero_photo_display",
+        "stat_badge_trio_row"
+      ],
+      "selection_notes": ""
+    },
+    "glass_pedestal_reflective_stage": {
+      "group": "background",
+      "brand": "ocb_db",
+      "label": "Reflective Glass Pedestal Stage",
+      "description": "Một bệ/nền kính trong suốt nhẹ, có phản chiếu mờ, đặt hero icon/sản phẩm nổi lên trên như đang trưng bày trên sân khấu kính — tạo chiều sâu 3D nhẹ cho nền vốn phẳng. Thấy ở banner Gửi FD 1 Tỷ thăng hạng.",
+      "keywords": [
+        "translucent glass platform",
+        "soft reflective stage surface",
+        "3D pedestal depth cue",
+        "product showcase floor"
+      ],
+      "prompt_instruction": "Add a translucent glass-like platform beneath the hero icon/object, angled slightly to suggest depth, with a soft faded reflection of the object on its surface. Keep the platform subtle and semi-transparent so it reads as staging rather than a solid opaque shape, and never let its reflection distort the object's exact form.",
+      "tags": [
+        "glass",
+        "stage",
+        "reflection",
+        "depth"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A single hero icon/object is the clear focal point and benefits from an implied 3D staging surface."
+      ],
+      "avoid_when": [
+        "The composition already uses a photographic scene or a phone-mockup-led layout."
+      ],
+      "incompatible_with": [
+        "festive_night_skyline_photo_wash",
+        "architecture_photo_spotlight_overlay"
+      ],
+      "works_well_with": [
+        "glassy_rounded_icon_cube_hero",
+        "floating_gold_coin_accents"
+      ],
+      "selection_notes": ""
+    },
+    "glassy_rounded_icon_cube_hero": {
+      "group": "product",
+      "brand": "ocb_db",
+      "label": "Frosted Glass Rounded-Cube Feature Icon Hero",
+      "description": "Một icon 3D dạng khối vuông bo góc lớn, chất liệu kính mờ/glass màu xanh lá, khắc icon đại diện tính năng (hoá đơn, thẻ, đồng hồ, hộp quà...) bên trong, đặt làm hero trung tâm — dùng lại xuyên suốt rất nhiều banner tier PRIO chỉ đổi icon bên trong. Thấy ở Thanh toán điện nước (PRIO), Top up Data (PRIO), Auto Bill (PRIO), Esaving thường (PRIO), Auto TOPUP, Tách lệnh chuyển tiền (Prior), Gửi FD 1 Tỷ.",
+      "keywords": [
+        "frosted glass rounded-square icon",
+        "reusable feature icon module",
+        "green glass 3D object",
+        "centered hero icon"
+      ],
+      "prompt_instruction": "Render one large rounded-square icon in a frosted/translucent green glass material, with the approved feature symbol (bill, card, clock, gift box, etc.) engraved or embossed inside it, centered as the clear hero object. Keep the glass finish consistent (soft internal light, subtle edge highlight) across any variant of this icon, and never let it appear flat/opaque like a flat-color app icon.",
+      "tags": [
+        "icon",
+        "3d-glass",
+        "reusable",
+        "feature-hero"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief is a digital-banking feature (bill payment, top-up, auto-debit, savings, etc.) without a required human subject."
+      ],
+      "avoid_when": [
+        "The brief requires a human subject or a literal physical card/product as the hero instead."
+      ],
+      "incompatible_with": [
+        "phone_device_mockup_hero",
+        "floating_luxury_card_hero"
+      ],
+      "works_well_with": [
+        "ocb_dark_glow_radial_field",
+        "glow_halo_ring_accent",
+        "utility_category_icon_scatter"
+      ],
+      "selection_notes": "Đây là 1 UI icon-kit dùng lại nhiều lần trong bộ creative gốc (đổi icon bên trong nhưng giữ nguyên khung/chất liệu) — khi áp dụng nên giữ khung/chất liệu nhất quán, chỉ đổi biểu tượng bên trong theo đúng tính năng của request."
+    },
+    "phone_device_mockup_hero": {
+      "group": "product",
+      "brand": "ocb_db",
+      "label": "Tilted Phone App-UI Mockup Hero",
+      "description": "Khung điện thoại thật, nghiêng nhẹ, hiển thị UI app OCB liên quan đến tính năng, đặt làm hero chính cho mọi banner tier MASS — luôn đi cùng nền mint. Thấy ở gần như mọi banner bản MASS (Thanh toán điện nước, Top up Data, Auto Bill, Esaving thường, Auto TOPUP, Bảo hiểm an ninh mạng, Tách lệnh chuyển tiền, Vé máy bay, Quét QR, Vé xem phim).",
+      "keywords": [
+        "tilted phone UI mockup",
+        "real app screen as hero",
+        "mass-tier device display",
+        "consumer feature screenshot"
+      ],
+      "prompt_instruction": "Place the approved phone UI screenshot faithfully inside a realistic phone frame, tilted at a slight angle, as the main hero of the composition. Preserve the device's true aspect ratio and proportions exactly — never vertically compress, stretch, or otherwise distort the phone body or its screen content — and keep the on-screen UI legible and faithful to the supplied reference.",
+      "tags": [
+        "device",
+        "app-ui",
+        "mass-tier",
+        "reusable"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "An approved phone/app-UI reference asset is supplied for the feature being promoted."
+      ],
+      "avoid_when": [
+        "No UI reference is supplied, or the brief calls for a pure icon/graphic hero instead of a device screenshot."
+      ],
+      "incompatible_with": [
+        "glassy_rounded_icon_cube_hero",
+        "floating_luxury_card_hero"
+      ],
+      "works_well_with": [
+        "ocb_mint_soft_gradient_field",
+        "labeled_value_tag_scatter",
+        "two_tone_green_orange_headline_on_mint"
+      ],
+      "selection_notes": "Lưu ý QA nội bộ đã từng bắt lỗi ảnh điện thoại bị bóp méo tỉ lệ (quá cao/quá hẹp) ở nhiều banner (Esaving, Vay thấu chi, Auto TOPUP) — luôn giữ đúng tỉ lệ khung hình gốc của điện thoại, không co kéo để lấp đầy khung."
+    },
+    "real_person_presenting_card_or_phone": {
+      "group": "product",
+      "brand": "ocb_db",
+      "label": "Real Person Presenting Card or Phone Toward Viewer",
+      "description": "Người thật (ảnh cutout), tư thế đứng, mỉm cười, giơ thẻ vật lý hoặc điện thoại lên hướng về phía người xem như đang 'khoe' sản phẩm — sản phẩm và người đồng vai trò hero. Thấy ở banner Thẻ Passport debit và bản Mass của Vay thấu chi tín chấp.",
+      "keywords": [
+        "person holding product toward camera",
+        "presenting gesture cutout",
+        "dual hero person plus product",
+        "warm approachable pose"
+      ],
+      "prompt_instruction": "Integrate the supplied human subject as a photographic cutout in a friendly standing pose, holding the card or phone up and angled toward the viewer so the product/screen is fully legible. Preserve the subject's identity, clothing, and expression exactly; keep natural hand grip and give the held product a subtle contact shadow so it feels physically held, not pasted on.",
+      "tags": [
+        "person",
+        "presenting",
+        "dual-hero",
+        "photographic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A human subject asset is supplied together with a card or phone product to present."
+      ],
+      "avoid_when": [
+        "No human subject is supplied, or the brief needs a product-only, person-free composition."
+      ],
+      "incompatible_with": [
+        "lifestyle_scene_with_prop_cluster"
+      ],
+      "works_well_with": [
+        "curved_repeating_slogan_ring",
+        "floating_gold_coin_accents",
+        "pill_shaped_green_cta_button"
+      ],
+      "selection_notes": ""
+    },
+    "floating_luxury_card_hero": {
+      "group": "product",
+      "brand": "ocb_db",
+      "label": "Floating Physical Card as Absolute Hero",
+      "description": "Thẻ vật lý (thẻ tín dụng/ghi nợ) được dựng lớn, nổi/nghiêng giữa khung hình, không có người cầm — bản thân tấm thẻ là hero duy nhất, thường có đồng xu vàng hoặc icon nhỏ bay quanh để tăng cảm giác giá trị. Thấy ở banner Thẻ World (Done) và Loan on card (FlexFund).",
+      "keywords": [
+        "standalone floating card hero",
+        "no-hand card display",
+        "value-signaling coin accents",
+        "premium product-only shot"
+      ],
+      "prompt_instruction": "Render the approved physical card design floating at a slight angle in the center of the frame with no hand holding it, catching soft directional light on its surface. Preserve every printed detail (logo, chip, card number placeholder, network mark) exactly as supplied and at correct proportions; add only a few small accent elements (coins, subtle glow) orbiting loosely around it without touching the card face.",
+      "tags": [
+        "card",
+        "product-only",
+        "floating",
+        "premium"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief is about a specific physical card product and no human subject is required."
+      ],
+      "avoid_when": [
+        "The brief requires a human subject holding the product, or the product is not a physical card."
+      ],
+      "incompatible_with": [
+        "glassy_rounded_icon_cube_hero",
+        "phone_device_mockup_hero",
+        "real_person_presenting_card_or_phone"
+      ],
+      "works_well_with": [
+        "luxury_gold_radial_vignette_orbit_scene",
+        "floating_gold_coin_accents",
+        "stat_badge_trio_row"
+      ],
+      "selection_notes": "Phải giữ đúng thiết kế in trên thẻ (logo, màu, chip, mạng thẻ) — không tự sáng tác lại hoạ tiết thẻ."
+    },
+    "lifestyle_scene_with_prop_cluster": {
+      "group": "product",
+      "brand": "ocb_db",
+      "label": "Lifestyle Photo Scene with Thematic Prop Cluster",
+      "description": "Người thật trong 1 bối cảnh đời thường/công việc cụ thể (đứng ở bàn làm việc nhìn ra thành phố, hoặc ngồi trên đạo cụ khổ lớn mang tính giải trí như cuộn phim), xung quanh có vài vật thể/icon 3D nhỏ liên quan đến chủ đề (nhà, vali, túi golf, xe / bắp rang, kính 3D) đặt rải rác quanh nhân vật để kể chuyện ngữ cảnh sử dụng. Thấy ở banner Vay thấu chi tín chấp (PRIO) và Vé xem phim.",
+      "keywords": [
+        "person in themed lifestyle scene",
+        "small contextual prop cluster",
+        "narrative usage scenario",
+        "editorial staging"
+      ],
+      "prompt_instruction": "Place the supplied human subject naturally within a themed real-world or stylized scene (office desk, cinema-adjacent set piece, etc.), then scatter a small number of contextually relevant 3D miniature props or icons around them at consistent scale and lighting. Keep the props clearly secondary to the person, physically plausible in placement, and never obscure the person's face or the required headline area.",
+      "tags": [
+        "lifestyle",
+        "narrative",
+        "props",
+        "editorial"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A human subject is supplied and the brief benefits from a narrative, scenario-driven staging rather than a plain product shot."
+      ],
+      "avoid_when": [
+        "The brief needs a simple, uncluttered product-only or icon-only composition."
+      ],
+      "incompatible_with": [
+        "real_person_presenting_card_or_phone",
+        "glassy_rounded_icon_cube_hero"
+      ],
+      "works_well_with": [
+        "festive_night_skyline_photo_wash",
+        "floating_gold_coin_accents"
+      ],
+      "selection_notes": ""
+    },
+    "architecture_hero_photo_display": {
+      "group": "product",
+      "brand": "ocb_db",
+      "label": "Real Architecture/Project Photo as Literal Hero",
+      "description": "Ảnh/render toà nhà hoặc khu dự án bất động sản được dùng trực tiếp làm chủ thể chính của banner (không cắt ghép người/icon lên trên), số liệu ưu đãi đặt cạnh bên. Thấy ở banner Pre approve nhà dự án.",
+      "keywords": [
+        "building photo as main subject",
+        "literal real-estate hero image",
+        "minimal compositing",
+        "project showcase"
+      ],
+      "prompt_instruction": "Use the supplied building/project photograph or rendering as the literal hero subject of the composition, occupying the dominant visual area with minimal additional compositing on top of it. Keep the architecture sharp and true to the source image; place any offer/stat copy in the remaining open space beside or below it rather than overlapping the structure.",
+      "tags": [
+        "real-estate",
+        "literal-hero",
+        "photographic",
+        "minimal-compositing"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The brief is a real-estate/mortgage offer tied to a specific project with a supplied building image."
+      ],
+      "avoid_when": [
+        "No project/building image is supplied or the offer is not real-estate related."
+      ],
+      "incompatible_with": [
+        "glassy_rounded_icon_cube_hero",
+        "floating_luxury_card_hero"
+      ],
+      "works_well_with": [
+        "architecture_photo_spotlight_overlay",
+        "stat_badge_trio_row"
+      ],
+      "selection_notes": ""
+    },
+    "floating_gold_coin_accents": {
+      "group": "decoration",
+      "brand": "ocb_db",
+      "label": "Floating Gold Coin Accents",
+      "description": "Vài đồng xu vàng 3D nhỏ bay rải rác gần hero icon/thẻ/điện thoại, gợi ý ý nghĩa tiền/lãi suất/tiết kiệm — chi tiết trang trí xuất hiện lặp lại rất nhiều trong bộ creative OCB. Thấy ở Thẻ Passport, Thẻ World, Gửi FD 1 Tỷ, Loan on card, Auto TOPUP, Tách lệnh chuyển tiền, Quét QR.",
+      "keywords": [
+        "small 3D gold coins",
+        "loosely floating currency accent",
+        "savings/interest visual cue",
+        "recurring decorative motif"
+      ],
+      "prompt_instruction": "Scatter two to four small 3D-rendered gold coins loosely floating near the hero object, at varied depth and slight rotation, with soft consistent lighting matching the scene. Keep them clearly secondary in scale and never overlapping the hero object's face/label or required text.",
+      "tags": [
+        "coin",
+        "gold",
+        "savings-cue",
+        "recurring"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The brief relates to savings, interest, cashback, or a monetary benefit."
+      ],
+      "avoid_when": [
+        "The campaign tone is strictly utilitarian/plain or the canvas is already visually dense."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "glow_halo_ring_accent",
+        "floating_luxury_card_hero",
+        "glass_pedestal_reflective_stage"
+      ],
+      "selection_notes": ""
+    },
+    "glow_halo_ring_accent": {
+      "group": "decoration",
+      "brand": "ocb_db",
+      "label": "Soft Glow Halo Ring Around Hero",
+      "description": "Một hoặc nhiều vòng sáng glow mềm, đôi khi dạng vòng xuyến (ring) chuyển động, bao quanh icon/thẻ/khiên bảo hiểm để nhấn hero — motif lặp lại ở gần như mọi banner PRIO. Thấy ở Thanh toán điện nước, Top up Data, Auto Bill, Esaving, Tách lệnh, Bảo hiểm an ninh mạng.",
+      "keywords": [
+        "soft luminous ring around hero",
+        "glowing halo accent",
+        "recurring premium light effect",
+        "circular energy ring"
+      ],
+      "prompt_instruction": "Add one or two soft-edged glowing ring or halo shapes encircling the hero icon/object, using a light tint of the brand color, to draw attention without adding hard edges or lens-flare artifacts. Keep the effect restrained — a single soft ring is usually enough — and never let the glow spill onto the logo area or extend into the text zone.",
+      "tags": [
+        "glow",
+        "halo",
+        "emphasis",
+        "premium"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A single centered hero icon/object needs additional visual emphasis."
+      ],
+      "avoid_when": [
+        "The banner has no logo present (has_logo is false), or the layout is already visually busy — internal review has repeatedly flagged over-use of glow/light effects as a defect to reduce, not a look to add more of."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "glassy_rounded_icon_cube_hero",
+        "floating_gold_coin_accents"
+      ],
+      "selection_notes": "QA nội bộ đã ghi chú nhiều lần 'bỏ bớt hiệu ứng sáng' (Esaving, Vay thấu chi) và 'bớt hiệu ứng sáng của text' (Vé máy bay) — khi chọn kỹ thuật này, ưu tiên mức độ nhẹ/tối giản, tránh chồng nhiều lớp glow cùng lúc."
+    },
+    "utility_category_icon_scatter": {
+      "group": "decoration",
+      "brand": "ocb_db",
+      "label": "Utility Category Icon Scatter",
+      "description": "Vài icon phẳng nhỏ đại diện các hạng mục dịch vụ cụ thể (giọt nước, tia sét, hoá đơn) rải quanh hero icon chính để gợi phạm vi dịch vụ — khác labeled_value_tag_scatter vì đây chỉ là icon đơn giản không kèm nhãn/số. Thấy ở banner Thanh toán điện nước, Auto Bill (bản PRIO).",
+      "keywords": [
+        "small flat category icons",
+        "service-scope visual cue",
+        "loosely floating utility symbols",
+        "no label just icon"
+      ],
+      "prompt_instruction": "Place two to four small flat icons representing distinct service categories (e.g. water, electricity, bill/invoice) loosely floating in the open space around the hero icon, each in its own soft rounded badge, at varied depth. Keep every icon simple, legible, and never overlapping the hero icon's face or required text.",
+      "tags": [
+        "icons",
+        "utility",
+        "variety",
+        "floating"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief covers multiple distinct utility/service categories."
+      ],
+      "avoid_when": [
+        "The brief has one single focused service or the canvas is already crowded."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "glassy_rounded_icon_cube_hero",
+        "glow_halo_ring_accent"
+      ],
+      "selection_notes": ""
+    },
+    "labeled_value_tag_scatter": {
+      "group": "decoration",
+      "brand": "ocb_db",
+      "label": "Labeled Value/Brand Tag Scatter",
+      "description": "Vài thẻ nhỏ dạng bo góc/nghiêng, mỗi thẻ mang 1 logo đối tác hoặc 1 giá trị số cụ thể (tên nhà mạng + số tiền nạp, số tiền chuyển, giá vé), bay rải quanh điện thoại mockup — khác utility_category_icon_scatter vì luôn có chữ/số/logo cụ thể đi kèm. Thấy ở Top up Data (Mass), Auto TOPUP, Tách lệnh chuyển tiền (Mass), Vé xem phim.",
+      "keywords": [
+        "small labeled floating tags",
+        "partner logo plus value pairing",
+        "tilted card-style callouts",
+        "specific numeric or brand label"
+      ],
+      "prompt_instruction": "Scatter two to four small rounded, slightly tilted tag cards around the phone mockup, each carrying one exact approved label (a partner/brand logo, or a specific currency value) in clear bold text. Keep every tag legible, small relative to the phone hero, and never invent values or logos not present in the brief; always render currency using the approved local currency symbol (đ), never a foreign currency symbol.",
+      "tags": [
+        "tags",
+        "value-label",
+        "partner-brand",
+        "floating"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief lists specific partner names/logos or specific monetary values to visualize."
+      ],
+      "avoid_when": [
+        "No specific values/partner names are approved, or the canvas is already dense with the phone UI content."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "phone_device_mockup_hero",
+        "floating_gold_coin_accents"
+      ],
+      "selection_notes": "Một banner mẫu (Thanh toán điện nước) từng bị note đổi ký hiệu tiền tệ '$' sai thành 'đ' — luôn dùng đúng ký hiệu tiền Việt Nam khi hiển thị giá trị."
+    },
+    "benefit_icon_caption_trio": {
+      "group": "decoration",
+      "brand": "ocb_db",
+      "label": "Trio of Benefit Icon + Caption Pairs",
+      "description": "3 cụm icon nhỏ + chữ caption ngắn ngay dưới xếp thành 1 hàng ngang dưới headline, mỗi cụm nêu 1 lợi ích riêng — cách trình bày song song nhiều lợi ích ngắn gọn. Thấy ở CT Trung thu, Voucher cộng lãi suất, Flexi Savings, Vay thấu chi (PRIO, dạng số liệu).",
+      "keywords": [
+        "three icon-caption pairs in a row",
+        "parallel benefit callouts",
+        "compact benefit summary row",
+        "icon-led micro-copy"
+      ],
+      "prompt_instruction": "Arrange exactly three small icon-plus-caption pairs side by side in a single row beneath the headline, each icon simple and flat, each caption a short approved phrase directly under its icon. Keep all three items the same size/style and aligned to a common baseline; never merge them into one block or let them overlap the hero image.",
+      "tags": [
+        "benefit-row",
+        "icon-caption",
+        "structured",
+        "parallel-benefits"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "Exactly three (or a small fixed number of) short approved benefit points exist."
+      ],
+      "avoid_when": [
+        "Fewer than two benefits exist or the canvas is too small to fit a row legibly."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "gold_metallic_headline_on_dark",
+        "two_tone_green_orange_headline_on_mint"
+      ],
+      "selection_notes": ""
+    },
+    "curved_repeating_slogan_ring": {
+      "group": "decoration",
+      "brand": "ocb_db",
+      "label": "Curved Repeating Slogan Ring",
+      "description": "Một vòng cung/tròn được tạo từ chữ khẩu hiệu ngắn lặp lại liên tục (VD 'Hoàn không giới hạn', 'Miễn phí thường niên'), màu nhạt hơn nền, bao quanh phía sau nhân vật như 1 chi tiết đồ hoạ trang trí — không phải headline chính, chỉ tạo nhịp/không khí. Thấy ở banner Thẻ Passport debit.",
+      "keywords": [
+        "text arranged in a circular ring",
+        "repeating short slogan pattern",
+        "low-contrast decorative typography",
+        "backdrop graphic device"
+      ],
+      "prompt_instruction": "Set one short approved slogan phrase repeating continuously along a circular or arc path behind the hero character, in a color close to the background so it reads as texture rather than a primary message. Keep the ring subordinate to the main headline in contrast and never let its wording be mistaken for the actual call-to-action copy.",
+      "tags": [
+        "typographic-decoration",
+        "circular",
+        "repeating",
+        "low-contrast"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A short approved slogan/benefit phrase exists that can repeat without needing new wording."
+      ],
+      "avoid_when": [
+        "No slogan is approved for repetition, or the composition already has a busy background."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "real_person_presenting_card_or_phone",
+        "pill_shaped_green_cta_button"
+      ],
+      "selection_notes": "Không tự bịa slogan mới để lặp; chỉ dùng đúng câu đã được duyệt."
+    },
+    "festive_lantern_motif_accents": {
+      "group": "decoration",
+      "brand": "ocb_db",
+      "label": "Festive Lantern/Occasion Motif Accents",
+      "description": "Vài chi tiết trang trí gắn với dịp lễ cụ thể (đèn lồng Trung thu, hoa giấy, ánh sao nhỏ) bay rải ở góc trên của khung hình để gợi không khí mùa vụ mà không lấn vào chủ thể chính. Thấy ở banner CT Trung thu.",
+      "keywords": [
+        "seasonal lantern accents",
+        "occasion-specific decorative motif",
+        "small floating festive elements",
+        "corner-placed seasonal cue"
+      ],
+      "prompt_instruction": "Add a small number of occasion-appropriate decorative elements (e.g. paper lanterns, small stars) floating in the upper corners of the frame, kept small and low-density so they read as seasonal atmosphere rather than competing content. Never place them over the headline, logo, or hero subject's face.",
+      "tags": [
+        "seasonal",
+        "occasion-specific",
+        "atmosphere",
+        "corner-accent"
+      ],
+      "occasion": [
+        "mid_autumn_trung_thu",
+        "seasonal_festive"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The campaign ties to a specific festive occasion that has a recognizable motif."
+      ],
+      "avoid_when": [
+        "The campaign is generic/always-on with no tied occasion."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "festive_night_skyline_photo_wash",
+        "lifestyle_scene_with_prop_cluster"
+      ],
+      "selection_notes": ""
+    },
+    "gold_metallic_headline_on_dark": {
+      "group": "text",
+      "brand": "ocb_db",
+      "label": "Gold Metallic Headline on Dark Background",
+      "description": "Headline 2 dòng, font sans-serif/serif đậm, fill màu vàng kim/champagne (đôi khi có gradient kim loại nhẹ), đặt trên nền tối tier PRIO (theo {{dominant_color}}) — chuẩn chữ cho mọi banner tier PRIO. Thấy ở CT Trung thu, Voucher cộng lãi suất (bản glow), Thanh toán điện nước (PRIO), Esaving (PRIO), Vay thấu chi (PRIO), Flexi Savings (Prio), Vé máy bay (Prio).",
+      "keywords": [
+        "gold/champagne headline fill",
+        "two-line premium display text",
+        "dark background high contrast",
+        "priority-tier text standard"
+      ],
+      "prompt_instruction": "Set the approved headline in a bold display typeface, filled with a warm gold or champagne color (a subtle metallic gradient is acceptable), arranged in the approved number of short lines against the dark PRIO-tier background for strong contrast. Preserve exact wording and line breaks; keep any glow/light effect on the letters minimal — internal review has flagged excessive text glow as a defect, not a style goal.",
+      "tags": [
+        "headline",
+        "gold",
+        "premium",
+        "tier-prio"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The background is the dark green PRIO-tier field and text_by_code is false or the space must match this style."
+      ],
+      "avoid_when": [
+        "The background is the light mint MASS-tier field, or the brand direction requires flat plain white/single-color type."
+      ],
+      "incompatible_with": [
+        "two_tone_green_orange_headline_on_mint",
+        "handwritten_script_subtext_accent"
+      ],
+      "works_well_with": [
+        "ocb_dark_glow_radial_field",
+        "pill_shaped_green_cta_button"
+      ],
+      "selection_notes": ""
+    },
+    "two_tone_green_orange_headline_on_mint": {
+      "group": "text",
+      "brand": "ocb_db",
+      "label": "Two-Tone Green + Orange Headline on Mint Background",
+      "description": "Headline 2 dòng trên nền sáng tier MASS (theo {{dominant_color}}): 1 dòng màu xanh lá đậm (thường là câu chính), 1 dòng màu cam/vàng ấm (thường là phần nhấn/lợi ích) — chuẩn chữ cho mọi banner tier MASS. Thấy ở Thanh toán điện nước (MASS), Top up Data (MASS), Auto Bill (MASS), Auto TOPUP, Tách lệnh chuyển tiền (Mass), Vé máy bay (Mass), Quét QR, Bảo hiểm an ninh mạng (mint).",
+      "keywords": [
+        "two-tone green and orange headline",
+        "mint background high contrast",
+        "mass-tier text standard",
+        "friendly bicolor display type"
+      ],
+      "prompt_instruction": "Set the approved headline across two short lines on the light MASS-tier background: render one line in a solid deep brand green and the other line (typically the benefit/emphasis line) in a warm orange/amber tone, both in a bold sans-serif display face. Preserve exact wording and line breaks; keep the color split consistent line-by-line rather than mixing colors within a single line.",
+      "tags": [
+        "headline",
+        "bicolor",
+        "friendly",
+        "tier-mass"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The background is the light mint MASS-tier field."
+      ],
+      "avoid_when": [
+        "The background is the dark PRIO-tier field, or the brand direction requires a single-color headline."
+      ],
+      "incompatible_with": [
+        "gold_metallic_headline_on_dark"
+      ],
+      "works_well_with": [
+        "ocb_mint_soft_gradient_field",
+        "pill_shaped_green_cta_button",
+        "handwritten_script_subtext_accent"
+      ],
+      "selection_notes": ""
+    },
+    "pill_shaped_green_cta_button": {
+      "group": "text",
+      "brand": "ocb_db",
+      "label": "Solid Green Pill-Shaped CTA Button",
+      "description": "Nút CTA hình viên nang bo tròn hoàn toàn, nền xanh lá đậm, chữ trắng đậm (VD 'Mở thẻ ngay', 'Mở tiết kiệm ngay') — chuẩn CTA của brand, xuất hiện nhất quán khi banner cần nút hành động rõ ràng. Thấy ở Thẻ Passport debit, Gửi FD 1 Tỷ thăng hạng.",
+      "keywords": [
+        "fully rounded green pill button",
+        "white bold label text",
+        "consistent brand CTA shape",
+        "clear call-to-action"
+      ],
+      "prompt_instruction": "Render the call-to-action as a fully rounded (pill-shaped) solid brand-green button containing the approved short label in bold white text, positioned in the layout's designated CTA zone. Keep the button shape and color consistent with the brand standard; never change it into a rectangular, outlined-only, or multi-color button.",
+      "tags": [
+        "cta",
+        "button",
+        "brand-standard",
+        "consistent"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A CTA label is approved and required in the layout."
+      ],
+      "avoid_when": [
+        "The format explicitly forbids a CTA button (e.g. very small banner sizes) or the platform already overlays its own CTA."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "gold_metallic_headline_on_dark",
+        "two_tone_green_orange_headline_on_mint"
+      ],
+      "selection_notes": ""
+    },
+    "stat_badge_trio_row": {
+      "group": "text",
+      "brand": "ocb_db",
+      "label": "Three-Column Stat Badge Row",
+      "description": "Hàng ngang 3 cột số liệu, mỗi cột có 1 con số đậm khổ lớn + 1 dòng label nhỏ phía trên/dưới, ngăn cách bằng đường kẻ mỏng — trình bày song song nhiều chỉ số ưu đãi (tỷ lệ hoàn tiền, hạn mức, phí). Thấy ở Thẻ Passport debit, Thẻ World (Done).",
+      "keywords": [
+        "three-column numeric stat row",
+        "bold number with small label",
+        "thin divider between columns",
+        "parallel offer metrics"
+      ],
+      "prompt_instruction": "Present exactly three approved numeric benefit values side by side in a row, each with its exact value rendered large and bold, and a short label directly above or below in smaller plain text, separated by thin vertical divider lines. Keep every column the same visual weight; never alter the approved digits or merge columns together.",
+      "tags": [
+        "stat-row",
+        "numeric",
+        "structured",
+        "comparison"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "Exactly three (or a small fixed number of) approved numeric benefit values exist."
+      ],
+      "avoid_when": [
+        "Fewer than two numeric values exist, or the layout has no room for a horizontal row."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "gold_metallic_headline_on_dark",
+        "luxury_gold_radial_vignette_orbit_scene"
+      ],
+      "selection_notes": ""
+    },
+    "handwritten_script_subtext_accent": {
+      "group": "text",
+      "brand": "ocb_db",
+      "label": "Handwritten Script Subtext Accent",
+      "description": "1 dòng phụ ngắn ngay dưới headline chính được set bằng font script/chữ viết tay kiểu cách, màu cam ấm, tạo cảm giác gần gũi/thân mật đối lập với headline đậm phía trên. Thấy ở banner Vay thấu chi tín chấp (bản Mass) — 'Vững vàng mọi lúc'.",
+      "keywords": [
+        "cursive script subtext line",
+        "warm orange handwritten accent",
+        "contrast to bold headline",
+        "friendly informal tone"
+      ],
+      "prompt_instruction": "Set one short approved subtext phrase directly beneath the main bold headline in a flowing script/cursive typeface, colored in a warm orange tone, sized clearly smaller than the headline above it. Keep it to a single line; preserve exact wording without adding extra flourish words.",
+      "tags": [
+        "script",
+        "subtext",
+        "warm",
+        "informal"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A short approved subtext phrase exists to pair beneath the main headline and the tone is friendly/approachable."
+      ],
+      "avoid_when": [
+        "The brand direction is strictly corporate/premium-formal, or no subtext phrase is approved."
+      ],
+      "incompatible_with": [
+        "gold_metallic_headline_on_dark"
+      ],
+      "works_well_with": [
+        "two_tone_green_orange_headline_on_mint"
+      ],
+      "selection_notes": ""
+    },
+    "oversized_percentage_hero_typography": {
+      "group": "text",
+      "brand": "ocb_db",
+      "label": "Oversized Standalone Percentage/Number Typography",
+      "description": "1 giá trị số/phần trăm (VD '+0,3%') được set ở kích thước rất lớn, màu vàng kim, tự nó là điểm nhìn chính về typography, thường kèm 1 icon nhỏ minh hoạ (bàn tay, đồng xu) cạnh bên — khác stat_badge_trio_row vì đây chỉ 1 số duy nhất, không phải hàng 3 cột. Thấy ở banner Esaving thường (bản Mass).",
+      "keywords": [
+        "very large standalone numeric type",
+        "gold-colored hero number",
+        "single-value typography focus",
+        "small supporting icon beside number"
+      ],
+      "prompt_instruction": "Render the single approved numeric/percentage value in a bold display face at a size clearly larger than any other text element in the banner, in a gold color treatment consistent with the campaign palette, optionally paired with one small supporting icon beside it. Keep the digits exact and free-standing; ensure it does not overlap the phone mockup, logo, or required smaller copy.",
+      "tags": [
+        "numeric-hero",
+        "typography-hero",
+        "scale",
+        "gold"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "One approved numeric value is meant to be the dominant visual focal point and text_by_code is false."
+      ],
+      "avoid_when": [
+        "text_by_code is true for that value, or the brief needs a restrained, evenly-weighted layout, or three values need to be shown in parallel (use stat_badge_trio_row instead)."
+      ],
+      "incompatible_with": [
+        "stat_badge_trio_row"
+      ],
+      "works_well_with": [
+        "phone_device_mockup_hero",
+        "floating_gold_coin_accents"
+      ],
+      "selection_notes": ""
+    }
+  },
+  "brands_included": [
+    "ocb_db"
+  ]
+}

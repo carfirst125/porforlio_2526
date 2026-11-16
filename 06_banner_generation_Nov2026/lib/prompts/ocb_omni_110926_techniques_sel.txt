@@ -1,0 +1,4 @@
+Chọn kỹ thuật phù hợp đúng sản phẩm, mục tiêu và phân khúc trong design_brief. Không ép mọi sản phẩm vào siêu thị, người trẻ hay phong cách thượng lưu.
+Nền lấy {{dominant_color}} làm màu chủ đạo; gradient chỉ dao động tối đa 15% về hue, saturation, brightness. Giữ nguyên màu chữ/nút theo brief.
+Ưu tiên bố cục rõ trên màn hình điện thoại, ít trang trí, chữ tách khỏi hình. Không chọn kỹ thuật tạo thêm chữ, số liệu, badge khuyến mại hoặc làm sai màu nền.
+Aff: chữ bên trái, hình bên phải. Mass/Mass Aff: hình bên trái, chữ bên phải. Sản phẩm nổi phía trước nhân vật/ngữ cảnh, tích hợp tự nhiên. Không biến vùng bố cục thành khung nhìn thấy được.

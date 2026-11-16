@@ -1,0 +1,151 @@
+{
+  "models": {
+    "gemini-3.1-flash": {
+      "type": "llm",
+      "provider": "GCP",
+      "service": "Vertex AI / Gemini API",
+      "pricing": {
+        "input_per_1m_tokens_usd": 0.50,
+        "output_per_1m_tokens_usd": 3.00
+      },
+      "supported_aspect_ratios": [
+        "1:1", "1:4", "4:1", "1:8", "8:1",
+        "2:3", "3:2", "3:4", "4:3", "4:5", "5:4",
+        "9:16", "16:9", "21:9"
+      ],
+      "notes": "Gemini 3.1 Flash (text). Aspect ratios áp dụng cho variant gemini-3.1-flash-image (Nano Banana 2) [32][33]."
+    },
+    "gemini-3-pro": {
+      "type": "image",
+      "provider": "GCP",
+      "service": "Vertex AI / Gemini API (gemini-3-pro-image)",
+      "pricing": {
+        "input_per_1m_tokens_usd": 2.00,
+        "output_per_1m_image_tokens_usd": 12.00
+      },
+      "supported_aspect_ratios": [
+        "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4",
+        "9:16", "16:9", "21:9"
+      ],
+      "notes": "Gemini 3 Pro Image (Nano Banana Pro). Giá theo input/output tokens; output image ~$12/1M tokens [46][49]."
+    },
+    "gpt-image-2": {
+      "type": "image",
+      "provider": "Azure",
+      "service": "Azure OpenAI",
+      "pricing": {
+        "image_input_per_1m_tokens_usd": 8.00,
+        "image_output_per_1m_tokens_usd": 30.00,
+        "text_input_per_1m_tokens_usd": 5.00
+      },
+      "supported_aspect_ratios": [
+        "1:1", "2:3", "3:2", "4:5", "5:4", "4:3", "3:4",
+        "16:9", "9:16", "21:9"
+      ],
+      "notes": "Giá theo token; 10 aspect ratios chính thức [35][36][37][39]."
+    },
+    "MAI-2.5-flash": {
+      "type": "image",
+      "provider": "Microsoft",
+      "service": "Azure AI Foundry (MAI-Image-2.5-Flash)",
+      "pricing": {
+        "text_input_per_1m_tokens_usd": 1.75,
+        "image_input_per_1m_tokens_usd": 1.75,
+        "image_output_per_1m_tokens_usd": 19.50
+      },
+      "supported_aspect_ratios": [
+        "1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"
+      ],
+      "notes": "MAI-Image-2.5-Flash: $19.50 / 1M image-output tokens [55][56]."
+    },
+    "MAI-2.5-pro": {
+      "type": "image",
+      "provider": "Microsoft",
+      "service": "Azure AI Foundry (MAI-Image-2.5-Pro)",
+      "pricing": {
+        "text_input_per_1m_tokens_usd": 5.00,
+        "image_input_per_1m_tokens_usd": 8.00,
+        "image_output_per_1m_tokens_usd": 106.00
+      },
+      "supported_aspect_ratios": [
+        "1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"
+      ],
+      "notes": "MAI-Image-2.5-Pro: $106 / 1M image-output tokens [55][56][57]."
+    },
+    "FLUX.2-flex": {
+      "type": "image",
+      "provider": "Black Forest Labs",
+      "service": "FLUX.2 API (flex)",
+      "pricing": {
+        "per_mp_usd": 0.05,
+        "image_output_per_1m_tokens_usd": null
+      },
+      "supported_aspect_ratios": [
+        "1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"
+      ],
+      "notes": "FLUX.2 [flex] billed per megapixel (~$0.05/MP); không công bố giá theo token nên để null [47][48][51][58]."
+    },
+    "FLUX.2-pro": {
+      "type": "image",
+      "provider": "Black Forest Labs",
+      "service": "FLUX.2 API (pro)",
+      "pricing": {
+        "per_mp_usd": 0.03,
+        "image_output_per_1m_tokens_usd": null
+      },
+      "supported_aspect_ratios": [
+        "1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"
+      ],
+      "notes": "FLUX.2 [pro] ~$0.03/MP; không có bảng giá theo token chính thức [47][48][50][51][58]."
+    },
+    "gpt-5-mini": {
+      "type": "llm",
+      "provider": "Azure",
+      "service": "Azure OpenAI",
+      "pricing": {
+        "input_per_1m_tokens_usd": 0.25,
+        "output_per_1m_tokens_usd": 2.00
+      },
+      "supported_aspect_ratios": [],
+      "notes": "LLM, không sinh ảnh nên không có aspect ratio."
+    },
+    "gpt-5.6-terra": {
+      "type": "llm",
+      "provider": "Azure",
+      "service": "Azure OpenAI",
+      "pricing": {
+        "input_per_1m_tokens_usd": 2.00,
+        "output_per_1m_tokens_usd": 12.00
+      },
+      "supported_aspect_ratios": [],
+      "notes": "LLM, không sinh ảnh nên không có aspect ratio."
+    },
+    "gpt-5.6-luna": {
+      "type": "llm",
+      "provider": "Azure",
+      "service": "Azure OpenAI",
+      "pricing": {
+        "input_per_1m_tokens_usd": 0.20,
+        "output_per_1m_tokens_usd": 1.20
+      },
+      "supported_aspect_ratios": [],
+      "notes": "LLM, không sinh ảnh nên không có aspect ratio."
+    }
+  },
+  "metadata": {
+    "currency": "USD",
+    "pricing_unit": {
+      "llm": "per_1M_tokens",
+      "image_gcp_azure": "per_1M_image_output_tokens",
+      "image_flux": "per_megapixel"
+    },
+    "as_of": "2026-09",
+    "sources": [
+      "Google Gemini API docs & pricing 2026",
+      "Azure OpenAI pricing 2026",
+      "Microsoft MAI-Image-2.5 pricing 2026",
+      "Black Forest Labs FLUX.2 pricing 2026",
+      "OpenAI gpt-image-2 pricing 2026"
+    ]
+  }
+}

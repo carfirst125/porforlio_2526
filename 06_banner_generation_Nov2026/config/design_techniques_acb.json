@@ -1,0 +1,1224 @@
+{
+  "schema_version": "2.0-ref",
+  "schema_notes": "File THAM KHẢO (không phải file config app đang load) dùng để lưu kiến trúc và ví dụ design techniques theo TỪNG NGÂN HÀNG/BRAND riêng biệt, phân tích từ creative thực tế của brand đó. Mỗi technique có field 'brand' để đánh dấu thuộc nhóm brand nào; khi thêm brand mới (vpb, vcb, ...) chỉ cần thêm các technique mới vào chung 'design_techniques' với brand tương ứng và cập nhật 'brands_included', không cần tạo file riêng. Nếu 2 brand có technique key trùng tên nhưng nội dung khác nhau, đặt tên key có prefix brand (vd 'vpb_xxx') để tránh đụng độ. Nhóm techniques hiện có (brand=acb) rút ra từ việc phân tích trực quan 9 banner ACB thực tế (ACB Rewards, Thời gian vàng, Tích điểm không giới hạn, Giới thiệu bạn mới, 7 ngày khám phá ACB ONE, Chứng chỉ tiền gửi DN, Giải pháp FDI, Gói AFDI, Dịch vụ ngân hàng số ACB ONE). Giữ đúng cấu trúc field với config/design_techniques.json (schema_version 2.0) để có thể copy thẳng technique nào phù hợp vào file config chính khi cần dùng thật. Khác biệt so với config gốc: (1) bổ sung nhóm thứ 4 'text' (text display style) vì 3 nhóm gốc (background/decoration/product) không có chỗ mô tả cách trình bày chữ/headline/CTA; (2) mỗi technique có thêm field 'brand' để phân biệt theo ngân hàng.",
+  "source_analysis": {
+    "assets_reviewed": [
+      "ACB Rewards — Tích điểm săn quà, Một chạm đổi ngay (nhân vật chạy, phone reveal)",
+      "Thời gian vàng sinh lời vàng — chứng chỉ tiền gửi vàng (stage tròn, 2 nhân vật ngồi)",
+      "Tích điểm ACB Rewards không giới hạn đến (5%, thẻ lineup, người chỉ tay)",
+      "Giới thiệu bạn mới — Bao nhiêu bạn bấy nhiêu quà (mascot robot, high-five)",
+      "7 ngày khám phá ACB ONE (mascot bay, hộp quà nổ ra thẻ reward theo ngày)",
+      "Chứng chỉ tiền gửi dành cho Khách hàng Doanh nghiệp (skyline đêm, mũi tên vàng tăng trưởng)",
+      "Giải pháp tài chính FDI (chữ FDI khổ lớn ghép ảnh toà nhà + chatbot góc)",
+      "Gói giải pháp tài chính AFDI (monogram AFDI ghép người + tuabin gió)",
+      "Dịch vụ Ngân hàng số ACB ONE (ảnh thật gia đình chạy trên đồng cỏ, mascot)"
+    ],
+    "note": "Tất cả 9 banner đều dùng chung 1 module UI cố định (không tính là 'kỹ thuật thiết kế' theo từng creative): dải pill icon dọc bám mép phải (giảm giá/tiền/voucher) + dấu 3 chấm carousel ở đáy + widget chatbot tròn góc dưới phải ở một số banner. Các mục này được ghi lại trong nhóm decoration để đầy đủ, nhưng thực chất là site-chrome lặp lại mọi banner, không phải lựa chọn sáng tạo riêng theo từng creative.",
+    "brand": "acb"
+  },
+  "selection_policy": {
+    "min_per_group": 0,
+    "max_per_group": 3,
+    "prefer_fewer_when_sufficient": true,
+    "max_total_per_version": 8,
+    "must_not_force_irrelevant_technique": true,
+    "group_order": [
+      "background",
+      "product",
+      "decoration",
+      "text"
+    ]
+  },
+  "group_definitions": {
+    "background": "Xử lý toàn bộ nền/bối cảnh khung hình: gradient, ảnh thật, texture, đường phân vùng — lớp thấp nhất, luôn phụ (subordinate) so với nhân vật/sản phẩm/chữ.",
+    "product": "Nhân vật (context) và sản phẩm/hero-asset ở lớp foreground: cách tích hợp người thật, mascot, thiết bị, con số/graphic phóng to, ghép chữ khổ lớn dạng monogram.",
+    "decoration": "Chi tiết trang trí bổ trợ rải quanh chủ thể (sparkle, icon bay, confetti, cụm trụ trang trí, UI-chrome cố định) — tạo nhịp/không khí, không bao giờ là trọng tâm.",
+    "text": "Cách trình bày headline/subtext/CTA/badge số liệu: font, màu, hiệu ứng chữ, hình khối chứa chữ (pill button, ribbon tag, info chip)."
+  },
+  "metadata_contract": {
+    "brand": "Ma brand/ngan hang ma technique nay duoc rut ra/ap dung (vd 'acb', 'vpb', 'vcb'); dung de loc technique theo tung brand khi co nhieu brand trong cung file.",
+    "tags": "Từ khoá tra cứu/suy luận; không phải nội dung hiển thị.",
+    "occasion": "generic hoặc dịp campaign cụ thể cần motif riêng.",
+    "visual_density": "low | medium | high; dùng cùng num_decorative_elements để tránh rối khung hình.",
+    "preconditions": "Điều kiện phải đúng/được gợi ý rõ trong request trước khi chọn kỹ thuật.",
+    "avoid_when": "Tín hiệu phủ định rõ ràng — nên loại bỏ kỹ thuật nếu đúng.",
+    "incompatible_with": "Các key kỹ thuật không nên xuất hiện cùng version.",
+    "works_well_with": "Gợi ý cặp kỹ thuật hợp nhau; không bắt buộc chọn cùng lúc.",
+    "selection_notes": "Ghi chú thêm cho người chọn kỹ thuật/review; không phải nội dung vẽ ra."
+  },
+  "design_techniques": {
+    "diagonal_brand_gradient_sweep": {
+      "group": "background",
+      "brand": "acb",
+      "label": "Diagonal Brand Color Gradient Sweep",
+      "description": "Nền phủ full-bleed 1 gradient chéo 2 sắc độ của màu thương hiệu (đậm góc trên/dưới, nhạt hơn ở vùng giữa nơi đặt nhân vật/chữ), tạo cảm giác chuyển động và không gian mở mà không cần cảnh thật. Thấy ở banner ACB Rewards, Tích điểm không giới hạn, Giới thiệu bạn mới.",
+      "keywords": [
+        "diagonal two-tone brand gradient",
+        "full-bleed color sweep",
+        "energetic directional gradient",
+        "no literal scene background"
+      ],
+      "prompt_instruction": "Render a full-bleed diagonal gradient using two tonal steps of the approved brand color (deeper tone in the opposite corners, slightly lighter in the zone framing the hero subject/message), oriented to imply forward motion. Keep the gradient smooth and continuous through every edge with no banding, seams, or literal photographic scene layered beneath it unless explicitly requested.",
+      "tags": [
+        "brand-color",
+        "gradient",
+        "energetic",
+        "full-bleed"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A dominant brand/campaign color is known."
+      ],
+      "avoid_when": [
+        "The brief requires a literal photographic environment as the dominant background."
+      ],
+      "incompatible_with": [
+        "cream_navy_diagonal_split_stage",
+        "night_skyline_photo_wash",
+        "sunlit_field_photo_backdrop"
+      ],
+      "works_well_with": [
+        "motion_light_path_ribbon",
+        "sparkle_star_accents"
+      ],
+      "selection_notes": "Tương đương theme_color_gradient_wash trong config gốc nhưng thiên về 2 mảng chéo rõ rệt hơn là toả tròn từ tâm."
+    },
+    "cream_navy_diagonal_split_stage": {
+      "group": "background",
+      "brand": "acb",
+      "label": "Cream-to-Navy Diagonal Split Stage",
+      "description": "Nền chia 2 vùng theo đường chéo mềm: bên sáng (kem/trắng ngà) chứa chữ, bên còn lại phủ gradient navy đậm ở góc — tạo cảm giác sang trọng, cao cấp hơn duotone thông thường vì ranh giới rất mượt, gần như một bệ sân khấu (stage) hình tròn nổi lên trên đường chéo. Thấy ở banner 'Thời gian vàng'.",
+      "keywords": [
+        "cream and navy diagonal split",
+        "soft-edged stage boundary",
+        "premium two-tone backdrop",
+        "circular stage platform on split ground"
+      ],
+      "prompt_instruction": "Split the background diagonally into a light cream/off-white zone (hosting the headline) and a deep navy gradient zone in the opposite corner, with a soft feathered — not hard-lined — diagonal boundary. Where a circular stage platform sits across the boundary, render its surface as two matching half-tone materials (light stone on the cream side, dark on the navy side) so the platform reads as physically anchored to the split ground.",
+      "tags": [
+        "premium",
+        "duotone",
+        "elegant",
+        "stage"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The campaign tone is premium/wealth-management and a circular hero stage or seated scene is present."
+      ],
+      "avoid_when": [
+        "The campaign is youthful/promo-urgent or needs a single dominant color field."
+      ],
+      "incompatible_with": [
+        "diagonal_brand_gradient_sweep",
+        "night_skyline_photo_wash",
+        "motion_light_path_ribbon"
+      ],
+      "works_well_with": [
+        "hero_pedestal_stage",
+        "gold_decorative_pillar_cluster",
+        "metallic_gradient_luxury_serif"
+      ],
+      "selection_notes": ""
+    },
+    "night_skyline_photo_wash": {
+      "group": "background",
+      "brand": "acb",
+      "label": "Night Skyline Photo with Color Wash",
+      "description": "Ảnh chụp thật skyline thành phố về đêm (toà nhà, ánh đèn) phủ 1 lớp wash màu navy thương hiệu lên trên để đồng bộ tông, dùng làm backdrop cho app mockup hoặc chữ khổ lớn dạng monogram. Thấy ở banner Chứng chỉ tiền gửi DN và Giải pháp FDI.",
+      "keywords": [
+        "night city skyline photograph",
+        "brand-color overlay wash on photo",
+        "corporate financial backdrop",
+        "urban depth photographic base"
+      ],
+      "prompt_instruction": "Use a real night-time city skyline photograph as the background, then apply a semi-transparent brand navy color wash (soft-light or multiply blend) over it so the photo's contrast and detail recede while its lights and silhouettes remain faintly visible. Keep the wash even across the frame so any foreground device mockup, monogram lettering, or headline reads with strong contrast against it.",
+      "tags": [
+        "photographic",
+        "corporate",
+        "night",
+        "brand-wash"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief targets corporate/enterprise/investment audiences and a cityscape is thematically relevant."
+      ],
+      "avoid_when": [
+        "The campaign is playful/retail-consumer or requires a flat graphic background."
+      ],
+      "incompatible_with": [
+        "diagonal_brand_gradient_sweep",
+        "cream_navy_diagonal_split_stage",
+        "sunlit_field_photo_backdrop",
+        "fine_vertical_line_texture_overlay"
+      ],
+      "works_well_with": [
+        "golden_growth_arrow_stack",
+        "monogram_letter_compositing"
+      ],
+      "selection_notes": ""
+    },
+    "sunlit_field_photo_backdrop": {
+      "group": "background",
+      "brand": "acb",
+      "label": "Sunlit Outdoor Field Photo Backdrop",
+      "description": "Dùng trực tiếp ảnh chụp thật ngoài trời (đồng cỏ, trời xanh, nắng) làm nền, gần như không thêm lớp phủ màu — khác hẳn phong cách gradient/đồ hoạ của các banner khác, tạo cảm giác đời thường, ấm áp, tin cậy. Thấy ở banner Dịch vụ ngân hàng số ACB ONE.",
+      "keywords": [
+        "literal outdoor photography background",
+        "natural daylight scene",
+        "minimal color grading",
+        "warm lifestyle realism"
+      ],
+      "prompt_instruction": "Use an authentic outdoor photographic scene (open field, natural sky, warm daylight) as the full background with only light, natural color grading — no strong brand-color wash or gradient overlay. Preserve real photographic depth, natural shadows, and lighting direction so the family/character cutout and any composited UI graphic sit convincingly within the real scene.",
+      "tags": [
+        "photographic",
+        "lifestyle",
+        "warm",
+        "authentic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The brief emphasizes family, lifestyle, everyday trust, or an emotional/human tone."
+      ],
+      "avoid_when": [
+        "The campaign requires a graphic/abstract or strongly brand-colored look."
+      ],
+      "incompatible_with": [
+        "diagonal_brand_gradient_sweep",
+        "night_skyline_photo_wash",
+        "fine_vertical_line_texture_overlay"
+      ],
+      "works_well_with": [
+        "family_lifestyle_photo_cutout",
+        "mascot_robot_companion"
+      ],
+      "selection_notes": ""
+    },
+    "fine_vertical_line_texture_overlay": {
+      "group": "background",
+      "brand": "acb",
+      "label": "Fine Vertical Line Texture Overlay",
+      "description": "Hoạ tiết các đường kẻ dọc mảnh, mờ, lặp đều trên nền navy đậm, tạo nhịp chuyển động/kết cấu tinh tế mang cảm giác số hoá/premium mà không thành pattern hình học rõ như tech_pattern_overlay. Thấy ở banner 7 ngày khám phá ACB ONE.",
+      "keywords": [
+        "fine vertical line rhythm",
+        "low-opacity striped texture",
+        "subtle digital surface pattern",
+        "dark premium backdrop texture"
+      ],
+      "prompt_instruction": "Add a very fine, evenly spaced vertical line texture at low opacity across the dark background, subtle enough to read as surface rhythm rather than a distinct graphic pattern. Keep contrast minimal so it never competes with the mascot, gift-box burst, or headline in front of it.",
+      "tags": [
+        "texture",
+        "subtle",
+        "digital",
+        "premium"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The background is a dark, mostly flat brand-color field."
+      ],
+      "avoid_when": [
+        "The background already carries a photographic scene or a bolder geometric pattern."
+      ],
+      "incompatible_with": [
+        "sunlit_field_photo_backdrop",
+        "night_skyline_photo_wash"
+      ],
+      "works_well_with": [
+        "mascot_robot_companion",
+        "daily_reward_card_fan_burst"
+      ],
+      "selection_notes": ""
+    },
+    "motion_light_path_ribbon": {
+      "group": "background",
+      "brand": "acb",
+      "label": "Glowing Motion Path Ribbon",
+      "description": "Một dải sáng/viền phát quang mềm uốn theo đường chéo dưới chân nhân vật, mô phỏng một 'đường chạy/quỹ đạo' đang chuyển động, khác abstract_light_trails vì luôn gắn liền và đi theo đúng vị trí nhân vật đang di chuyển (gần như một phần groundline). Thấy ở banner ACB Rewards.",
+      "keywords": [
+        "glowing motion path under subject",
+        "curved light ribbon groundline",
+        "dynamic runway trail",
+        "energy trail following character"
+      ],
+      "prompt_instruction": "Add one soft glowing ribbon-shaped light path that curves along the ground beneath the moving character's feet, following the direction of motion like a runway or comet trail. Keep it thin, luminous at the edges, and grounded to the perspective of the scene; do not let it rise up to cross the character's body, face, or the product/phone they are holding.",
+      "tags": [
+        "motion",
+        "energy",
+        "grounding",
+        "dynamic"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A character is depicted mid-motion (running, jumping, walking forward)."
+      ],
+      "avoid_when": [
+        "The subject is static or seated, or the composition is calm/editorial."
+      ],
+      "incompatible_with": [
+        "cream_navy_diagonal_split_stage"
+      ],
+      "works_well_with": [
+        "dynamic_action_pose_cutout",
+        "sparkle_star_accents"
+      ],
+      "selection_notes": ""
+    },
+    "dynamic_action_pose_cutout": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Dynamic Action-Pose Character Cutout",
+      "description": "Nhân vật ảnh thật ở tư thế chuyển động rõ (đang chạy, sải bước, xoay người) chứ không đứng yên, cắt ghép làm foreground hero, tăng cảm giác năng động/trẻ trung. Thấy ở banner ACB Rewards.",
+      "keywords": [
+        "mid-motion photographic cutout",
+        "running/striding pose",
+        "energetic foreground hero",
+        "dynamic body language"
+      ],
+      "prompt_instruction": "Integrate the human subject as a foreground cutout captured in a clear mid-motion pose (running stride, dynamic turn, mid-jump) rather than a static stand, preserving identity, clothing, and photographic realism exactly. Match perspective and cast a light contact/motion shadow consistent with the implied movement direction; never distort limbs or invent a different pose than supplied.",
+      "tags": [
+        "person",
+        "action",
+        "energetic",
+        "cutout"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A supplied human subject is depicted or described in a clear motion pose."
+      ],
+      "avoid_when": [
+        "The supplied subject is seated, static, or the brief calls for a calm/premium mood."
+      ],
+      "incompatible_with": [
+        "seated_lifestyle_vignette_stage"
+      ],
+      "works_well_with": [
+        "motion_light_path_ribbon",
+        "phone_reveal_in_hand"
+      ],
+      "selection_notes": ""
+    },
+    "phone_reveal_in_hand": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Phone Reveal-in-Hand Gesture",
+      "description": "Nhân vật cầm/giơ điện thoại hướng về phía camera ở góc nghiêng, màn hình app hiển thị rõ ràng và trở thành hero thứ hai song song với nhân vật — khác live_app_ui_mockup (chỉ nói về UI) vì tập trung vào tư thế 'giơ khoe' của tay/người. Thấy ở banner ACB Rewards.",
+      "keywords": [
+        "phone held up toward viewer",
+        "app screen reveal gesture",
+        "hand presenting device",
+        "dual hero: person + screen"
+      ],
+      "prompt_instruction": "Show the character holding the phone up and angled toward the viewer so the app screen is fully legible, with natural hand grip and finger placement. Treat the revealed screen content as a co-equal secondary hero next to the character's face/pose; keep the device undistorted and the screen content faithful to the supplied/approved UI.",
+      "tags": [
+        "device",
+        "gesture",
+        "app",
+        "dual-hero"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A phone/device asset and a human subject holding it are both present."
+      ],
+      "avoid_when": [
+        "No device is supplied or the person's hands/pose are locked and cannot be changed."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "dynamic_action_pose_cutout",
+        "app_ui_device_mockup_integration"
+      ],
+      "selection_notes": ""
+    },
+    "seated_lifestyle_vignette_stage": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Seated Lifestyle Vignette on Stage",
+      "description": "Hai (hoặc nhiều) nhân vật trong tư thế đời thường, tĩnh (ngồi, đọc sách, dùng điện thoại) trên một sân khấu/bệ nổi, kể một câu chuyện lối sống thay vì chỉ trưng bày sản phẩm — tương phản hoàn toàn với dynamic_action_pose_cutout. Thấy ở banner Thời gian vàng.",
+      "keywords": [
+        "seated candid lifestyle scene",
+        "calm everyday vignette",
+        "elevated stage/platform setting",
+        "narrative multi-character tableau"
+      ],
+      "prompt_instruction": "Place two or more characters in relaxed, candid seated poses (reading, using a phone, conversing over a small table) atop a raised circular or platform stage, composed as a small narrative vignette rather than a product display. Keep body language calm and natural, with consistent scale, lighting, and perspective across all figures and props on the stage.",
+      "tags": [
+        "lifestyle",
+        "narrative",
+        "premium",
+        "multi-character"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief supports a calm, premium, wealth/lifestyle storytelling tone with two or more characters."
+      ],
+      "avoid_when": [
+        "The campaign is urgent/promo-led or only one character is supplied."
+      ],
+      "incompatible_with": [
+        "dynamic_action_pose_cutout",
+        "giant_oversized_stat_graphic",
+        "monogram_letter_compositing"
+      ],
+      "works_well_with": [
+        "hero_pedestal_stage",
+        "gold_decorative_pillar_cluster",
+        "cream_navy_diagonal_split_stage"
+      ],
+      "selection_notes": ""
+    },
+    "giant_oversized_stat_graphic": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Giant Oversized Stat/Number Graphic",
+      "description": "Một con số/chỉ số (ví dụ '5%') được dựng dạng 3D/graphic khổ lớn, to hơn cả nhân vật, làm hero chính của banner — nhân vật chỉ đóng vai trò tương tác/chỉ tay vào con số. Khác numeric_ribbon_badge (số nằm trong khung nhỏ, chỉ là chi tiết phụ trợ). Thấy ở banner Tích điểm không giới hạn.",
+      "keywords": [
+        "oversized 3D number as hero",
+        "stat larger than character",
+        "number-led composition",
+        "pointing gesture toward giant stat"
+      ],
+      "prompt_instruction": "Render the single approved numeric value as a large, thick, extruded 3D-style graphic that is visually larger than the accompanying character, positioned as the true focal point of the composition. Have the character's hand/gesture point toward or interact with it naturally; never alter the exact digits/characters of the approved value and never duplicate it elsewhere in the frame.",
+      "tags": [
+        "numeric-offer",
+        "hero-graphic",
+        "promotion",
+        "scale"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "One approved headline numeric value exists and can legitimately dominate the composition."
+      ],
+      "avoid_when": [
+        "text_by_code is true for that value, or the brief needs a calm/understated tone."
+      ],
+      "incompatible_with": [
+        "seated_lifestyle_vignette_stage",
+        "numeric_ribbon_badge",
+        "product_card_lineup_display",
+        "family_lifestyle_photo_cutout"
+      ],
+      "works_well_with": [
+        "product_card_lineup_display",
+        "oversized_stat_typography"
+      ],
+      "selection_notes": ""
+    },
+    "mascot_robot_companion": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Mascot Robot Companion",
+      "description": "Nhân vật mascot robot tròn, thân thiện của brand xuất hiện tương tác trực tiếp với người dùng thật (high-five, bay bên cạnh, cầm quà) — đóng vai trò đại diện thương hiệu có cảm xúc, xuất hiện lặp lại ở nhiều banner khác nhau (ACB ONE mascot). Thấy ở banner Giới thiệu bạn mới, 7 ngày khám phá, Dịch vụ ngân hàng số.",
+      "keywords": [
+        "friendly round robot mascot",
+        "brand character interacting with humans",
+        "high-five/floating companion gesture",
+        "recurring brand persona"
+      ],
+      "prompt_instruction": "Depict the brand's rounded, friendly robot mascot interacting directly and warmly with the human subject(s) — a high-five, floating alongside them, or holding a gift — using the mascot's exact approved design, proportions, and expression without alteration. Keep the interaction physically plausible (correct scale, contact point, gaze direction) and treat the mascot as a co-equal emotional presence, not a background prop.",
+      "tags": [
+        "mascot",
+        "brand-character",
+        "warm",
+        "interactive"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "An approved mascot/brand character asset is supplied or explicitly requested."
+      ],
+      "avoid_when": [
+        "No mascot asset exists, or the campaign requires a strictly corporate/photographic-only tone."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "confetti_scatter_light",
+        "daily_reward_card_fan_burst",
+        "family_lifestyle_photo_cutout"
+      ],
+      "selection_notes": "Không tự vẽ mascot mới nếu không có asset được cấp/duyệt; giữ đúng thiết kế mascot đã chuẩn hoá của brand."
+    },
+    "product_card_lineup_display": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Product Card Lineup Display",
+      "description": "Vài mẫu thẻ vật lý (thẻ ghi nợ/tín dụng) xếp cạnh nhau ở một góc, kích thước nhỏ, đóng vai trò minh chứng danh mục sản phẩm bên cạnh graphic số liệu lớn — tương tự product_lineup_strip trong config gốc nhưng đặt ở góc nhỏ hơn, không phải cả dải ngang. Thấy ở banner Tích điểm không giới hạn.",
+      "keywords": [
+        "small corner card lineup",
+        "multiple card variants shown together",
+        "compact product portfolio cue",
+        "supporting evidence display"
+      ],
+      "prompt_instruction": "Arrange two to four approved card designs closely together in one compact corner, each clearly distinguishable but kept small and clearly secondary to the hero stat/character. Preserve each card's exact printed artwork and proportions; never invent new card designs or overlap this cluster with required headline text.",
+      "tags": [
+        "multi-product",
+        "corner-cluster",
+        "evidence",
+        "compact"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "Two or more approved card/product assets are supplied."
+      ],
+      "avoid_when": [
+        "Only one product exists or the corner area is needed for required content."
+      ],
+      "incompatible_with": [
+        "giant_oversized_stat_graphic"
+      ],
+      "works_well_with": [
+        "giant_oversized_stat_graphic"
+      ],
+      "selection_notes": "Ghi chú: works_well_with và incompatible_with cùng liệt kê giant_oversized_stat_graphic có chủ đích — trong banner mẫu 2 kỹ thuật CÙNG xuất hiện tốt (card nhỏ ở góc, số liệu lớn ở giữa), nhưng khi canvas quá nhỏ nên chỉ chọn 1 để tránh cạnh tranh chú ý."
+    },
+    "app_ui_device_mockup_integration": {
+      "group": "product",
+      "brand": "acb",
+      "label": "App UI Device Mockup with Overlay Graphic",
+      "description": "Ảnh chụp UI thật của app đặt trong khung điện thoại, kết hợp thêm 1 graphic phóng to bên ngoài khung (mũi tên tăng trưởng, badge, icon) diễn giải trực quan nội dung trên UI — mở rộng từ live_app_ui_mockup gốc bằng cách gắn thêm lớp minh hoạ dữ liệu bên ngoài màn hình. Thấy ở banner Chứng chỉ tiền gửi DN.",
+      "keywords": [
+        "phone UI mockup plus external graphic",
+        "data visualization beside device",
+        "screen content echoed in illustration",
+        "growth arrow or badge extending from screen"
+      ],
+      "prompt_instruction": "Place the approved app UI faithfully inside the device frame, then extend one simple illustrative graphic (e.g. an upward arrow, a percentage badge) just outside the device that visually echoes the key figure shown on screen. Keep the external graphic subordinate in size to the device, aligned to the same reading direction, and never contradict the exact value shown inside the UI.",
+      "tags": [
+        "device",
+        "app",
+        "data-viz",
+        "fintech"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A phone/device with an approved UI reference is supplied and one key metric can be echoed externally."
+      ],
+      "avoid_when": [
+        "No device/UI is supplied or the external metric would duplicate/contradict on-screen content."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "golden_growth_arrow_stack",
+        "night_skyline_photo_wash"
+      ],
+      "selection_notes": ""
+    },
+    "monogram_letter_compositing": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Oversized Monogram Letter Compositing",
+      "description": "Chữ viết tắt campaign/brand (VD 'FDI', 'AFDI') được dựng khổ rất lớn làm hero chính, bên trong/quanh nét chữ ghép các yếu tố hình ảnh khác (ảnh toà nhà, người, tuabin gió) để chữ vừa là typography vừa là 'khung chứa' hình ảnh minh hoạ. Thấy ở banner Giải pháp FDI, Gói AFDI.",
+      "keywords": [
+        "oversized acronym as hero graphic",
+        "imagery composited inside letterforms",
+        "typographic-visual hybrid",
+        "monogram storytelling"
+      ],
+      "prompt_instruction": "Render the approved short acronym/initials at a very large scale as the dominant visual element, and composite supporting imagery (architectural photography, small human figures, relevant icons) directly onto or around the letterforms so the letters double as a visual container. Keep the letterforms legible and structurally intact at all times; never let the embedded imagery break or obscure the reading of any character.",
+      "tags": [
+        "typography",
+        "monogram",
+        "compositing",
+        "corporate"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "A short approved acronym exists that is meaningful enough to anchor the whole composition."
+      ],
+      "avoid_when": [
+        "The acronym is long, unapproved, or the brief needs a conventional photo-led layout."
+      ],
+      "incompatible_with": [
+        "seated_lifestyle_vignette_stage",
+        "family_lifestyle_photo_cutout"
+      ],
+      "works_well_with": [
+        "night_skyline_photo_wash",
+        "chatbot_corner_widget"
+      ],
+      "selection_notes": "Chỉ dùng khi acronym đã được approve chính xác từng ký tự; không tự sáng tác ra viết tắt mới."
+    },
+    "golden_growth_arrow_stack": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Golden Coin-Stack Growth Arrow",
+      "description": "Chồng xu vàng có chiều cao tăng dần kèm 1 mũi tên lớn hướng lên xuyên qua để minh hoạ trực quan cho lãi suất/tăng trưởng — một biến thể chuyên biệt cho fintech/wealth của numeric badge, tập trung vào 'hình ảnh hoá xu hướng tăng' hơn là hiển thị số. Thấy ở banner Chứng chỉ tiền gửi DN.",
+      "keywords": [
+        "ascending gold coin stacks",
+        "large upward growth arrow",
+        "interest rate visualization",
+        "financial growth metaphor"
+      ],
+      "prompt_instruction": "Build a row of gold coin stacks with progressively increasing height from left to right, then overlay one large, clean upward-pointing arrow passing through/behind the stacks to visualize growth. Keep the coins simple and consistently lit, the arrow bold but flat (no excessive 3D bevel), and position the whole motif so it does not overlap required percentage text or the device mockup.",
+      "tags": [
+        "fintech",
+        "growth-metaphor",
+        "gold",
+        "data-viz"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief communicates interest rate, investment return, or savings growth."
+      ],
+      "avoid_when": [
+        "The campaign has no growth/rate metaphor or is aimed at a playful/Gen Z tone."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "app_ui_device_mockup_integration",
+        "night_skyline_photo_wash"
+      ],
+      "selection_notes": ""
+    },
+    "family_lifestyle_photo_cutout": {
+      "group": "product",
+      "brand": "acb",
+      "label": "Warm Family Lifestyle Photo Cutout",
+      "description": "Nhóm nhân vật gia đình (người lớn + trẻ em) trong ảnh thật, tư thế nắm tay/chạy cùng nhau, tích hợp gần như không chỉnh sửa vào nền ảnh thật ngoài trời — nhấn mạnh cảm xúc ấm áp/tin cậy hơn là trình diễn sản phẩm. Thấy ở banner Dịch vụ ngân hàng số ACB ONE.",
+      "keywords": [
+        "authentic family photo group",
+        "hand-in-hand candid motion",
+        "warm outdoor lifestyle integration",
+        "minimal retouching realism"
+      ],
+      "prompt_instruction": "Integrate the supplied family group (adults and children) as a naturalistic photographic cutout holding hands or moving together, matched precisely to the outdoor background's lighting, shadow direction, and color temperature so it reads as one continuous photograph rather than a composite. Preserve every subject's identity, clothing, and expression; avoid adding graphic effects, outlines, or stylization that would break the photographic realism.",
+      "tags": [
+        "family",
+        "lifestyle",
+        "photographic",
+        "warm"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A supplied family/group photo asset exists and the brief emphasizes trust, everyday life, or emotional warmth."
+      ],
+      "avoid_when": [
+        "The campaign is corporate/enterprise-only or no family asset is supplied."
+      ],
+      "incompatible_with": [
+        "monogram_letter_compositing",
+        "giant_oversized_stat_graphic"
+      ],
+      "works_well_with": [
+        "sunlit_field_photo_backdrop",
+        "mascot_robot_companion"
+      ],
+      "selection_notes": ""
+    },
+    "sparkle_star_accents": {
+      "group": "decoration",
+      "brand": "acb",
+      "label": "Sparkle & Star Energy Accents",
+      "description": "Vài ngôi sao/sparkle 4-5 cánh nhỏ đặt gần nhân vật/sản phẩm để tạo cảm giác năng động, phấn khích, khác soft_bokeh_sparkles (loang mờ, cao cấp) vì đây là hình sao/tia có cạnh rõ, phong cách trẻ trung hơn. Thấy ở banner ACB Rewards.",
+      "keywords": [
+        "small sharp-edged star sparkles",
+        "energetic accent near hero",
+        "youthful excitement cue",
+        "crisp highlight shapes"
+      ],
+      "prompt_instruction": "Scatter a small number of crisp, sharp-edged star or sparkle shapes near the hero character/product to signal energy and excitement. Keep them few, varied in size, and clearly secondary — never overlapping the face, required text, or logo.",
+      "tags": [
+        "energetic",
+        "youthful",
+        "accent",
+        "sparkle"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [],
+      "avoid_when": [
+        "The campaign tone is premium/solemn/corporate."
+      ],
+      "incompatible_with": [
+        "gold_decorative_pillar_cluster"
+      ],
+      "works_well_with": [
+        "motion_light_path_ribbon",
+        "reward_icon_orbit"
+      ],
+      "selection_notes": ""
+    },
+    "reward_icon_orbit": {
+      "group": "decoration",
+      "brand": "acb",
+      "label": "Reward Category Icon Orbit",
+      "description": "Vài icon nhỏ đại diện các hạng mục ưu đãi (máy bay, giỏ hàng, voucher) rải lỏng quanh nhân vật như đang 'bay theo', gợi ý phạm vi ưu đãi đa dạng — khác feature_icon_cluster (icon xếp cụm gọn 1 khối) vì đây là rải rời, gắn liền chuyển động nhân vật. Thấy ở banner ACB Rewards.",
+      "keywords": [
+        "loosely floating category icons",
+        "reward-scope visual cue",
+        "icons orbiting the character",
+        "varied category symbols"
+      ],
+      "prompt_instruction": "Place 3-5 small flat icons representing distinct reward/spending categories (e.g. travel, shopping, vouchers) loosely floating in the open space around the moving character, at varied depth and scale as if trailing their motion. Keep each icon simple, legible, and never overlapping the character's face, the device screen, or required text.",
+      "tags": [
+        "icons",
+        "reward",
+        "variety",
+        "floating"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "The brief covers multiple distinct reward/spending categories."
+      ],
+      "avoid_when": [
+        "The brief has one single focused benefit or the canvas is already crowded."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "sparkle_star_accents",
+        "motion_light_path_ribbon"
+      ],
+      "selection_notes": ""
+    },
+    "confetti_scatter_light": {
+      "group": "decoration",
+      "brand": "acb",
+      "label": "Light Confetti Scatter",
+      "description": "Các mảnh confetti dạng chấm/hình nhỏ đơn sắc rải thưa khắp khung hình, tạo không khí ăn mừng nhẹ nhàng mà không thành motif ngày lễ cụ thể — khác floating_reward_particles (gắn nghĩa tiền/thưởng cụ thể) vì đây chỉ là trang trí ăn mừng chung. Thấy ở banner Giới thiệu bạn mới, 7 ngày khám phá.",
+      "keywords": [
+        "sparse flat confetti pieces",
+        "generic celebration scatter",
+        "lightweight festive accent",
+        "no specific occasion motif"
+      ],
+      "prompt_instruction": "Scatter a light, sparse field of small flat-colored confetti shapes (dots, short bars, tiny triangles) across open background areas, using colors drawn from the campaign palette. Keep density low and never let confetti cross the mascot, required text, or product artwork.",
+      "tags": [
+        "celebration",
+        "generic",
+        "lightweight",
+        "confetti"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [],
+      "avoid_when": [
+        "The campaign is solemn, corporate, or premium-restrained."
+      ],
+      "incompatible_with": [
+        "gold_decorative_pillar_cluster"
+      ],
+      "works_well_with": [
+        "mascot_robot_companion",
+        "marker_highlight_underline_text"
+      ],
+      "selection_notes": ""
+    },
+    "gold_decorative_pillar_cluster": {
+      "group": "decoration",
+      "brand": "acb",
+      "label": "Staggered Gold Pillar/Prop Cluster",
+      "description": "Cụm trụ/nến trang trí màu vàng kim cao thấp lệch nhau, đặt viền quanh 1 sân khấu/bệ, tạo không khí sang trọng có tính kiến trúc — không phải particle bay mà là prop vật lý đứng yên. Thấy ở banner Thời gian vàng.",
+      "keywords": [
+        "staggered-height gold pillars",
+        "static decorative props around stage",
+        "architectural premium ornament",
+        "candle/column cluster"
+      ],
+      "prompt_instruction": "Arrange a cluster of slender gold cylindrical props (pillar or candle-like) at staggered heights around the edge of the stage/platform, rendered as static physical objects with consistent material and lighting, optionally topped with small greenery. Keep the cluster confined to the stage perimeter and never let it overlap the seated characters or required text.",
+      "tags": [
+        "premium",
+        "gold",
+        "static-prop",
+        "architectural"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "A stage/platform hero setting exists and the tone is premium/wealth-management."
+      ],
+      "avoid_when": [
+        "The campaign is youthful/promo-urgent or has no stage/platform setting."
+      ],
+      "incompatible_with": [
+        "sparkle_star_accents",
+        "confetti_scatter_light"
+      ],
+      "works_well_with": [
+        "seated_lifestyle_vignette_stage",
+        "cream_navy_diagonal_split_stage"
+      ],
+      "selection_notes": ""
+    },
+    "daily_reward_card_fan_burst": {
+      "group": "decoration",
+      "brand": "acb",
+      "label": "Daily Reward Card Fan-Out Burst",
+      "description": "Nhiều thẻ nhỏ dạng bo góc ghi nhãn theo ngày (Ngày 1, Ngày 2...) bung ra theo hình quạt/cung tròn từ 1 hộp quà/điểm nổ trung tâm — trực quan hoá 1 chuỗi ưu đãi nhiều ngày. Thấy ở banner 7 ngày khám phá ACB ONE.",
+      "keywords": [
+        "fanned-out labeled reward cards",
+        "burst-from-gift-box arrangement",
+        "sequential day-by-day cards",
+        "arc composition of small cards"
+      ],
+      "prompt_instruction": "Arrange several small rounded reward cards, each carrying one exact approved day-label and short benefit text, fanned out in an arc as if bursting from a central open gift box. Keep every card the same size/style with a consistent icon language, ensure exact approved text per card, and prevent any card from overlapping the headline or logo.",
+      "tags": [
+        "sequential",
+        "reward",
+        "burst",
+        "campaign-days"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "high",
+      "preconditions": [
+        "The brief defines a multi-day sequential reward campaign with approved per-day copy."
+      ],
+      "avoid_when": [
+        "The offer is a single one-time reward or the approved day-by-day copy is not supplied."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "mascot_robot_companion",
+        "fine_vertical_line_texture_overlay"
+      ],
+      "selection_notes": "Không tự bịa nội dung cho từng ngày; chỉ dùng đúng text đã được duyệt."
+    },
+    "floating_pill_icon_rail": {
+      "group": "decoration",
+      "brand": "acb",
+      "label": "Fixed Side Pill Icon Rail (site chrome)",
+      "description": "Module UI cố định: 1 viên nang (pill/capsule) dọc bám mép phải banner, chứa 2-3 icon tròn (giảm giá, tiền, voucher). Xuất hiện đồng nhất ở hầu hết banner ACB — về bản chất là chrome giao diện web, không phải lựa chọn sáng tạo theo từng creative, nhưng ghi lại để biết khi build banner cho hệ thống này cần dành khoảng trống bên phải.",
+      "keywords": [
+        "fixed vertical icon capsule",
+        "persistent site navigation chrome",
+        "circular utility icons",
+        "right-edge floating rail"
+      ],
+      "prompt_instruction": "Reserve a narrow vertical strip along the right edge of the canvas, free of hero content, where a fixed brand-chrome capsule containing 2-3 circular utility icons will be overlaid by the platform — do not paint decorative artwork, text, or the product into that reserved strip.",
+      "tags": [
+        "ui-chrome",
+        "site-furniture",
+        "reserved-space",
+        "non-creative"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The output will be embedded in the ACB banner carousel template with a fixed right-edge icon rail."
+      ],
+      "avoid_when": [
+        "The output is a standalone asset not embedded in that specific web template."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [],
+      "selection_notes": "Đây là layout constraint (site chrome), không phải kỹ thuật thiết kế sáng tạo — chỉ nên đưa vào design_rules/safe_area, không nên coi là 1 'technique' để chọn ngẫu nhiên."
+    },
+    "chatbot_corner_widget": {
+      "group": "decoration",
+      "brand": "acb",
+      "label": "Fixed Chatbot Corner Widget (site chrome)",
+      "description": "Icon tròn chatbot/mascot nhỏ neo cố định ở góc dưới phải kèm speech-bubble gợi ý hỗ trợ — cũng là site chrome cố định giống floating_pill_icon_rail, không phải phần sáng tạo theo từng creative. Thấy ở banner Giải pháp FDI, Dịch vụ ngân hàng số.",
+      "keywords": [
+        "fixed corner chat widget",
+        "speech bubble prompt",
+        "persistent support icon",
+        "bottom-right anchor element"
+      ],
+      "prompt_instruction": "Reserve a small clear area in the bottom-right corner, free of hero content, where a fixed chat-support widget icon and speech bubble will be overlaid by the platform — do not paint artwork, text, or product elements into that reserved corner.",
+      "tags": [
+        "ui-chrome",
+        "site-furniture",
+        "reserved-space",
+        "non-creative"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The output will be embedded in a web template with a fixed bottom-right chat widget."
+      ],
+      "avoid_when": [
+        "The output is a standalone asset not embedded in that specific web template."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [],
+      "selection_notes": "Cũng là layout constraint, ghi lại chỉ để nhắc chừa safe area — không phải technique sáng tạo."
+    },
+    "carousel_dot_indicator": {
+      "group": "decoration",
+      "brand": "acb",
+      "label": "Fixed Carousel Dot Indicator (site chrome)",
+      "description": "Dãy chấm tròn nhỏ ở giữa đáy banner biểu thị vị trí slide hiện tại trong carousel, chấm đang active có viền nổi bật màu accent — cũng là site chrome cố định, không do creative quyết định. Thấy ở gần như tất cả banner.",
+      "keywords": [
+        "bottom-center slide dots",
+        "carousel position indicator",
+        "highlighted active dot",
+        "persistent navigation element"
+      ],
+      "prompt_instruction": "Reserve a thin horizontal band at the bottom-center of the canvas, free of hero content, where the platform will overlay a fixed row of carousel position dots — do not paint artwork, text, or product elements into that reserved band.",
+      "tags": [
+        "ui-chrome",
+        "site-furniture",
+        "reserved-space",
+        "non-creative"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The output will be embedded in a carousel/slideshow web template."
+      ],
+      "avoid_when": [
+        "The output is a standalone asset not part of a carousel."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [],
+      "selection_notes": "Layout constraint, không phải technique sáng tạo."
+    },
+    "bold_two_line_left_headline": {
+      "group": "text",
+      "brand": "acb",
+      "label": "Bold Two-Line Left-Aligned Headline",
+      "description": "Headline ngắn (2 dòng, mỗi dòng 3-4 chữ) căn trái, font sans-serif đậm, màu trắng tương phản cao trên nền gradient màu thương hiệu — cách trình bày 'sạch', không hiệu ứng chữ đặc biệt. Thấy ở banner ACB Rewards.",
+      "keywords": [
+        "two-line bold sans-serif headline",
+        "left-aligned high-contrast text",
+        "plain flat white type",
+        "clean promotional headline"
+      ],
+      "prompt_instruction": "Set the approved headline in exactly the given number of short lines (typically two), left-aligned, in a bold sans-serif display face, in plain flat white (or the approved high-contrast color) with no gradient, outline, or textured fill on the letters themselves. Preserve exact wording and line breaks; keep generous line spacing and leave the surrounding background calm enough for full legibility.",
+      "tags": [
+        "headline",
+        "clean",
+        "high-contrast",
+        "sans-serif"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "The image model is responsible for rendering the headline (text_by_code is false) or the composition must reserve exact space matching this style."
+      ],
+      "avoid_when": [
+        "The brand direction requires a metallic/serif premium treatment or a highlighted/marker style."
+      ],
+      "incompatible_with": [
+        "metallic_gradient_luxury_serif",
+        "marker_highlight_underline_text",
+        "gradient_display_headline"
+      ],
+      "works_well_with": [
+        "pill_shaped_cta_button"
+      ],
+      "selection_notes": ""
+    },
+    "metallic_gradient_luxury_serif": {
+      "group": "text",
+      "brand": "acb",
+      "label": "Metallic Gradient Luxury Serif Headline",
+      "description": "Headline dùng font serif/display sang trọng, chữ được fill gradient kim loại vàng, và có 1 từ khoá được scale to hơn hẳn phần còn lại để tạo điểm nhấn kiểu quảng cáo trang sức/wealth. Thấy ở banner Thời gian vàng.",
+      "keywords": [
+        "gold metallic gradient text fill",
+        "luxury serif/display typography",
+        "one oversized emphasis word",
+        "jewelry-ad style headline"
+      ],
+      "prompt_instruction": "Render the headline in an elegant serif or refined display typeface, filled with a gold metallic gradient (light highlight to deeper gold shadow) for a premium jewelry/wealth-ad feel. Scale exactly one approved emphasis word noticeably larger than the rest of the headline while keeping all text on its approved lines; do not add extra outline strokes or drop shadows beyond what preserves legibility.",
+      "tags": [
+        "premium",
+        "gold",
+        "serif",
+        "emphasis-word"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "text_by_code is false, the tone is premium/wealth, and one word can be legitimately emphasized."
+      ],
+      "avoid_when": [
+        "text_by_code is true or the brand direction requires flat, plain typography."
+      ],
+      "incompatible_with": [
+        "bold_two_line_left_headline",
+        "gradient_display_headline",
+        "marker_highlight_underline_text"
+      ],
+      "works_well_with": [
+        "cream_navy_diagonal_split_stage",
+        "gold_decorative_pillar_cluster"
+      ],
+      "selection_notes": ""
+    },
+    "marker_highlight_underline_text": {
+      "group": "text",
+      "brand": "acb",
+      "label": "Marker-Highlight Emphasis Text",
+      "description": "Một cụm từ khoá được nhấn bằng 1 nét highlighter/marker màu neon vẽ tay phía sau chữ, mô phỏng cảm giác gạch nhấn bằng bút dạ quang — tạo cảm giác trẻ trung, thân thiện, không trang trọng. Thấy ở banner Giới thiệu bạn mới.",
+      "keywords": [
+        "neon marker highlight stroke",
+        "hand-drawn emphasis behind text",
+        "playful keyword callout",
+        "informal youthful typography accent"
+      ],
+      "prompt_instruction": "Behind one short approved keyword phrase, add a single hand-drawn-looking highlighter marker stroke in an accent color (e.g. neon green), irregular and slightly imperfect at the edges like a real marker swipe, sized to just cover that phrase. Keep the rest of the headline in plain bold type with no additional highlight strokes; never let the marker stroke obscure the letters themselves.",
+      "tags": [
+        "playful",
+        "emphasis",
+        "youthful",
+        "hand-drawn"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "text_by_code is false and the campaign tone is playful/youthful/Gen Z."
+      ],
+      "avoid_when": [
+        "The brand direction is premium/corporate or text_by_code is true."
+      ],
+      "incompatible_with": [
+        "metallic_gradient_luxury_serif",
+        "bold_two_line_left_headline"
+      ],
+      "works_well_with": [
+        "confetti_scatter_light",
+        "mascot_robot_companion"
+      ],
+      "selection_notes": ""
+    },
+    "gradient_display_headline": {
+      "group": "text",
+      "brand": "acb",
+      "label": "Two-Tone Gradient Fill Headline",
+      "description": "Headline khổ lớn có chính chữ được fill gradient 2 màu (trắng-xanh cyan hoặc trắng-xanh lá) tạo cảm giác công nghệ/năng động, khác metallic_gradient (vàng kim, sang trọng) vì đây dùng màu sắc thương hiệu tươi, hợp app/fintech trẻ. Thấy ở banner Tích điểm không giới hạn, 7 ngày khám phá.",
+      "keywords": [
+        "two-tone gradient text fill",
+        "tech-energetic display type",
+        "white-to-accent-color headline",
+        "bold condensed gradient lettering"
+      ],
+      "prompt_instruction": "Fill the large display headline with a smooth two-tone gradient (e.g. white transitioning to the campaign's bright accent color) in a bold, slightly condensed sans-serif face, keeping the gradient direction consistent (typically top-to-bottom or left-to-right) across every line. Preserve exact wording; avoid adding extra outline strokes, and ensure the gradient never reduces contrast against the background below a legible threshold.",
+      "tags": [
+        "gradient-text",
+        "tech",
+        "energetic",
+        "fintech"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "text_by_code is false and the campaign tone is tech-forward/energetic."
+      ],
+      "avoid_when": [
+        "text_by_code is true or the brand direction requires flat single-color type."
+      ],
+      "incompatible_with": [
+        "metallic_gradient_luxury_serif",
+        "bold_two_line_left_headline"
+      ],
+      "works_well_with": [
+        "oversized_stat_typography",
+        "promo_tag_ribbon_label"
+      ],
+      "selection_notes": ""
+    },
+    "pill_shaped_cta_button": {
+      "group": "text",
+      "brand": "acb",
+      "label": "White Pill-Shaped CTA Button",
+      "description": "Nút CTA hình viên nang bo tròn hoàn toàn, nền trắng, chữ xanh đậm + icon chevron '>' — xuất hiện đồng nhất ở mọi banner, là chuẩn CTA cố định của brand chứ không thay đổi theo creative.",
+      "keywords": [
+        "fully rounded pill button",
+        "white background dark blue label",
+        "chevron arrow icon",
+        "consistent brand CTA shape"
+      ],
+      "prompt_instruction": "Render the call-to-action as a fully rounded (pill-shaped) white button containing the approved short label in bold dark-blue text plus a small right-pointing chevron icon, positioned in the same relative zone the layout specifies. Keep the button shape, colors, and icon consistent with the brand standard; never change it into a rectangular or outlined-only button.",
+      "tags": [
+        "cta",
+        "button",
+        "brand-standard",
+        "consistent"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "A CTA label is approved and required in the layout."
+      ],
+      "avoid_when": [
+        "The format explicitly forbids a CTA button (e.g. very small banner sizes)."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "bold_two_line_left_headline",
+        "gradient_display_headline"
+      ],
+      "selection_notes": ""
+    },
+    "info_chip_subtext_pair": {
+      "group": "text",
+      "brand": "acb",
+      "label": "Paired Info Chip with Bold Micro-Headline + Subtext",
+      "description": "Hai (hoặc nhiều) khối chip bo góc nhỏ, mỗi chip có 1 dòng tiêu đề đậm ngắn + 1 dòng phụ nhỏ hơn, đặt cạnh nhau để trình bày song song 2 lợi ích — giúp truyền tải nhiều thông tin mà vẫn có cấu trúc rõ, khác numeric_ribbon_badge (chỉ chứa số). Thấy ở banner Tích điểm không giới hạn.",
+      "keywords": [
+        "paired rounded info chips",
+        "bold micro-headline plus subtext",
+        "side-by-side benefit callouts",
+        "structured secondary copy blocks"
+      ],
+      "prompt_instruction": "Present two or more approved benefit points as separate small rounded-rectangle chips placed side by side, each containing one bold short micro-headline line followed by one smaller supporting text line. Keep all chips the same size and style, aligned to a common baseline, and never merge them into a single block or overlap them with the hero character/product.",
+      "tags": [
+        "info-chip",
+        "structured",
+        "secondary-copy",
+        "parallel-benefits"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "Two or more short approved benefit statements exist that pair a headline with supporting detail."
+      ],
+      "avoid_when": [
+        "Only one benefit exists or the canvas is too small to fit multiple chips legibly."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "gradient_display_headline",
+        "oversized_stat_typography"
+      ],
+      "selection_notes": ""
+    },
+    "promo_tag_ribbon_label": {
+      "group": "text",
+      "brand": "acb",
+      "label": "Small Promo Tag/Ribbon Label",
+      "description": "1 nhãn nhỏ dạng pill/ribbon màu accent (VD 'ĐẶC QUYỀN MỚI') đặt ngay trên đầu headline chính để báo hiệu tính mới/độc quyền của ưu đãi — luôn ngắn, 1 dòng, không phải headline chính. Thấy ở banner Tích điểm không giới hạn.",
+      "keywords": [
+        "small accent-color tag above headline",
+        "new/exclusive flag label",
+        "one-line pill or ribbon badge",
+        "urgency/exclusivity marker"
+      ],
+      "prompt_instruction": "Place one short approved tag phrase (e.g. flagging a new or exclusive offer) inside a small pill or ribbon shape in the campaign's accent color, positioned directly above the main headline. Keep it to a single line and visually secondary in scale to the main headline; render only the exact approved wording, never inventing urgency language not present in the brief.",
+      "tags": [
+        "tag",
+        "exclusivity",
+        "urgency",
+        "secondary-label"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "low",
+      "preconditions": [
+        "An approved short flag/tag phrase exists in the brief."
+      ],
+      "avoid_when": [
+        "No such phrase is approved, or the layout has no open space above the headline."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "gradient_display_headline",
+        "info_chip_subtext_pair"
+      ],
+      "selection_notes": ""
+    },
+    "oversized_stat_typography": {
+      "group": "text",
+      "brand": "acb",
+      "label": "Oversized Standalone Stat Typography",
+      "description": "Giá trị số (VD '5%', '7,5%') được set bằng font điều kiện đậm/condensed ở kích thước lớn hơn hẳn mọi chữ khác trong banner, đóng vai trò điểm nhìn chính về mặt typography — khác numeric_ribbon_badge (số nằm trong khung nhỏ) vì đây số liệu KHÔNG cần khung chứa, tự nó đã là hero nhờ kích thước + màu/vật liệu đặc biệt (neon, vàng). Thấy ở banner Tích điểm không giới hạn, Chứng chỉ tiền gửi DN.",
+      "keywords": [
+        "very large standalone numeric type",
+        "no container needed for number",
+        "special material/color treatment on digits",
+        "typography-as-hero"
+      ],
+      "prompt_instruction": "Render the single approved numeric value in a bold condensed display face at a size clearly larger than any other text element in the banner, given a distinctive color/material treatment (e.g. neon green, gold gradient) consistent with the campaign palette. Keep the digits exact and free-standing without a surrounding badge/frame unless one is separately required; ensure it does not overlap the character, logo, or required smaller copy.",
+      "tags": [
+        "numeric-offer",
+        "typography-hero",
+        "scale",
+        "promotion"
+      ],
+      "occasion": [
+        "generic"
+      ],
+      "visual_density": "medium",
+      "preconditions": [
+        "One approved numeric value is meant to be the dominant visual focal point and text_by_code is false."
+      ],
+      "avoid_when": [
+        "text_by_code is true for that value or the brief needs a restrained, evenly-weighted layout."
+      ],
+      "incompatible_with": [],
+      "works_well_with": [
+        "gradient_display_headline",
+        "golden_growth_arrow_stack"
+      ],
+      "selection_notes": ""
+    }
+  },
+  "brands_included": [
+    "acb"
+  ]
+}
